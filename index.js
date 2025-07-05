@@ -1,3 +1,8 @@
-// This file helps Vercel recognize this as a Node.js project
+// This file helps both Vercel and GitHub Pages recognize this as a Node.js project
 // It's not actually used since this is a static site
-// We only need this for Vercel deployment detection
+// We include this file for deployment detection on both platforms
+
+// For GitHub Pages deployment verification
+if (typeof window !== 'undefined') {
+  console.log('Static site loaded successfully');
+}

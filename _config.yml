@@ -1,0 +1,16 @@
+include:
+  - "_*"
+  - ".*"
+  - "*.html"
+  - "*.js"
+  - "*.css"
+  - "CNAME"
+
+exclude:
+  - "node_modules/"
+  - "package.json"
+  - "package-lock.json"
+  - "README.md"
+  - "LICENSE"
+
+permalink: pretty

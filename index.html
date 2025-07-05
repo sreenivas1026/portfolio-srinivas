@@ -1686,7 +1686,7 @@
     <!-- Make sure GitHub Pages recognizes this is a static site -->
     <script>
         // This helps GitHub Pages deployment
-        window.onload = function() {
+        window.addEventListener('load', function() {
             console.log("Portfolio site loaded successfully on GitHub Pages");
             
             // Verify we have all the required files loaded
@@ -1694,7 +1694,10 @@
                 'index.html', 'scroll-fix.js', 'nav-scroll-fix.js', 'form-handler.js', 'mobile-fixes.css'
             ];
             console.log("Static site initialized");
-        }
+            
+            // Help GitHub Pages deployment detection
+            document.dispatchEvent(new Event('github-pages:ready'));
+        });
     </script>
 </body>
 </html>
