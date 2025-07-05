@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunchala Srinivas - Portfolio</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Kunchala Srinivas - Cybersecurity Specialist & Full-Stack Python Developer Portfolio showcasing skills, projects, and experience in penetration testing, vulnerability scanning, and machine learning">
+    <meta name="keywords" content="Kunchala Srinivas, portfolio, cybersecurity, penetration testing, ethical hacking, Python developer, machine learning, blockchain, IPFS, Hyderabad">
+    <meta name="author" content="Kunchala Srinivas">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Kunchala Srinivas - Cybersecurity & Python Development Portfolio">
+    <meta property="og:description" content="Aspiring cybersecurity specialist with expertise in penetration testing, vulnerability scanning, and full-stack Python development">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-portfolio-url.vercel.app">
+    <meta property="og:image" content="https://your-portfolio-url.vercel.app/assets/img/preview.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0f172a",
+                        secondary: "#64748b",
+                        accent: "#3b82f6",
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    screens: {
+                        'xs': '480px',
+                    },
+                    animation: {
+                        'gradient-slow': 'gradient 15s ease infinite',
+                        'text': 'text 5s ease infinite',
+                        'blink-caret': 'blink 1s step-end infinite',
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        text: {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        },
+                        blink: {
+                            '0%, 100%': { 'border-color': 'transparent' },
+                            '50%': { 'border-color': 'currentColor' }
+                        }
+                    }
+                },
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles */
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        body {
+            overflow-x: hidden;
+            position: relative;
+            width: 100%;
+            min-height: 100%;
+            touch-action: pan-y;
+            background-color: #0f172a; /* Dark background to prevent white flash */
+        }
+        
+        section {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            min-height: 100vh; /* Ensure sections fill viewport */
+        }
+        
+        .absolute {
+            position: absolute;
+            pointer-events: none;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+        
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #0f172a;
+        }
+        
+        .skill-badge {
+            background-color: #f3f4f6;
+            color: #1f2937;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+        }
+        
+        .project-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 font-sans overflow-x-hidden">
+    <!-- Header / Navigation -->
+    <header class="bg-gradient-to-r from-gray-50 to-gray-100 backdrop-blur-sm shadow-md fixed top-0 left-0 right-0 z-50 w-full">
+        <nav class="container mx-auto px-3 py-2 flex justify-between items-center">
+            <a href="#" class="text-xl md:text-2xl font-bold flex items-center">
+                <div class="rounded-full bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 h-10 w-10 md:h-12 md:w-12 flex items-center justify-center text-white mr-2 shadow-lg">
+                    <span class="text-xs md:text-base font-semibold">SK</span>
+                </div>
+                <div class="flex flex-col leading-none">
+                    <span class="font-sans text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600">Srinivas</span>
+                    <span class="text-xs font-light tracking-widest text-gray-500">KUNCHALA</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex space-x-8 justify-center mx-auto">
+                <a href="#about" class="text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text font-medium transition-all duration-300">About</a>
+                <a href="#skills" class="text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text font-medium transition-all duration-300">Skills</a>
+                <a href="#experience" class="text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text font-medium transition-all duration-300">Experience</a>
+                <a href="#projects" class="text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text font-medium transition-all duration-300">Projects</a>
+                <a href="#contact" class="text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text font-medium transition-all duration-300">Contact</a>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://linkedin.com/in/kunchalasrinivas" target="_blank" class="text-gray-600 hover:text-blue-500 transition-all hover:scale-110">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+                <a href="mailto:srinivas0k7@gmail.com" class="text-gray-600 hover:text-red-500 transition-all hover:scale-110">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-gray-600" id="mobile-menu-button">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+        
+        <!-- Mobile menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-b from-gray-50 to-gray-100 shadow-lg fixed left-0 right-0 top-14 w-full z-50">
+            <div class="container mx-auto px-4 py-2">
+                <a href="#about" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">About</a>
+                <a href="#skills" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">Skills</a>
+                <a href="#experience" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">Experience</a>
+                <a href="#projects" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">Projects</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">Contact</a>
+                
+                <div class="flex items-center space-x-4 mt-3 pb-2 border-t pt-2">
+                    <a href="https://linkedin.com/in/kunchalasrinivas" target="_blank" class="text-gray-600 hover:text-blue-500">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:srinivas0k7@gmail.com" class="text-gray-600 hover:text-red-500">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-700 text-white pt-16 pb-10 md:py-20 flex items-center justify-center relative overflow-hidden mt-14">
+        <!-- Animated gradient background -->
+        <div class="absolute inset-0 bg-[length:400%_400%] bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-700 animate-gradient-slow z-0 pointer-events-none"></div>
+        
+        <!-- Background pattern with glass morphism -->
+        <div class="absolute inset-0 opacity-20 z-0 pointer-events-none">
+            <div class="absolute inset-y-0 left-0 w-1/3 bg-white opacity-10 transform -skew-x-12"></div>
+            <div class="absolute inset-y-0 right-0 w-1/4 bg-white opacity-10 transform skew-x-12"></div>
+            <!-- Floating shapes -->
+            <div class="absolute top-20 left-20 w-24 h-24 bg-blue-500 opacity-10 rounded-full blur-xl"></div>
+            <div class="absolute bottom-10 right-10 w-32 h-32 bg-purple-500 opacity-10 rounded-full blur-xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 md:px-8 py-6 md:py-12 z-10 flex flex-col items-center">
+            <div class="flex flex-col-reverse lg:flex-row items-center justify-between w-full lg:px-8">
+                <!-- Left side - Text content -->
+                <div class="lg:w-1/2 mt-6 lg:mt-0 text-left lg:pl-6">
+                    <h1 class="mb-5 leading-tight tracking-tight">
+                        <span class="text-white text-2xl lg:text-3xl font-light tracking-wider uppercase mb-2 block">// Cybersecurity Enthusiast</span>
+                        <span class="font-mono text-4xl lg:text-5xl font-bold">
+                            <span class="text-blue-300">{</span> 
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300 animate-text">Kunchala Srinivas</span> 
+                            <span class="text-blue-300">}</span>
+                        </span>
+                        <span class="block text-green-400 text-sm mt-2 font-mono">// Python Full-Stack Developer</span>
+                    </h1>
+                    
+                    <p class="text-lg lg:text-xl mb-8 text-blue-100 max-w-xl lg:mx-0 font-light leading-relaxed tracking-wide">
+                        <span class="font-mono text-blue-300">function</span> <span class="font-mono text-green-300">developerProfile</span><span class="text-yellow-300">()</span> {<br>
+                        &nbsp;&nbsp;return <span class="text-white font-medium">"Security specialist with expertise in penetration testing, vulnerability analysis, and full-stack Python development"</span>;
+                        <br>}
+                    </p>
+                    
+                    <div class="flex flex-wrap justify-start">
+                        <a href="public/resume.pdf" download class="btn px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white rounded-md font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center hover:scale-105 border border-blue-400/50">
+                            <i class="fas fa-file-download mr-2"></i> Download Resume <i class="fas fa-arrow-down ml-1 text-sm animate-bounce"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right side - Profile Image -->
+                <div class="lg:w-1/2 flex justify-end items-center mb-4 lg:mb-0 lg:pr-6">
+                    <!-- Profile photo with animated gradient border -->
+                    <div class="p-2 md:p-3 bg-gradient-to-r from-blue-300 via-purple-300 to-indigo-300 animate-pulse rounded-full shadow-lg">
+                        <div class="relative overflow-hidden border-3 md:border-4 border-white/30 shadow-2xl rounded-full w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72">
+                            <img src="assets/img/image.png" alt="Kunchala Srinivas" class="w-full h-full object-cover">
+                            <!-- Glowing effect -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gradient-to-br from-gray-900 to-indigo-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-center text-3xl font-bold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">About Me</h2>
+            <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                <!-- Profile Image Card -->
+                <div class="md:w-1/3">
+                    <div class="relative">
+                        <!-- Background shape -->
+                        <div class="absolute -top-6 -left-6 w-full h-full bg-gradient-to-br from-purple-600 to-indigo-600 rounded-xl transform rotate-3"></div>
+                        
+                        <!-- Image container -->
+                        <div class="bg-white p-3 rounded-xl shadow-2xl relative z-10">
+                            <div class="rounded-lg overflow-hidden bg-gray-800 w-64 h-64 mx-auto">
+                                <img src="assets/img/image.png" alt="Srinivas" class="w-full h-full object-cover">
+                            </div>
+                            
+                            <!-- Stats badges -->
+                            <div class="flex justify-center mt-4 space-x-2 pb-2">
+                                <div class="flex items-center bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-4 py-2 rounded-full text-sm font-medium">
+                                    <i class="fas fa-code mr-2"></i> Developer
+                                </div>
+                                <div class="flex items-center bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-medium">
+                                    <i class="fas fa-shield-alt mr-2"></i> Security
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bio Content -->
+                <div class="md:w-2/3 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-8 rounded-xl shadow-xl text-white">
+                    <div class="prose prose-lg text-white max-w-none">
+                        <h3 class="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                            <i class="fas fa-user-circle mr-2"></i> Cybersecurity Specialist & Developer
+                        </h3>
+                        
+                        <p class="mb-4 font-sans leading-relaxed">
+                            Hello! I'm <span class="font-bold text-blue-300">Srinivas</span>, an aspiring cybersecurity specialist with hands-on experience in penetration 
+                            testing, vulnerability scanning, and full-stack Python development. Currently completing my B.Tech in Information Technology 
+                            at Malla Reddy Institute of Engineering and Technology, Hyderabad.
+                        </p>
+                        
+                        <p class="mb-4 font-sans leading-relaxed">
+                            My journey includes contributions to real-world cybersecurity workshops through <span class="text-purple-300">Wipro DICE ID</span> 
+                            and developing secure backend systems at <span class="text-blue-300">VN Tech Institute</span>. My expertise spans Python, 
+                            full-stack development, machine learning, and penetration testing.
+                        </p>
+                        
+                        <div class="mt-6 flex items-center">
+                            <div class="bg-indigo-900 bg-opacity-50 p-3 rounded-full mr-4">
+                                <i class="fas fa-quote-left text-indigo-300 text-2xl"></i>
+                            </div>
+                            <p class="italic text-blue-100">
+                                "I'm passionate about solving complex security challenges and building robust systems that protect digital assets."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gradient-to-br from-blue-900 to-indigo-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-center text-3xl font-bold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">My Skills</h2>
+            
+            <div class="max-w-5xl mx-auto">
+                <!-- Programming Skills -->
+                <div class="mb-12 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-8 rounded-xl shadow-xl">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-3 rounded-xl shadow-lg mr-4">
+                            <i class="fas fa-code text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Programming Languages</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-4">
+                        <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-lg p-4 text-center transform transition-all hover:scale-105 hover:rotate-1">
+                            <i class="fab fa-python text-white text-3xl mb-2"></i>
+                            <p class="text-white font-medium">Python</p>
+                            <div class="w-full bg-blue-900 h-1.5 rounded-full mt-2">
+                                <div class="bg-blue-300 h-1.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-lg p-4 text-center transform transition-all hover:scale-105 hover:rotate-1">
+                            <i class="fab fa-js text-white text-3xl mb-2"></i>
+                            <p class="text-white font-medium">JavaScript</p>
+                            <div class="w-full bg-yellow-700 h-1.5 rounded-full mt-2">
+                                <div class="bg-yellow-300 h-1.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg p-4 text-center transform transition-all hover:scale-105 hover:rotate-1">
+                            <i class="fas fa-terminal text-white text-3xl mb-2"></i>
+                            <p class="text-white font-medium">Bash</p>
+                            <div class="w-full bg-gray-900 h-1.5 rounded-full mt-2">
+                                <div class="bg-gray-400 h-1.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-r from-orange-500 to-red-500 rounded-lg p-4 text-center transform transition-all hover:scale-105 hover:rotate-1">
+                            <i class="fab fa-html5 text-white text-3xl mb-2"></i>
+                            <p class="text-white font-medium">HTML</p>
+                            <div class="w-full bg-red-900 h-1.5 rounded-full mt-2">
+                                <div class="bg-red-300 h-1.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-4 text-center transform transition-all hover:scale-105 hover:rotate-1">
+                            <i class="fab fa-css3-alt text-white text-3xl mb-2"></i>
+                            <p class="text-white font-medium">CSS</p>
+                            <div class="w-full bg-blue-900 h-1.5 rounded-full mt-2">
+                                <div class="bg-blue-300 h-1.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Technologies Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Web Development -->
+                    <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-6 rounded-xl shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-r from-green-500 to-emerald-600 p-2 rounded-lg shadow-lg mr-3">
+                                <i class="fas fa-globe text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Web Development</h3>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-gradient-to-r from-green-700 to-green-800 bg-opacity-50 p-3 rounded-lg flex items-center">
+                                <i class="fab fa-python text-white mr-2"></i>
+                                <span class="text-white">Django</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-blue-700 to-blue-800 bg-opacity-50 p-3 rounded-lg flex items-center">
+                                <i class="fab fa-python text-white mr-2"></i>
+                                <span class="text-white">Flask</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-indigo-700 to-indigo-800 bg-opacity-50 p-3 rounded-lg flex items-center">
+                                <i class="fas fa-chart-line text-white mr-2"></i>
+                                <span class="text-white">Streamlit</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-purple-700 to-purple-800 bg-opacity-50 p-3 rounded-lg flex items-center">
+                                <i class="fas fa-mobile-alt text-white mr-2"></i>
+                                <span class="text-white">Responsive</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cybersecurity -->
+                    <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-6 rounded-xl shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-r from-red-500 to-pink-600 p-2 rounded-lg shadow-lg mr-3">
+                                <i class="fas fa-shield-alt text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Cybersecurity</h3>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-gradient-to-r from-red-700 to-red-800 bg-opacity-50 p-3 rounded-lg flex items-center">
+                                <i class="fas fa-user-secret text-white mr-2"></i>
+                                <span class="text-white">Penetration Testing</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-orange-700 to-orange-800 bg-opacity-50 p-3 rounded-lg flex items-center">
+                                <i class="fas fa-search text-white mr-2"></i>
+                                <span class="text-white">Vulnerability Scan</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-yellow-700 to-yellow-800 bg-opacity-50 p-3 rounded-lg flex items-center">
+                                <i class="fas fa-network-wired text-white mr-2"></i>
+                                <span class="text-white">Nmap</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-pink-700 to-pink-800 bg-opacity-50 p-3 rounded-lg flex items-center">
+                                <i class="fas fa-database text-white mr-2"></i>
+                                <span class="text-white">SQLMap</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cloud & DevOps -->
+                    <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-6 rounded-xl shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-r from-blue-500 to-cyan-600 p-2 rounded-lg shadow-lg mr-3">
+                                <i class="fas fa-cloud text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Cloud & DevOps</h3>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-gradient-to-r from-blue-700 to-blue-800 bg-opacity-50 p-3 rounded-lg flex items-center">
+                                <i class="fab fa-microsoft text-white mr-2"></i>
+                                <span class="text-white">Azure VMs</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-cyan-700 to-cyan-800 bg-opacity-50 p-3 rounded-lg flex items-center">
+                                <i class="fas fa-database text-white mr-2"></i>
+                                <span class="text-white">Azure SQL</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-blue-700 to-blue-800 bg-opacity-50 p-3 rounded-lg flex items-center">
+                                <i class="fab fa-docker text-white mr-2"></i>
+                                <span class="text-white">Docker</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-orange-700 to-orange-800 bg-opacity-50 p-3 rounded-lg flex items-center">
+                                <i class="fab fa-git-alt text-white mr-2"></i>
+                                <span class="text-white">Git</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Operating Systems -->
+                    <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-6 rounded-xl shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-r from-purple-500 to-indigo-600 p-2 rounded-lg shadow-lg mr-3">
+                                <i class="fas fa-desktop text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Operating Systems</h3>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="bg-gradient-to-r from-purple-700 to-purple-800 bg-opacity-50 p-3 rounded-lg flex items-center">
+                                <i class="fab fa-ubuntu text-white mr-2"></i>
+                                <span class="text-white">Ubuntu</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-indigo-700 to-indigo-800 bg-opacity-50 p-3 rounded-lg flex items-center">
+                                <i class="fab fa-linux text-white mr-2"></i>
+                                <span class="text-white">Kali Linux</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-gray-700 to-gray-800 bg-opacity-50 p-3 rounded-lg flex items-center">
+                                <i class="fab fa-windows text-white mr-2"></i>
+                                <span class="text-white">Windows</span>
+                            </div>
+                            <div class="bg-gradient-to-r from-blue-700 to-blue-800 bg-opacity-50 p-3 rounded-lg flex items-center">
+                                <i class="fab fa-linux text-white mr-2"></i>
+                                <span class="text-white">Parrot OS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-gradient-to-br from-gray-900 to-indigo-900 relative overflow-hidden">
+        <!-- Animated gradient background -->
+        <div class="absolute inset-0 bg-[length:400%_400%] bg-gradient-to-br from-gray-900 via-indigo-900 to-blue-900 animate-gradient-slow z-0 opacity-70"></div>
+        
+        <!-- Background pattern -->
+        <div class="absolute inset-0 opacity-10 z-0">
+            <div class="absolute inset-y-0 left-0 w-1/3 bg-white opacity-10 transform -skew-x-12"></div>
+            <div class="absolute inset-y-0 right-0 w-1/4 bg-white opacity-10 transform skew-x-12"></div>
+            <div class="absolute bottom-10 right-10 w-32 h-32 bg-blue-500 opacity-10 rounded-full blur-xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-center text-3xl font-bold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">Education Journey</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- Education Timeline -->
+                <div class="relative">
+                    <!-- Timeline line -->
+                    <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-purple-600 transform md:translateX(-0.5px)"></div>
+                    
+                    <!-- Timeline items -->
+                    <div class="space-y-16">
+                        <!-- BTech -->
+                        <div class="relative">
+                            <!-- Timeline dot -->
+                            <div class="absolute left-0 md:left-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 transform md:-translate-x-3 shadow-lg flex items-center justify-center">
+                                <div class="w-3 h-3 rounded-full bg-white"></div>
+                            </div>
+                            
+                            <!-- Content -->
+                            <div class="ml-10 md:ml-0 md:w-1/2 md:pr-10 md:text-right">
+                                <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 shadow-xl border border-blue-500/20">
+                                    <div class="inline-block px-4 py-1 rounded-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-sm font-semibold mb-2">
+                                        2022 – 2026
+                                    </div>
+                                    <h3 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-indigo-300 mb-1">
+                                        Bachelor of Technology
+                                    </h3>
+                                    <h4 class="text-lg font-medium text-white mb-2">Information Technology</h4>
+                                    <p class="text-blue-100">Malla Reddy Institute of Engineering and Technology, Hyderabad</p>
+                                    <span class="inline-block mt-2 px-3 py-1 bg-blue-600/30 text-blue-200 text-sm rounded-full">CGPA: 6.8</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Intermediate -->
+                        <div class="relative">
+                            <!-- Timeline dot -->
+                            <div class="absolute left-0 md:left-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 transform md:-translate-x-3 shadow-lg flex items-center justify-center">
+                                <div class="w-3 h-3 rounded-full bg-white"></div>
+                            </div>
+                            
+                            <!-- Content -->
+                            <div class="ml-10 md:ml-auto md:w-1/2 md:pl-10">
+                                <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 shadow-xl border border-purple-500/20">
+                                    <div class="inline-block px-4 py-1 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-semibold mb-2">
+                                        2020 – 2022
+                                    </div>
+                                    <h3 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300 mb-1">
+                                        Intermediate
+                                    </h3>
+                                    <h4 class="text-lg font-medium text-white mb-2">MPC</h4>
+                                    <p class="text-blue-100">SR Junior College, Hyderabad</p>
+                                    <span class="inline-block mt-2 px-3 py-1 bg-purple-600/30 text-purple-200 text-sm rounded-full">Percentage: 64%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- SSC -->
+                        <div class="relative">
+                            <!-- Timeline dot -->
+                            <div class="absolute left-0 md:left-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 transform md:-translate-x-3 shadow-lg flex items-center justify-center">
+                                <div class="w-3 h-3 rounded-full bg-white"></div>
+                            </div>
+                            
+                            <!-- Content -->
+                            <div class="ml-10 md:ml-0 md:w-1/2 md:pr-10 md:text-right">
+                                <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 shadow-xl border border-blue-500/20">
+                                    <div class="inline-block px-4 py-1 rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 text-white text-sm font-semibold mb-2">
+                                        2020
+                                    </div>
+                                    <h3 class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-blue-300 mb-1">
+                                        Senior Secondary School
+                                    </h3>
+                                    <h4 class="text-lg font-medium text-white mb-2">SSC</h4>
+                                    <p class="text-blue-100">Gauthami High School, Hyderabad</p>
+                                    <span class="inline-block mt-2 px-3 py-1 bg-indigo-600/30 text-indigo-200 text-sm rounded-full">Percentage: 98%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                
+    <!-- Experience & Certifications Section with Tabs -->
+    <section id="experience" class="py-20 bg-gradient-to-br from-indigo-800 via-purple-700 to-indigo-900 relative overflow-hidden">
+        <!-- Animated gradient background -->
+        <div class="absolute inset-0 bg-[length:400%_400%] bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-900 animate-gradient-slow z-0 opacity-70"></div>
+        
+        <!-- Background pattern with glass morphism -->
+        <div class="absolute inset-0 opacity-10 z-0">
+            <div class="absolute inset-y-0 left-0 w-1/3 bg-white opacity-10 transform -skew-x-12"></div>
+            <div class="absolute inset-y-0 right-0 w-1/4 bg-white opacity-10 transform skew-x-12"></div>
+            <!-- Floating shapes -->
+            <div class="absolute top-20 left-20 w-24 h-24 bg-blue-500 opacity-10 rounded-full blur-xl"></div>
+            <div class="absolute bottom-10 right-10 w-32 h-32 bg-purple-500 opacity-10 rounded-full blur-xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-center text-3xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300 animate-text">Experience & Certifications</h2>
+            
+            <!-- Tabs -->
+            <div class="max-w-4xl mx-auto mb-12">
+                <div class="flex justify-center border-b border-purple-500/50 bg-black/20 backdrop-blur-sm rounded-t-xl p-1">
+                    <div class="grid grid-cols-2 w-full max-w-md">
+                        <button id="tab-experience" class="py-3 md:py-4 px-2 md:px-10 font-bold text-sm md:text-lg bg-gradient-to-r from-purple-600 to-indigo-700 text-white hover:from-purple-700 hover:to-indigo-800 transition-all rounded-tl-lg tab-active shadow-lg flex justify-center items-center">
+                            <i class="fas fa-briefcase mr-1 md:mr-2"></i><span class="hidden xs:inline">Experience</span><span class="xs:hidden">Exp</span>
+                        </button>
+                        <button id="tab-certifications" class="py-3 md:py-4 px-2 md:px-10 font-bold text-sm md:text-lg text-white bg-black/30 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-700 transition-all rounded-tr-lg backdrop-blur-sm flex justify-center items-center">
+                            <i class="fas fa-certificate mr-1 md:mr-2"></i><span class="hidden xs:inline">Certifications</span><span class="xs:hidden">Cert</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- Experience Tab Content (visible by default) -->
+                <div id="tab-content-experience" class="tab-content">
+                    <!-- Internship/Job 1 -->
+                    <div class="mb-8 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-6 rounded-lg shadow-xl border border-purple-500/20">
+                        <div class="relative overflow-hidden">
+                            <!-- Gradient overlay -->
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-full blur-xl -mr-10 -mt-10"></div>
+                            
+                            <div class="flex flex-col md:flex-row justify-between mb-4 relative z-10">
+                                <h3 class="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">Python Full Stack Developer Intern</h3>
+                                <span class="text-indigo-200 font-medium">June 2025 – Present</span>
+                            </div>
+                            <h4 class="text-lg text-white mb-4 font-medium">VN Tech Institute, Vizag</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-blue-100">
+                                <li>Built and deployed full-stack Python applications using Django and Streamlit</li>
+                                <li>Integrated machine learning modules into web dashboards</li>
+                                <li>Worked on cloud deployment (Azure) and database integration using SQL</li>
+                                <li>Contributed to UI/UX improvements and responsive design</li>
+                                <li>Currently building a Django-based API Project Lock System for internal software security and licensing</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Internship/Job 2 -->
+                    <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-6 rounded-lg shadow-xl border border-indigo-500/20">
+                        <div class="relative overflow-hidden">
+                            <!-- Gradient overlay -->
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-xl -mr-10 -mt-10"></div>
+                            
+                            <div class="flex flex-col md:flex-row justify-between mb-4 relative z-10">
+                                <h3 class="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-indigo-300">Cybersecurity Intern</h3>
+                                <span class="text-indigo-200 font-medium">Completed – 2025</span>
+                            </div>
+                            <h4 class="text-lg text-white mb-4 font-medium">Wipro DICE ID</h4>
+                            <ul class="list-disc pl-5 space-y-2 text-blue-100">
+                                <li>Gained hands-on experience in penetration testing, vulnerability scanning, and ethical hacking</li>
+                                <li>Used tools like Nmap, SQLMap, Wireshark, and Bettercap for real-world simulations</li>
+                                <li>Attended cybersecurity workshops and simulated attack labs</li>
+                                <li>Worked on identifying and mitigating common OWASP Top 10 vulnerabilities</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certifications Tab Content (hidden by default) -->
+                <div id="tab-content-certifications" class="tab-content hidden">
+                    <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-6 rounded-lg shadow-xl border border-purple-500/20">
+                        <ul class="space-y-6">
+                            <li class="flex items-start p-4 bg-gradient-to-r from-indigo-900/80 to-purple-900/80 rounded-lg border border-indigo-400/30 shadow-lg">
+                                <div class="mr-4 mt-1 h-12 w-12 flex items-center justify-center bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full text-white text-2xl shadow-lg">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">Edunoxi WiFi Penetration Tester</h4>
+                                    <p class="text-blue-100 mt-2">Comprehensive certification in WiFi security assessment and penetration testing techniques.</p>
+                                    <p class="text-indigo-200 mt-1 text-sm font-medium">Certified: April 2025</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start p-4 bg-gradient-to-r from-purple-900/80 to-indigo-900/80 rounded-lg border border-indigo-400/30 shadow-lg">
+                                <div class="mr-4 mt-1 h-12 w-12 flex items-center justify-center bg-gradient-to-br from-purple-500 to-pink-600 rounded-full text-white text-2xl shadow-lg">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300">Cybersecurity Internship – Wipro DICE ID</h4>
+                                    <p class="text-blue-100 mt-2">Completed comprehensive internship focusing on penetration testing, vulnerability scanning, and reconnaissance techniques.</p>
+                                    <p class="text-indigo-200 mt-1 text-sm font-medium">Completed: March 2025</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gradient-to-br from-gray-900 to-indigo-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-center text-3xl font-bold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                <span class="font-mono">$ ls -la ~/projects</span>
+            </h2>
+            
+            <div class="max-w-6xl mx-auto space-y-6">
+                <!-- Project 1: Terminal-style card -->
+                <div class="bg-black bg-opacity-70 backdrop-filter backdrop-blur-md rounded-lg border border-indigo-500/30 overflow-hidden shadow-2xl">
+                    <!-- Terminal header -->
+                    <div class="bg-gradient-to-r from-gray-900 to-indigo-900 p-3 border-b border-indigo-500/30 flex items-center">
+                        <div class="flex space-x-2 mr-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="flex-1 text-center">
+                            <span class="font-mono text-gray-300 text-sm">project_deepfake_detection.py</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Terminal content -->
+                    <div class="p-6 font-mono text-sm">
+                        <div class="flex">
+                            <span class="text-green-500 mr-2">$</span>
+                            <span class="text-blue-400">cat</span>
+                            <span class="text-white"> project_info.md</span>
+                        </div>
+                        
+                        <div class="mt-4 text-gray-300">
+                            <span class="text-purple-400"># Deepfake Image Detection</span>
+                            <p class="mt-2 text-blue-200">
+                                Built a robust deep learning model to detect manipulated images on social media and protect users from misinformation.
+                            </p>
+                            
+                            <div class="mt-4">
+                                <span class="text-yellow-400">def</span> <span class="text-blue-300">tech_stack</span><span class="text-white">():</span>
+                                <div class="pl-4 text-green-300">
+                                    return [<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"Python", "TensorFlow", "OpenCV", "Deep Learning"<br>
+                                    ]
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <span class="text-yellow-400">def</span> <span class="text-blue-300">key_features</span><span class="text-white">():</span>
+                                <div class="pl-4 text-green-300">
+                                    return [<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"CNN Architecture", "Face Detection", "95% Accuracy"<br>
+                                    ]
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 pb-2 border-t border-gray-700 pt-4">
+                                <span class="text-yellow-500"># Status: </span><span class="text-green-400">Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Terminal-style card -->
+                <div class="bg-black bg-opacity-70 backdrop-filter backdrop-blur-md rounded-lg border border-indigo-500/30 overflow-hidden shadow-2xl">
+                    <!-- Terminal header -->
+                    <div class="bg-gradient-to-r from-gray-900 to-indigo-900 p-3 border-b border-indigo-500/30 flex items-center">
+                        <div class="flex space-x-2 mr-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="flex-1 text-center">
+                            <span class="font-mono text-gray-300 text-sm">project_blockchain_certificates.sol</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Terminal content -->
+                    <div class="p-6 font-mono text-sm">
+                        <div class="flex">
+                            <span class="text-green-500 mr-2">$</span>
+                            <span class="text-blue-400">cat</span>
+                            <span class="text-white"> project_info.md</span>
+                        </div>
+                        
+                        <div class="mt-4 text-gray-300">
+                            <span class="text-purple-400"># Academic Certificate Verification</span>
+                            <p class="mt-2 text-blue-200">
+                                Created a decentralized blockchain-based verification system using Ethereum and IPFS for secure academic record validation.
+                            </p>
+                            
+                            <div class="mt-4">
+                                <span class="text-yellow-400">def</span> <span class="text-blue-300">tech_stack</span><span class="text-white">():</span>
+                                <div class="pl-4 text-green-300">
+                                    return [<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"Blockchain", "Ethereum", "IPFS", "Web3.py", "Solidity"<br>
+                                    ]
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <span class="text-yellow-400">def</span> <span class="text-blue-300">key_features</span><span class="text-white">():</span>
+                                <div class="pl-4 text-green-300">
+                                    return [<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"Tamper-proof Records", "Digital Signatures", "QR Verification"<br>
+                                    ]
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 pb-2 border-t border-gray-700 pt-4">
+                                <span class="text-yellow-500"># Status: </span><span class="text-green-400">Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3: Terminal-style card -->
+                <div class="bg-black bg-opacity-70 backdrop-filter backdrop-blur-md rounded-lg border border-indigo-500/30 overflow-hidden shadow-2xl">
+                    <!-- Terminal header -->
+                    <div class="bg-gradient-to-r from-gray-900 to-indigo-900 p-3 border-b border-indigo-500/30 flex items-center">
+                        <div class="flex space-x-2 mr-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="flex-1 text-center">
+                            <span class="font-mono text-gray-300 text-sm">heart_disease_prediction.ipynb</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Terminal content -->
+                    <div class="p-6 font-mono text-sm">
+                        <div class="flex">
+                            <span class="text-green-500 mr-2">$</span>
+                            <span class="text-blue-400">cat</span>
+                            <span class="text-white"> project_info.md</span>
+                        </div>
+                        
+                        <div class="mt-4 text-gray-300">
+                            <span class="text-purple-400"># Chronic Heart Disease Prediction</span>
+                            <p class="mt-2 text-blue-200">
+                                Developed a predictive model using real medical datasets to assist in early diagnosis of heart disease.
+                            </p>
+                            
+                            <div class="mt-4">
+                                <span class="text-yellow-400">def</span> <span class="text-blue-300">tech_stack</span><span class="text-white">():</span>
+                                <div class="pl-4 text-green-300">
+                                    return [<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"Python", "scikit-learn", "Pandas", "Machine Learning"<br>
+                                    ]
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <span class="text-yellow-400">def</span> <span class="text-blue-300">key_features</span><span class="text-white">():</span>
+                                <div class="pl-4 text-green-300">
+                                    return [<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"Random Forest", "Feature Engineering", "Cross-Validation"<br>
+                                    ]
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 pb-2 border-t border-gray-700 pt-4">
+                                <span class="text-yellow-500"># Status: </span><span class="text-green-400">Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4: Terminal-style card (additional project) -->
+                <div class="bg-black bg-opacity-70 backdrop-filter backdrop-blur-md rounded-lg border border-indigo-500/30 overflow-hidden shadow-2xl">
+                    <!-- Terminal header -->
+                    <div class="bg-gradient-to-r from-gray-900 to-indigo-900 p-3 border-b border-indigo-500/30 flex items-center">
+                        <div class="flex space-x-2 mr-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="flex-1 text-center">
+                            <span class="font-mono text-gray-300 text-sm">network_intrusion_detection.py</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Terminal content -->
+                    <div class="p-6 font-mono text-sm">
+                        <div class="flex">
+                            <span class="text-green-500 mr-2">$</span>
+                            <span class="text-blue-400">cat</span>
+                            <span class="text-white"> project_info.md</span>
+                        </div>
+                        
+                        <div class="mt-4 text-gray-300">
+                            <span class="text-purple-400"># Network Intrusion Detection System</span>
+                            <p class="mt-2 text-blue-200">
+                                Developed an AI-powered network monitoring system that identifies and flags suspicious activities and potential security breaches.
+                            </p>
+                            
+                            <div class="mt-4">
+                                <span class="text-yellow-400">def</span> <span class="text-blue-300">tech_stack</span><span class="text-white">():</span>
+                                <div class="pl-4 text-green-300">
+                                    return [<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"Python", "TensorFlow", "NetworkX", "Packet Analysis"<br>
+                                    ]
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <span class="text-yellow-400">def</span> <span class="text-blue-300">key_features</span><span class="text-white">():</span>
+                                <div class="pl-4 text-green-300">
+                                    return [<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"Real-time Monitoring", "Anomaly Detection", "Alert System"<br>
+                                    ]
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 pb-2 border-t border-gray-700 pt-4">
+                                <span class="text-yellow-500"># Status: </span><span class="text-blue-400">In Progress</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-br from-purple-900 to-indigo-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-center text-3xl font-bold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Get In Touch</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- Contact Form Card with Glassmorphism -->
+                <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-8 rounded-xl shadow-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Contact Info - Left Side -->
+                        <div class="text-white">
+                            <h3 class="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                                <i class="fas fa-paper-plane mr-2"></i> Contact Info
+                            </h3>
+                            
+                            <ul class="space-y-6">
+                                <li class="flex items-center">
+                                    <div class="bg-gradient-to-r from-purple-600 to-indigo-700 p-3 rounded-full shadow-lg mr-4 w-10 h-10 flex items-center justify-center">
+                                        <i class="fas fa-envelope text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-300 text-sm">Email</p>
+                                        <a href="mailto:srinivas0k7@gmail.com" class="text-white hover:text-purple-300 transition-colors">
+                                            srinivas0k7@gmail.com
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="bg-gradient-to-r from-pink-600 to-red-600 p-3 rounded-full shadow-lg mr-4 w-10 h-10 flex items-center justify-center">
+                                        <i class="fas fa-phone text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-300 text-sm">Phone</p>
+                                        <a href="tel:+919110348230" class="text-white hover:text-purple-300 transition-colors">
+                                            +91 91103 48230
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="bg-gradient-to-r from-indigo-600 to-blue-600 p-3 rounded-full shadow-lg mr-4 w-10 h-10 flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-300 text-sm">Location</p>
+                                        <span class="text-white">Hyderabad, India</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            
+                            <div class="mt-8 flex space-x-4">
+                                <a href="https://linkedin.com/in/kunchalasrinivas" target="_blank" 
+                                   class="bg-gradient-to-r from-blue-600 to-blue-700 p-3 rounded-full text-white hover:scale-110 transition-all shadow-lg w-10 h-10 flex items-center justify-center">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="mailto:srinivas0k7@gmail.com" 
+                                   class="bg-gradient-to-r from-red-600 to-red-700 p-3 rounded-full text-white hover:scale-110 transition-all shadow-lg w-10 h-10 flex items-center justify-center">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="public/resume.pdf" download
+                                   class="bg-gradient-to-r from-green-600 to-green-700 p-3 rounded-full text-white hover:scale-110 transition-all shadow-lg w-10 h-10 flex items-center justify-center" title="Download Resume">
+                                    <i class="fas fa-file-download"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Form - Right Side -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                                <i class="fas fa-envelope-open-text mr-2"></i> Send Message
+                            </h3>
+                            
+                            <form id="contactForm" action="https://formspree.io/f/mjkrdbzz" method="POST" class="space-y-4">
+                                <!-- Hidden email address for receiving submissions -->
+                                <input type="hidden" name="_replyto" value="srinivas0k7@gmail.com">
+                                <input type="hidden" name="_subject" value="🔔 New Contact Form Submission">
+                                <input type="hidden" name="_template" value="table">
+                                <!-- No redirection, we'll handle the response with JavaScript -->
+                                <input type="hidden" name="_next" value="">
+                                
+                                <!-- Name Input -->
+                                <div>
+                                    <label for="name" class="text-white text-sm mb-2 block font-medium">Your Name</label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                            <i class="fas fa-user text-indigo-400 text-lg"></i>
+                                        </div>
+                                        <input type="text" id="name" name="name" required
+                                               class="bg-white bg-opacity-10 border-2 border-purple-500 border-opacity-50 rounded-lg py-3 px-5 pl-12 w-full focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-300"
+                                               placeholder="Enter your full name">
+                                    </div>
+                                </div>
+                                
+                                <!-- Email Input -->
+                                <div>
+                                    <label for="email" class="text-white text-sm mb-2 block font-medium">Email Address</label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                            <i class="fas fa-envelope text-indigo-400 text-lg"></i>
+                                        </div>
+                                        <input type="email" id="email" name="email" required
+                                               class="bg-white bg-opacity-10 border-2 border-purple-500 border-opacity-50 rounded-lg py-3 px-5 pl-12 w-full focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-300"
+                                               placeholder="Enter your email address">
+                                    </div>
+                                </div>
+                                
+                                <!-- Subject Input -->
+                                <div>
+                                    <label for="subject" class="text-white text-sm mb-2 block font-medium">Subject</label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                            <i class="fas fa-pen text-indigo-400 text-lg"></i>
+                                        </div>
+                                        <input type="text" id="subject" name="subject" required
+                                               class="bg-white bg-opacity-10 border-2 border-purple-500 border-opacity-50 rounded-lg py-3 px-5 pl-12 w-full focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-300"
+                                               placeholder="What is this regarding?">
+                                    </div>
+                                </div>
+                                
+                                <!-- Message Input -->
+                                <div>
+                                    <label for="message" class="text-white text-sm mb-2 block font-medium">Message</label>
+                                    <div class="relative">
+                                        <div class="absolute top-3 left-4 pointer-events-none">
+                                            <i class="fas fa-comment-alt text-indigo-400 text-lg"></i>
+                                        </div>
+                                        <textarea id="message" name="message" rows="4" required
+                                                  class="bg-white bg-opacity-10 border-2 border-purple-500 border-opacity-50 rounded-lg py-3 px-5 pl-12 w-full focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-gray-300"
+                                                  placeholder="Type your message here..."></textarea>
+                                    </div>
+                                </div>
+                                
+                                <!-- Submit Button -->
+                                <div class="pt-4">
+                                    <button type="submit" id="submitBtn"
+                                            class="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 hover:scale-105 border-2 border-purple-400/30 text-lg">
+                                        <i class="fas fa-paper-plane"></i> Send Message
+                                    </button>
+                                </div>
+                                
+                                <!-- Form validation status messages (hidden by default) -->
+                                <div id="formValidationError" class="hidden mt-3 bg-red-900/20 border border-red-500 text-red-300 p-2 rounded-md font-mono text-sm">
+                                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                                    <span id="validationMessage">Please fill in all required fields.</span>
+                                </div>
+                            </form>
+                            
+                            <!-- Thank You Message (Hidden by default) -->
+                            <div id="thankYouMessage" class="hidden">
+                                <div class="bg-black/40 backdrop-filter backdrop-blur-md rounded-lg p-4 sm:p-6 border-2 border-green-500/50 mt-4 text-center w-full mx-auto">
+                                    <div class="text-center mb-4">
+                                        <div class="inline-flex h-16 w-16 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 items-center justify-center animate-pulse">
+                                            <i class="fas fa-check text-white text-2xl"></i>
+                                        </div>
+                                    </div>
+                                    <div class="terminal-header flex items-center bg-gray-900 rounded-t-lg p-1 border border-gray-700">
+                                        <div class="flex space-x-1.5 ml-2">
+                                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                        </div>
+                                        <div class="ml-4 text-xs text-gray-400 font-mono">message-sent.js</div>
+                                    </div>
+                                    <div class="font-mono text-left text-xs sm:text-sm mb-4 bg-gray-900 p-3 sm:p-4 border-x border-b border-gray-700 rounded-b-lg overflow-x-auto">
+                                        <div class="pb-1 text-gray-500">// Message sent successfully</div>
+                                        <div class="pb-3"><span class="text-purple-400">async function</span> <span class="text-yellow-400">sendMessage</span>() {</div>
+                                        <div class="pl-4 pb-1"><span class="text-blue-400">const</span> <span class="text-yellow-400">status</span> = <span class="text-green-400">"success"</span>;</div>
+                                        <div class="pl-4 pb-1"><span class="text-blue-400">const</span> <span class="text-yellow-400">response</span> = <span class="text-blue-400">await</span> <span class="text-yellow-400">fetch</span>(<span class="text-green-400">"/api/contact"</span>);</div>
+                                        <div class="pl-4 pb-1"><span class="text-blue-400">const</span> <span class="text-yellow-400">message</span> = <span class="text-green-400">"Thank you for reaching out!"</span>;</div>
+                                        <div class="pl-4 pb-1"><span class="text-blue-400">console</span>.<span class="text-yellow-400">log</span>(<span class="text-yellow-400">message</span>);</div>
+                                        <div class="pl-4 pb-1"><span class="text-purple-400">return</span> <span class="text-yellow-400">status</span>;</div>
+                                        <div class="pb-1">}</div>
+                                        <div class="pb-1"><span class="text-gray-500">// Response from server:</span></div>
+                                        <div class="text-green-400">$ Message delivered successfully. I'll respond ASAP!</div>
+                                    </div>
+                                    <div class="flex justify-center">
+                                        <p class="text-gray-300 mb-4 font-mono flex items-center flex-wrap justify-center">$ <span class="typing-text inline-block overflow-hidden border-r-2 border-green-500 pr-1 animate-blink-caret ml-1 max-w-full break-words"></span></p>
+                                    </div>
+                                    <button id="sendAnotherBtn" class="py-2 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-lg text-sm flex items-center justify-center gap-2 mx-auto transition-all duration-300 hover:scale-105">
+                                        <i class="fas fa-redo-alt"></i> Send Another Message
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-6 md:py-8 border-t border-indigo-900">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0 flex items-center">
+                    <div class="rounded-full bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 h-8 w-8 flex items-center justify-center text-white mr-2 shadow-lg">
+                        <span class="text-xs font-semibold">SK</span>
+                    </div>
+                    <h3 class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">Srinivas</h3>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-2 md:flex md:space-x-6 text-center text-xs md:text-sm">
+                    <a href="#about" class="text-gray-300 hover:text-blue-400 py-1 px-1 md:px-2 font-mono transition-colors">about</a>
+                    <a href="#skills" class="text-gray-300 hover:text-blue-400 py-1 px-1 md:px-2 font-mono transition-colors">skills</a>
+                    <a href="#education" class="text-gray-300 hover:text-blue-400 py-1 px-1 md:px-2 font-mono transition-colors">edu</a>
+                    <a href="#experience" class="text-gray-300 hover:text-blue-400 py-1 px-1 md:px-2 font-mono transition-colors">exp</a>
+                    <a href="#projects" class="text-gray-300 hover:text-blue-400 py-1 px-1 md:px-2 font-mono transition-colors">projects</a>
+                    <a href="#contact" class="text-gray-300 hover:text-blue-400 py-1 px-1 md:px-2 font-mono transition-colors">contact</a>
+                </div>
+            </div>
+            
+            <div class="mt-4 md:mt-6 text-center text-gray-500 text-xs font-mono">
+                <p>&copy; 2025 Srinivas • Cybersecurity Specialist</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Hidden form for visitor tracking -->
+    <div style="display:none;">
+        <form id="visitor-form" action="https://formspree.io/f/mjkrdbzz" method="POST">
+            <input type="hidden" name="_subject" value="📥 New Visitor on Your Portfolio!">
+            <input type="hidden" name="visit_time" id="visitTime">
+            <input type="hidden" name="visitor_info" id="visitorInfo">
+            <input type="hidden" name="_replyto" value="srinivas0k7@gmail.com">
+            <input type="hidden" name="_template" value="table">
+        </form>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            document.getElementById('mobile-menu-button').addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Hide mobile menu when clicking on a link
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                });
+            });
+            
+            // Add smooth scrolling to all links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#') {
+                        document.querySelector(targetId).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Tabs functionality
+            const tabExperience = document.getElementById('tab-experience');
+            const tabCertifications = document.getElementById('tab-certifications');
+            const contentExperience = document.getElementById('tab-content-experience');
+            const contentCertifications = document.getElementById('tab-content-certifications');
+            
+            tabExperience.addEventListener('click', function() {
+                // Update tab styling
+                tabExperience.classList.add('bg-gradient-to-r', 'from-purple-600', 'to-indigo-700');
+                tabExperience.classList.remove('bg-black/30');
+                tabCertifications.classList.remove('bg-gradient-to-r', 'from-indigo-600', 'to-purple-700');
+                tabCertifications.classList.add('bg-black/30');
+                
+                // Show/hide content
+                contentExperience.classList.remove('hidden');
+                contentCertifications.classList.add('hidden');
+            });
+            
+            tabCertifications.addEventListener('click', function() {
+                // Update tab styling
+                tabCertifications.classList.add('bg-gradient-to-r', 'from-indigo-600', 'to-purple-700');
+                tabCertifications.classList.remove('bg-black/30');
+                tabExperience.classList.remove('bg-gradient-to-r', 'from-purple-600', 'to-indigo-700');
+                tabExperience.classList.add('bg-black/30');
+                
+                // Show/hide content
+                contentCertifications.classList.remove('hidden');
+                contentExperience.classList.add('hidden');
+            });
+            
+            // Send visitor notification
+            sendVisitorNotification();
+        });
+        
+        // Function to send notification when someone visits the site
+        function sendVisitorNotification() {
+            try {
+                // Check for stored timestamp to limit notifications (once per day per visitor)
+                const lastNotification = localStorage.getItem('lastNotification');
+                const now = new Date();
+                
+                // If we've already sent a notification from this browser in the last 24 hours, don't send again
+                if (lastNotification) {
+                    const lastTime = new Date(lastNotification);
+                    const hoursSince = (now - lastTime) / (1000 * 60 * 60);
+                    if (hoursSince < 24) {
+                        console.log('Notification already sent within the last 24 hours');
+                        return;
+                    }
+                }
+                
+                // Get current timestamp in IST
+                const options = { 
+                    timeZone: 'Asia/Kolkata',
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                };
+                const timestamp = now.toLocaleString('en-US', options);
+                
+                // Attempt to get geolocation info (city/country)
+                let locationInfo = "Location data not available";
+                fetch('https://geolocation-db.com/json/')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data && data.country_name) {
+                            locationInfo = `${data.city || 'Unknown City'}, ${data.country_name}`;
+                        }
+                    })
+                    .catch(() => {})
+                    .finally(() => {
+                        sendNotificationWithLocation();
+                    });
+                
+                function sendNotificationWithLocation() {
+                    // Get basic visitor info in tabular format
+                    const visitorInfo = {
+                        "Visit Time": timestamp,
+                        "Location": locationInfo,
+                        "Browser": navigator.userAgent.split(' ').slice(-1)[0],
+                        "OS": getOS(),
+                        "Screen Size": `${window.screen.width}x${window.screen.height}`,
+                        "Language": navigator.language,
+                        "Referrer": document.referrer || 'Direct visit',
+                        "Full User Agent": navigator.userAgent
+                    };
+                    
+                    // Update form fields
+                    document.getElementById('visitTime').value = timestamp;
+                    document.getElementById('visitorInfo').value = JSON.stringify(visitorInfo, null, 2);
+                    
+                    // Submit the form to send the notification email
+                    const form = document.getElementById('visitor-form');
+                    const formData = new FormData(form);
+                    
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    }).then(response => {
+                        if (response.ok) {
+                            console.log('Visitor notification sent successfully');
+                            // Store the timestamp in localStorage
+                            localStorage.setItem('lastNotification', now.toString());
+                        } else {
+                            console.log('Failed to send visitor notification');
+                        }
+                    }).catch(error => {
+                        console.error('Error sending notification:', error);
+                    });
+                }
+                
+                // Helper function to detect OS
+                function getOS() {
+                    const userAgent = window.navigator.userAgent;
+                    const platform = window.navigator.platform;
+                    const macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
+                    const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
+                    const iosPlatforms = ['iPhone', 'iPad', 'iPod'];
+                    
+                    if (macosPlatforms.indexOf(platform) !== -1) {
+                        return 'macOS';
+                    } else if (iosPlatforms.indexOf(platform) !== -1) {
+                        return 'iOS';
+                    } else if (windowsPlatforms.indexOf(platform) !== -1) {
+                        return 'Windows';
+                    } else if (/Android/.test(userAgent)) {
+                        return 'Android';
+                    } else if (/Linux/.test(platform)) {
+                        return 'Linux';
+                    }
+                    return 'Unknown OS';
+                }
+            } catch (error) {
+                console.error('Error in sendVisitorNotification:', error);
+            }
+        }
+        
+        // Prevent default drag behavior
+        document.addEventListener('touchmove', function(e) {
+            if(e.target.closest('.scrollable') === null) {
+                // If not in a scrollable container, prevent default to avoid page dragging
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        document.addEventListener('dragstart', function(e) {
+            // Prevent dragging of images and other elements
+            if (e.target.tagName === 'IMG' || e.target.classList.contains('no-drag')) {
+                e.preventDefault();
+            }
+        });
+        
+        // Fix for Safari bounce effect
+        document.body.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        // Fix white space on scroll overflow
+        function fixHeight() {
+            const body = document.body;
+            const html = document.documentElement;
+            const height = Math.max(
+                body.scrollHeight,
+                body.offsetHeight,
+                html.clientHeight,
+                html.scrollHeight,
+                html.offsetHeight
+            );
+            document.body.style.minHeight = height + 'px';
+            
+            // Force the viewport to fill with content
+            document.querySelectorAll('section').forEach(section => {
+                section.style.minHeight = window.innerHeight * 0.5 + 'px';
+            });
+        }
+        
+        // Run on load and resize
+        window.addEventListener('load', fixHeight);
+        window.addEventListener('resize', fixHeight);
+        
+        // Add viewport height fix for mobile browsers
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        
+        // Contact form submission handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const thankYouMessage = document.getElementById('thankYouMessage');
+            const sendAnotherBtn = document.getElementById('sendAnotherBtn');
+            
+            // Ensure the submit button is always in its initial state on page load
+            if (contactForm) {
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                }
+            }
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault(); // Prevent the default form submission
+                    
+                    // Basic form validation
+                    const name = contactForm.querySelector('input[name="name"]').value.trim();
+                    const email = contactForm.querySelector('input[name="email"]').value.trim();
+                    const message = contactForm.querySelector('textarea[name="message"]').value.trim();
+                    const validationError = document.getElementById('formValidationError');
+                    const validationMessage = document.getElementById('validationMessage');
+                    
+                    if (!name || !email || !message) {
+                        validationError.classList.remove('hidden');
+                        validationMessage.textContent = 'Error: All fields are required.';
+                        setTimeout(() => {
+                            validationError.classList.add('hidden');
+                        }, 3000);
+                        return;
+                    }
+                    
+                    // Email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        validationError.classList.remove('hidden');
+                        validationMessage.textContent = 'Error: Please enter a valid email address.';
+                        setTimeout(() => {
+                            validationError.classList.add('hidden');
+                        }, 3000);
+                        return;
+                    }
+                    
+                    // Hide validation error if it was previously shown
+                    validationError.classList.add('hidden');
+                    
+                    // Show loading state
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sending...';
+                    
+                    // Get form data
+                    const formData = new FormData(contactForm);
+                    
+                    // Send form data to Formspree via fetch
+                    fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.ok) {
+                            // Success! Hide the form and show thank you message
+                            contactForm.classList.add('hidden');
+                            thankYouMessage.classList.remove('hidden');
+                            
+                            // Clear form fields
+                            contactForm.reset();
+                            
+                            // Scroll to the thank you message
+                            thankYouMessage.scrollIntoView({ behavior: 'smooth' });
+                            
+                            // Add a console message for dev-style feedback
+                            console.log("%c✅ Message sent successfully!", "color: green; font-size: 14px; font-weight: bold;");
+                        } else {
+                            throw new Error('Form submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        submitBtn.innerHTML = originalBtnText;
+                        submitBtn.disabled = false;
+                        alert('There was an error submitting your message. Please try again later.');
+                    });
+                });
+            }
+            
+            // Handle the "Send Another Message" button
+            if (sendAnotherBtn) {
+                sendAnotherBtn.addEventListener('click', function() {
+                    // Hide thank you message and show form
+                    thankYouMessage.classList.add('hidden');
+                    contactForm.classList.remove('hidden');
+                    
+                    // Reset the form completely
+                    contactForm.reset();
+                    
+                    // Reset the submit button to its original state
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                    }
+                    
+                    // Hide any validation errors that might be showing
+                    const validationError = document.getElementById('formValidationError');
+                    if (validationError) {
+                        validationError.classList.add('hidden');
+                    }
+                });
+            }
+            
+            // Add typing animation for the thank you message
+            function typeAnimation() {
+                const textElement = document.querySelector('.typing-text');
+                if (textElement) {
+                    // Shorter text for mobile devices
+                    const isMobile = window.innerWidth < 768;
+                    const textToType = isMobile 
+                        ? "Thank you! I'll respond soon."
+                        : "Thank you for contacting me! I'll get back to you soon.";
+                    
+                    let i = 0;
+                    textElement.textContent = '';
+                    
+                    function typing() {
+                        if (i < textToType.length) {
+                            textElement.textContent += textToType.charAt(i);
+                            i++;
+                            // Adjust container width if needed
+                            if (textElement.parentElement.offsetWidth < textElement.scrollWidth) {
+                                textElement.classList.remove('whitespace-nowrap');
+                                textElement.classList.add('break-words');
+                            }
+                            setTimeout(typing, Math.random() * 40 + 20);
+                        }
+                    }
+                    
+                    // Add observer to start typing animation when thank you message becomes visible
+                    const observer = new MutationObserver((mutations) => {
+                        mutations.forEach((mutation) => {
+                            if (mutation.target.id === 'thankYouMessage' && 
+                                !mutation.target.classList.contains('hidden')) {
+                                // Reset for new animation
+                                i = 0;
+                                textElement.textContent = '';
+                                typing();
+                            }
+                        });
+                    });
+                    
+                    observer.observe(thankYouMessage, { attributes: true, attributeFilter: ['class'] });
+                }
+            }
+            
+            // Initialize typing animation
+            typeAnimation();
+        });
+    </script>
+</body>
+</html>
