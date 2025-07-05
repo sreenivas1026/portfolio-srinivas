@@ -1,0 +1,9 @@
+{
+  "source": {
+    "branch": "gh-pages",
+    "path": "/"
+  },
+  "build": {
+    "workflow": null
+  }
+}
