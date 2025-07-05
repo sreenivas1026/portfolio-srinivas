@@ -4,18 +4,8 @@
   "description": "Kunchala Srinivas portfolio website",
   "main": "index.js",
   "scripts": {
-    "start": "echo 'This is a static website, no build process required'",
-    "build": "echo 'No build step needed for static site'"
+    "start": "echo 'Static website'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/srinivaschepuri/portfolio-srinivas.git"
-  },
-  "keywords": [
-    "portfolio",
-    "resume",
-    "static-website"
-  ],
   "author": "Kunchala Srinivas",
   "license": "MIT"
 }
