@@ -82,7 +82,6 @@ If you encounter any deployment issues:
 1. Check the build logs for specific error messages
 2. Try selecting "Static Site" from the framework presets if you're having issues
 3. Ensure you're using the correct root directory and output directory settings
-4. The included vercel.json file contains routing configurations to prevent 404 errors
 
 ## � Security Notes
 

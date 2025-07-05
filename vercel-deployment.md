@@ -23,16 +23,16 @@
 
 If you encounter deployment errors:
 
-1. **Static Site Configuration**:
-   - Ensure you've selected "Static Site" or "Other" as your framework preset
+1. **Simplest Approach**:
+   - Vercel can automatically detect and deploy static sites without configuration
+   - Make sure your index.html is in the root directory
+   - Choose "Static Site" or "Other" as your framework preset
    - Set the correct root and output directories (both should be "./")
-   - No build command is needed for this simple static site
-
-2. **Common Error Codes**:
-   - **DEPLOYMENT_NOT_FOUND (404)**: The deployment URL is incorrect or has been deleted
-   - **DEPLOYMENT_BLOCKED (403)**: Deployment is blocked due to account restrictions
-   - **DEPLOYMENT_NOT_READY_REDIRECTING (303)**: Deployment is still being processed
-   - **FUNCTION_INVOCATION_FAILED (500)**: Server-side function error (N/A for static sites)
+   
+2. **404 Errors After Deployment**:
+   - If you encounter 404 errors after deployment, try visiting the root URL directly
+   - Make sure your links are relative within the site
+   - Vercel automatically handles basic static site routing
 
 ### Alternative Manual Deployment
 
