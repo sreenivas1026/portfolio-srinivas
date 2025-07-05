@@ -57,31 +57,28 @@ To deploy this website:
 3. Make sure to replace the placeholder resume with your actual resume
 4. Set up the visitor notification system by following the instructions in `visitor-notification-setup.md`
 
-## 📤 Deployment with Vercel
+## 📤 Deployment with GitHub Pages
 
-To deploy this website using Vercel:
+To deploy this website using GitHub Pages:
 
 1. Push your code to GitHub (already done)
-2. Go to [Vercel](https://vercel.com) and sign up/log in with your GitHub account
-3. Click "New Project"
-4. Import the `portfolio-srinivas` repository
-5. Configure the project:
-   - Framework preset: Other (Static Site)
-   - Root directory: ./
-   - Build command: none (leave empty)
-   - Output directory: ./
-6. Click "Deploy"
+2. GitHub Actions will automatically deploy your site when you push to the master branch
+3. Go to your repository settings on GitHub
+4. Navigate to "Pages" in the sidebar
+5. Under "Build and deployment" section, ensure:
+   - Source is set to "GitHub Actions"
+6. Your site will be available at `https://[your-username].github.io/portfolio-srinivas/`
 
 For a custom domain:
-1. In your Vercel project settings, go to "Domains"
-2. Add your domain "srinivaskunchala.me"
-3. Follow Vercel's instructions to configure your DNS settings
-4. Vercel will automatically handle SSL certificates
+1. In your GitHub repository settings, go to "Pages"
+2. Under "Custom domain", enter your domain "srinivaskunchala.me"
+3. Add a CNAME record in your DNS settings pointing to your GitHub Pages URL
+4. GitHub will automatically handle SSL certificates
 
 If you encounter any deployment issues:
-1. Check the build logs for specific error messages
-2. Try selecting "Static Site" from the framework presets if you're having issues
-3. Ensure you're using the correct root directory and output directory settings
+1. Check the GitHub Actions tab for build logs and error messages
+2. Ensure your repository has proper permissions for GitHub Actions
+3. Verify that the branch name in the workflow file matches your default branch
 
 ## � Security Notes
 
