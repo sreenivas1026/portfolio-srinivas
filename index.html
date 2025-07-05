@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <title>Kunchala Srinivas - Portfolio</title>
     
     <!-- SEO Meta Tags -->
@@ -78,37 +80,33 @@
     
     <style>
         /* Custom styles */
-        html {
-            overflow-x: hidden;
+        html, body {
+            margin: 0;
+            padding: 0;
             width: 100%;
-            height: 100%;
+            height: auto;
+            min-height: 100vh;
             scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
+            -webkit-tap-highlight-color: transparent;
+            background-color: #0f172a; /* Dark background to prevent white flash */
+            touch-action: manipulation;
         }
         
         body {
-            overflow-x: hidden;
-            position: relative;
-            width: 100%;
-            min-height: 100%;
-            background-color: #0f172a; /* Dark background to prevent white flash */
-            -webkit-overflow-scrolling: touch;
-            overscroll-behavior-y: auto; /* Changed to allow native scrolling */
             display: flex;
             flex-direction: column;
-            /* Enhanced mobile scrolling */
-            scroll-behavior: smooth;
-            touch-action: pan-y; /* Allow vertical touch scrolling */
+            overflow-x: hidden;
+            overflow-y: visible !important;
+            position: static;
         }
         
         section {
             position: relative;
             width: 100%;
-            overflow: visible; /* Changed from hidden to prevent scroll issues */
-            min-height: auto; /* Changed from 100vh for better mobile scrolling */
-            padding: 4rem 0; /* Use padding instead of min-height for section spacing */
-            -webkit-overflow-scrolling: touch;
-            will-change: transform;
+            height: auto;
+            padding: 4rem 0;
+            overflow: visible;
+            z-index: 1;
         }
         
         .absolute {
@@ -163,8 +161,6 @@
         
         /* Mobile scroll optimizations */
         .mobile-scroll-container {
-            -webkit-overflow-scrolling: touch;
-            overflow-y: auto;
             scrollbar-width: none; /* Firefox */
         }
         
@@ -172,19 +168,158 @@
             display: none; /* Hide scrollbar for Chrome/Safari/Opera */
         }
         
-        /* Additional mobile optimizations */
+        /* Mobile scrolling */
+        html, body {
+            scroll-behavior: smooth;
+        }
+
+        /* Universal touch fixes */
+        * {
+            -webkit-overflow-scrolling: touch;
+            touch-action: manipulation;
+        }
+        
+        /* iOS-specific fixes */
+        .ios-device {
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* Android-specific fixes */
+        .android-device {
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-y: contain;
+        }
+        
+        /* Ensure buttons are large enough for fingers */
+        button, .btn, a {
+            cursor: pointer;
+            min-height: 44px;
+            min-width: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Prevent fixed header issues on iOS */
+        header {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        /* Force scrolling to work */
+        html, body {
+            overflow-y: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+            overscroll-behavior-y: auto !important;
+            height: auto !important;
+            position: static !important;
+        }
+
+        /* Media queries for iOS height fixes */
+        @supports (-webkit-touch-callout: none) {
+            .min-h-screen {
+                min-height: -webkit-fill-available;
+            }
+        }
+        
+        /* Hamburger Menu Animation */
+        .hamburger-icon {
+            width: 24px;
+            height: 18px;
+            position: relative;
+            transform: rotate(0deg);
+            transition: .5s ease-in-out;
+            cursor: pointer;
+        }
+
+        .hamburger-icon span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: #4338ca;
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+
+        .hamburger-icon span:nth-child(1) {
+            top: 0px;
+        }
+
+        .hamburger-icon span:nth-child(2),
+        .hamburger-icon span:nth-child(3) {
+            top: 8px;
+        }
+
+        .hamburger-icon span:nth-child(4) {
+            top: 16px;
+        }
+
+        .hamburger-icon.open span:nth-child(1) {
+            top: 8px;
+            width: 0%;
+            left: 50%;
+        }
+
+        .hamburger-icon.open span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        .hamburger-icon.open span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        .hamburger-icon.open span:nth-child(4) {
+            top: 8px;
+            width: 0%;
+            left: 50%;
+        }
+
+        /* Fixed positioning adjustments */
+        
         @media (max-width: 768px) {
             body, html {
-                height: 100%;
-                position: relative;
-                overflow-y: auto !important;
+                height: auto;
+                position: static;
             }
             
             section {
-                overflow: visible !important;
                 min-height: auto;
-                padding-top: 2rem;
-                padding-bottom: 2rem;
+            }
+            
+            /* Optimize hero image size on mobile */
+            .hero-image-container {
+                width: 130px !important;
+                height: 130px !important;
+            }
+            
+            /* Optimize about image size on mobile */
+            .about-image-container {
+                width: 150px !important;
+                height: 150px !important;
+            }
+            
+            /* Better touch targets for mobile */
+            .nav-link, button, #mobile-menu a {
+                min-height: 44px;
+                min-width: 44px;
+                display: flex;
+                align-items: center;
+            }
+            
+            /* Prevent horizontal overflow */
+            .container {
+                width: 100%;
+                max-width: 100%;
+                overflow-x: hidden;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
             }
             
             .btn {
@@ -195,9 +330,18 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 font-sans overflow-x-hidden flex flex-col min-h-screen">
+<body class="bg-gray-900 font-sans flex flex-col min-h-screen" ontouchstart="">
+    <!-- Fix mobile scrolling -->
+    <script>
+        // Force-fix mobile scrolling issues
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        document.addEventListener('touchmove', function() {}, {passive: true});
+        document.addEventListener('scroll', function() {}, {passive: true});
+        document.addEventListener('wheel', function() {}, {passive: true});
+    </script>
+    
     <!-- Header / Navigation -->
-    <header class="bg-gradient-to-r from-gray-50 to-gray-100 backdrop-blur-sm shadow-md fixed top-0 left-0 right-0 z-50 w-full">
+    <header class="bg-gradient-to-r from-gray-50 to-gray-100 backdrop-blur-sm shadow-md sticky top-0 z-50 w-full">
         <nav class="container mx-auto px-3 py-2 flex justify-between items-center">
             <a href="#" class="text-xl md:text-2xl font-bold flex items-center">
                 <div class="rounded-full bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 h-10 w-10 md:h-12 md:w-12 flex items-center justify-center text-white mr-2 shadow-lg">
@@ -226,14 +370,19 @@
                 </a>
             </div>
             
-            <!-- Mobile menu button -->
-            <button class="md:hidden text-gray-600 transition-transform duration-300" id="mobile-menu-button">
-                <i class="fas fa-bars text-xl"></i>
+            <!-- Mobile menu button with animated hamburger -->
+            <button class="md:hidden flex items-center justify-center p-2" id="mobile-menu-button" aria-label="Toggle menu">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </button>
         </nav>
         
         <!-- Mobile menu (hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-b from-gray-50 to-gray-100 shadow-lg fixed left-0 right-0 top-14 w-full z-50 max-h-[80vh] overflow-y-auto transform transition-all duration-300 opacity-0 scale-95">
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-b from-gray-50 to-gray-100 shadow-lg absolute left-0 right-0 top-14 w-full z-50 max-h-[80vh] transform transition-all duration-300 opacity-0 scale-95" style="overflow-y: auto; -webkit-overflow-scrolling: touch;">
             <div class="container mx-auto px-4 py-2">
                 <a href="#about" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">About</a>
                 <a href="#skills" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">Skills</a>
@@ -254,10 +403,10 @@
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow mobile-scroll-container">
+    <main class="flex-grow" style="margin-top: 0">
     
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-700 text-white pt-16 pb-10 md:py-20 flex items-center justify-center relative overflow-hidden mt-14">
+    <section class="bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-700 text-white pt-16 pb-10 md:py-20 flex items-center justify-center relative overflow-hidden">
         <!-- Animated gradient background -->
         <div class="absolute inset-0 bg-[length:400%_400%] bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-700 animate-gradient-slow z-0 pointer-events-none"></div>
         
@@ -301,7 +450,7 @@
                 <div class="lg:w-1/2 flex justify-end items-center mb-4 lg:mb-0 lg:pr-6">
                     <!-- Profile photo with animated gradient border -->
                     <div class="p-2 md:p-3 bg-gradient-to-r from-blue-300 via-purple-300 to-indigo-300 animate-pulse rounded-full shadow-lg">
-                        <div class="relative overflow-hidden border-3 md:border-4 border-white/30 shadow-2xl rounded-full w-40 h-40 sm:w-44 sm:h-44 md:w-56 md:h-56">
+                        <div class="hero-image-container relative overflow-hidden border-3 md:border-4 border-white/30 shadow-2xl rounded-full w-40 h-40 sm:w-44 sm:h-44 md:w-56 md:h-56">
                             <img src="image.png" alt="Kunchala Srinivas" class="w-full h-full object-cover">
                             <!-- Glowing effect -->
                             <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10"></div>
@@ -325,7 +474,7 @@
                         
                         <!-- Image container -->
                         <div class="bg-white p-3 rounded-xl shadow-2xl relative z-10">
-                            <div class="rounded-lg overflow-hidden bg-gray-800 w-52 h-52 mx-auto">
+                            <div class="about-image-container rounded-lg overflow-hidden bg-gray-800 w-52 h-52 mx-auto">
                                 <img src="image.png" alt="Srinivas" class="w-full h-full object-cover">
                             </div>
                             
@@ -1195,6 +1344,9 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
+    <!-- Mobile scroll fix -->
+    <script src="scroll-fix.js"></script>
+    
     <!-- Hidden form for visitor tracking -->
     <div style="display:none;">
         <form id="visitor-form" action="https://formspree.io/f/mjkrdbzz" method="POST">
@@ -1211,40 +1363,82 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile menu toggle with animation
             const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const hamburgerIcon = mobileMenuButton.querySelector('.hamburger-icon');
             const mobileMenu = document.getElementById('mobile-menu');
             
-            mobileMenuButton.addEventListener('click', function() {
+            // Function to toggle menu visibility with animation
+            function toggleMobileMenu() {
                 if (mobileMenu.classList.contains('hidden')) {
                     // Show menu with animation
                     mobileMenu.classList.remove('hidden');
-                    mobileMenu.classList.remove('opacity-0', 'scale-95');
-                    mobileMenu.classList.add('opacity-100', 'scale-100');
-                    mobileMenuButton.classList.add('rotate-90');
+                    setTimeout(() => {
+                        mobileMenu.classList.remove('opacity-0', 'scale-95');
+                        mobileMenu.classList.add('opacity-100', 'scale-100');
+                    }, 10); // Small delay to ensure transition works
+                    hamburgerIcon.classList.add('open');
                 } else {
                     // Hide menu with animation
                     mobileMenu.classList.add('opacity-0', 'scale-95');
-                    mobileMenuButton.classList.remove('rotate-90');
+                    mobileMenu.classList.remove('opacity-100', 'scale-100');
+                    hamburgerIcon.classList.remove('open');
                     setTimeout(() => {
                         mobileMenu.classList.add('hidden');
-                    }, 300);
+                    }, 300); // Match transition duration
                 }
+            }
+            
+            // Add both click and touch events for better mobile support
+            mobileMenuButton.addEventListener('click', toggleMobileMenu);
+            mobileMenuButton.addEventListener('touchend', function(e) {
+                e.preventDefault(); // Prevent default touch behavior
+                toggleMobileMenu();
             });
             
             // Hide mobile menu when clicking on a link
             document.querySelectorAll('#mobile-menu a').forEach(link => {
                 link.addEventListener('click', function() {
                     mobileMenu.classList.add('opacity-0', 'scale-95');
-                    mobileMenuButton.classList.remove('rotate-90');
+                    mobileMenu.classList.remove('opacity-100', 'scale-100');
+                    hamburgerIcon.classList.remove('open');
                     setTimeout(() => {
                         mobileMenu.classList.add('hidden');
                     }, 300);
                 });
             });
             
-            // Enable touch scrolling on mobile
+            // Enable better touch scrolling on mobile
             document.addEventListener('touchstart', function() {
                 // This empty handler enables the browser's default touch behavior
             }, {passive: true});
+            
+            // Add touch events to menu items for better responsiveness
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('touchend', function(e) {
+                    // Prevent default only if this is also a click handler
+                    e.preventDefault();
+                    // Get the href and navigate
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            // Close the menu
+                            mobileMenu.classList.add('opacity-0', 'scale-95');
+                            hamburgerIcon.classList.remove('open');
+                            setTimeout(() => {
+                                mobileMenu.classList.add('hidden');
+                            }, 300);
+                            
+                            // Scroll to element
+                            setTimeout(() => {
+                                window.scrollTo({
+                                    top: targetElement.offsetTop - 70,
+                                    behavior: 'smooth'
+                                });
+                            }, 350);
+                        }
+                    }
+                });
+            });
             
             // Add smooth scrolling to all links - enhanced for mobile
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1407,253 +1601,65 @@
                     return 'Unknown OS';
                 }
             } catch (error) {
-                console.error('Error in sendVisitorNotification:', error);
+                console.error("Error sending visitor notification:", error);
             }
         }
         
-        // Prevent default drag behavior
-        document.addEventListener('touchmove', function(e) {
-            if(e.target.closest('.scrollable') === null) {
-                // If not in a scrollable container, prevent default to avoid page dragging
-                e.preventDefault();
-            }
-        }, { passive: false });
-        
-        document.addEventListener('dragstart', function(e) {
-            // Prevent dragging of images and other elements
-            if (e.target.tagName === 'IMG' || e.target.classList.contains('no-drag')) {
-                e.preventDefault();
-            }
-        });
-        
-        // Fix for Safari bounce effect
-        document.body.addEventListener('touchstart', function(e) {
-            if (e.touches.length > 1) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-        
-        // Fix white space on scroll overflow
-        function updateHeight() {
-            const body = document.body;
-            const html = document.documentElement;
-            
-            const height = Math.max(
-                body.scrollHeight,
-                body.offsetHeight,
-                html.scrollHeight,
-                html.offsetHeight
-            );
-            
-            document.documentElement.style.setProperty('--real-height', `${height}px`);
-        }
-        
-        updateHeight();
-        window.addEventListener('resize', updateHeight);
-        
-        // iOS specific scroll fix
-        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
-            document.documentElement.classList.add('ios-device');
-            document.body.classList.add('ios-device');
-            
-            // Additional iOS-specific fixes
+        // Complete mobile touch optimization
+        (function() {
+            // Prevent any touchmove blocking
             document.addEventListener('touchmove', function(e) {
-                // Allow default scrolling behavior
-            }, { passive: true });
-        }
-        
-        // Fix white space on scroll overflow
-        function fixHeight() {
-            const body = document.body;
-            const html = document.documentElement;
-            const height = Math.max(
-                body.scrollHeight,
-                body.offsetHeight,
-                html.clientHeight,
-                html.scrollHeight,
-                html.offsetHeight
-            );
-            document.body.style.minHeight = height + 'px';
+                // Always allow scrolling
+            }, {passive: true});
             
-            // Force the viewport to fill with content
-            document.querySelectorAll('section').forEach(section => {
-                section.style.minHeight = window.innerHeight * 0.5 + 'px';
+            // Enable passive wheel events for better performance
+            document.addEventListener('wheel', function(e) {
+                // Allow default wheel behavior
+            }, {passive: true});
+            
+            // Enable passive touchstart events
+            document.addEventListener('touchstart', function(e) {
+                // Allow default touch behavior
+            }, {passive: true});
+            
+            // Fix FastClick issues with iOS
+            if (typeof window.FastClick === 'function') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    FastClick.attach(document.body);
+                });
+            }
+            
+            // Handle iOS and Android detection
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            const isAndroid = /Android/.test(navigator.userAgent);
+            
+            if (isIOS) {
+                document.documentElement.classList.add('ios-device');
+                document.body.classList.add('ios-device');
+                
+                // Fix iOS momentum scrolling
+                document.body.style.webkitOverflowScrolling = 'touch';
+                
+                // Fix iOS fixed position issues
+                const header = document.querySelector('header');
+                if (header) header.style.transform = 'translateZ(0)';
+            }
+            
+            if (isAndroid) {
+                document.documentElement.classList.add('android-device');
+                document.body.classList.add('android-device');
+            }
+            
+            // Fix any potential scroll freezing
+            window.addEventListener('scroll', function() {}, {passive: true});
+            
+            // Make all scrollable elements have touch scroll
+            const scrollableElements = document.querySelectorAll('main, section, div');
+            scrollableElements.forEach(el => {
+                el.style.webkitOverflowScrolling = 'touch';
+                el.addEventListener('touchmove', function(e) {}, {passive: true});
             });
-        }
-        
-        // Run on load and resize
-        window.addEventListener('load', fixHeight);
-        window.addEventListener('resize', fixHeight);
-        
-        // Add viewport height fix for mobile browsers
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-        
-        // Contact form submission handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            const thankYouMessage = document.getElementById('thankYouMessage');
-            const sendAnotherBtn = document.getElementById('sendAnotherBtn');
-            
-            // Ensure the submit button is always in its initial state on page load
-            if (contactForm) {
-                const submitBtn = contactForm.querySelector('button[type="submit"]');
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                }
-            }
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault(); // Prevent the default form submission
-                    
-                    // Basic form validation
-                    const name = contactForm.querySelector('input[name="name"]').value.trim();
-                    const email = contactForm.querySelector('input[name="email"]').value.trim();
-                    const message = contactForm.querySelector('textarea[name="message"]').value.trim();
-                    const validationError = document.getElementById('formValidationError');
-                    const validationMessage = document.getElementById('validationMessage');
-                    
-                    if (!name || !email || !message) {
-                        validationError.classList.remove('hidden');
-                        validationMessage.textContent = 'Error: All fields are required.';
-                        setTimeout(() => {
-                            validationError.classList.add('hidden');
-                        }, 3000);
-                        return;
-                    }
-                    
-                    // Email validation
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailRegex.test(email)) {
-                        validationError.classList.remove('hidden');
-                        validationMessage.textContent = 'Error: Please enter a valid email address.';
-                        setTimeout(() => {
-                            validationError.classList.add('hidden');
-                        }, 3000);
-                        return;
-                    }
-                    
-                    // Hide validation error if it was previously shown
-                    validationError.classList.add('hidden');
-                    
-                    // Show loading state
-                    const submitBtn = contactForm.querySelector('button[type="submit"]');
-                    const originalBtnText = submitBtn.innerHTML;
-                    submitBtn.disabled = true;
-                    submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sending...';
-                    
-                    // Get form data
-                    const formData = new FormData(contactForm);
-                    
-                    // Send form data to Formspree via fetch
-                    fetch(contactForm.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.ok) {
-                            // Success! Hide the form and show thank you message
-                            contactForm.classList.add('hidden');
-                            thankYouMessage.classList.remove('hidden');
-                            
-                            // Clear form fields
-                            contactForm.reset();
-                            
-                            // Scroll to the thank you message
-                            thankYouMessage.scrollIntoView({ behavior: 'smooth' });
-                            
-                            // Add a console message for dev-style feedback
-                            console.log("%c✅ Message sent successfully!", "color: green; font-size: 14px; font-weight: bold;");
-                        } else {
-                            throw new Error('Form submission failed');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        submitBtn.innerHTML = originalBtnText;
-                        submitBtn.disabled = false;
-                        alert('There was an error submitting your message. Please try again later.');
-                    });
-                });
-            }
-            
-            // Handle the "Send Another Message" button
-            if (sendAnotherBtn) {
-                sendAnotherBtn.addEventListener('click', function() {
-                    // Hide thank you message and show form
-                    thankYouMessage.classList.add('hidden');
-                    contactForm.classList.remove('hidden');
-                    
-                    // Reset the form completely
-                    contactForm.reset();
-                    
-                    // Reset the submit button to its original state
-                    const submitBtn = contactForm.querySelector('button[type="submit"]');
-                    if (submitBtn) {
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                    }
-                    
-                    // Hide any validation errors that might be showing
-                    const validationError = document.getElementById('formValidationError');
-                    if (validationError) {
-                        validationError.classList.add('hidden');
-                    }
-                });
-            }
-            
-            // Add typing animation for the thank you message
-            function typeAnimation() {
-                const textElement = document.querySelector('.typing-text');
-                if (textElement) {
-                    // Shorter text for mobile devices
-                    const isMobile = window.innerWidth < 768;
-                    const textToType = isMobile 
-                        ? "Thank you! I'll respond soon."
-                        : "Thank you for contacting me! I'll get back to you soon.";
-                    
-                    let i = 0;
-                    textElement.textContent = '';
-                    
-                    function typing() {
-                        if (i < textToType.length) {
-                            textElement.textContent += textToType.charAt(i);
-                            i++;
-                            // Adjust container width if needed
-                            if (textElement.parentElement.offsetWidth < textElement.scrollWidth) {
-                                textElement.classList.remove('whitespace-nowrap');
-                                textElement.classList.add('break-words');
-                            }
-                            setTimeout(typing, Math.random() * 40 + 20);
-                        }
-                    }
-                    
-                    // Add observer to start typing animation when thank you message becomes visible
-                    const observer = new MutationObserver((mutations) => {
-                        mutations.forEach((mutation) => {
-                            if (mutation.target.id === 'thankYouMessage' && 
-                                !mutation.target.classList.contains('hidden')) {
-                                // Reset for new animation
-                                i = 0;
-                                textElement.textContent = '';
-                                typing();
-                            }
-                        });
-                    });
-                    
-                    observer.observe(thankYouMessage, { attributes: true, attributeFilter: ['class'] });
-                }
-            }
-            
-            // Initialize typing animation
-            typeAnimation();
-        });
+        })();
     </script>
 </body>
 </html>
