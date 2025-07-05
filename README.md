@@ -57,21 +57,33 @@ To deploy this website:
 3. Make sure to replace the placeholder resume with your actual resume
 4. Set up the visitor notification system by following the instructions in `visitor-notification-setup.md`
 
-## 📤 Deployment to GitHub Pages
+## 📤 Deployment with Vercel
 
-To deploy this website to GitHub Pages:
+To deploy this website using Vercel:
 
-1. Fork or clone this repository
-2. Go to your repository settings
-3. Navigate to the "Pages" section
-4. Under "Source", select "main" branch
-5. Click "Save"
-6. Your site will be published at `https://sreenivas1026.github.io/portfolio-srinivas/`
+1. Push your code to GitHub (already done)
+2. Go to [Vercel](https://vercel.com) and sign up/log in with your GitHub account
+3. Click "New Project"
+4. Import the `portfolio-srinivas` repository
+5. Configure the project:
+   - Framework preset: Other (Static Site)
+   - Root directory: ./
+   - Build command: none (leave empty)
+   - Output directory: ./
+6. Click "Deploy"
+
+Note: The `vercel.json` file in the repository already contains the necessary configuration for deployment as a static site with security headers.
 
 For a custom domain:
-1. In repository settings > Pages, add your custom domain
-2. Create a CNAME file in the root directory with your domain name
-3. Update your domain's DNS settings to point to GitHub Pages
+1. In your Vercel project settings, go to "Domains"
+2. Add your domain "srinivaskunchala.me"
+3. Follow Vercel's instructions to configure your DNS settings
+4. Vercel will automatically handle SSL certificates
+
+If you encounter any deployment issues:
+1. Check the build logs for specific error messages
+2. Ensure the `vercel.json` file is valid JSON and contains correct configuration
+3. Try simplifying the configuration if problems persist
 
 ## � Security Notes
 
