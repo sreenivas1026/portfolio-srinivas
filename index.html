@@ -93,16 +93,22 @@
             min-height: 100%;
             background-color: #0f172a; /* Dark background to prevent white flash */
             -webkit-overflow-scrolling: touch;
-            overscroll-behavior-y: none;
+            overscroll-behavior: none;
             display: flex;
             flex-direction: column;
+            /* Enhanced mobile scrolling */
+            scroll-behavior: smooth;
+            will-change: scroll-position;
+            touch-action: manipulation;
         }
         
         section {
             position: relative;
             width: 100%;
-            overflow: hidden;
+            overflow: visible; /* Changed from hidden to prevent scroll issues */
             min-height: 100vh; /* Ensure sections fill viewport */
+            -webkit-overflow-scrolling: touch;
+            will-change: transform;
         }
         
         .absolute {
@@ -153,6 +159,44 @@
         
         .project-card:hover {
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Mobile scroll optimizations */
+        .mobile-scroll-container {
+            -webkit-overflow-scrolling: touch;
+            overflow-y: auto;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .mobile-scroll-container::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome/Safari/Opera */
+        }
+        
+        /* iOS specific fixes */
+        .ios-device {
+            -webkit-overflow-scrolling: touch;
+            overflow-y: scroll;
+        }
+        
+        .ios-device body {
+            height: 100%;
+            position: fixed;
+            overflow-y: scroll;
+            width: 100%;
+        }
+        
+        /* On small screens, ensure content is scrollable */
+        @media (max-width: 768px) {
+            body, html {
+                height: auto;
+                overflow-y: auto;
+                position: static;
+            }
+            
+            section {
+                overflow: visible;
+                height: auto;
+            }
         }
     </style>
 </head>
@@ -215,7 +259,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow">
+    <main class="flex-grow mobile-scroll-container">
     
     <!-- Hero Section -->
     <section class="bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-700 text-white pt-16 pb-10 md:py-20 flex items-center justify-center relative overflow-hidden mt-14">
@@ -1163,7 +1207,7 @@
             <input type="hidden" name="visit_time" id="visitTime">
             <input type="hidden" name="visitor_info" id="visitorInfo">
             <input type="hidden" name="_replyto" value="srinivas0k7@gmail.com">
-            <input type="hidden" name="_template" value="table">
+                                             <input type="hidden" name="_template" value="table">
         </form>
     </div>
 
@@ -1183,15 +1227,24 @@
                 });
             });
             
-            // Add smooth scrolling to all links
+            // Add smooth scrolling to all links - enhanced for mobile
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     if (targetId !== '#') {
-                        document.querySelector(targetId).scrollIntoView({
-                            behavior: 'smooth'
-                        });
+                        const targetElement = document.querySelector(targetId);
+                        // Enhanced smooth scrolling with fallback
+                        if ('scrollBehavior' in document.documentElement.style) {
+                            // Modern browsers
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 70, // Adjust for header
+                                behavior: 'smooth'
+                            });
+                        } else {
+                            // Fallback for older browsers
+                            window.scrollTo(0, targetElement.offsetTop - 70);
+                        }
                     }
                 });
             });
@@ -1360,6 +1413,35 @@
                 e.preventDefault();
             }
         }, { passive: false });
+        
+        // Fix white space on scroll overflow
+        function updateHeight() {
+            const body = document.body;
+            const html = document.documentElement;
+            
+            const height = Math.max(
+                body.scrollHeight,
+                body.offsetHeight,
+                html.scrollHeight,
+                html.offsetHeight
+            );
+            
+            document.documentElement.style.setProperty('--real-height', `${height}px`);
+        }
+        
+        updateHeight();
+        window.addEventListener('resize', updateHeight);
+        
+        // iOS specific scroll fix
+        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+            document.documentElement.classList.add('ios-device');
+            document.body.classList.add('ios-device');
+            
+            // Additional iOS-specific fixes
+            document.addEventListener('touchmove', function(e) {
+                // Allow default scrolling behavior
+            }, { passive: true });
+        }
         
         // Fix white space on scroll overflow
         function fixHeight() {
