@@ -4,7 +4,8 @@
   "description": "Kunchala Srinivas portfolio website",
   "main": "index.js",
   "scripts": {
-    "start": "echo 'This is a static website, no build process required'"
+    "start": "echo 'This is a static website, no build process required'",
+    "build": "echo 'No build step needed for static site'"
   },
   "repository": {
     "type": "git",

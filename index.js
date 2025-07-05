@@ -1,2 +1,3 @@
-// This file helps some deployment platforms recognize this as a web project
-// It's not actually used in the static site
+// This file helps Vercel recognize this as a Node.js project
+// It's not actually used since this is a static site
+// We only need this for Vercel deployment detection
