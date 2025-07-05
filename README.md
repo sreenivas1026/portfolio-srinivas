@@ -57,28 +57,27 @@ To deploy this website:
 3. Make sure to replace the placeholder resume with your actual resume
 4. Set up the visitor notification system by following the instructions in `visitor-notification-setup.md`
 
-## 📤 Deployment with GitHub Pages
+## 📤 Deployment with Netlify (Recommended)
 
-To deploy this website using GitHub Pages:
+To deploy this website using Netlify (best for custom domains):
 
-1. Push your code to GitHub (already done)
-2. GitHub Actions will automatically deploy your site when you push to the master branch
-3. Go to your repository settings on GitHub
-4. Navigate to "Pages" in the sidebar
-5. Under "Build and deployment" section, ensure:
-   - Source is set to "GitHub Actions"
-6. Your site will be available at `https://[your-username].github.io/portfolio-srinivas/`
+1. Go to [Netlify](https://app.netlify.com/) and sign up/login (you can use your GitHub account)
+2. Click "Add new site" > "Import an existing project"
+3. Select GitHub as the source and choose your portfolio-srinivas repository
+4. Configure deployment settings:
+   - Branch: master
+   - Base directory: (leave empty)
+   - Build command: (leave empty)
+   - Publish directory: (leave empty)
+5. Click "Deploy site"
 
 For a custom domain:
-1. In your GitHub repository settings, go to "Pages"
-2. Under "Custom domain", enter your domain "srinivaskunchala.me"
-3. Add a CNAME record in your DNS settings pointing to your GitHub Pages URL
-4. GitHub will automatically handle SSL certificates
+1. In Netlify dashboard, go to "Site settings" > "Domain management"
+2. Click "Add custom domain" and enter "srinivaskunchala.me"
+3. Follow Netlify's instructions to verify domain ownership and configure DNS
+4. Netlify will automatically handle SSL certificates
 
-If you encounter any deployment issues:
-1. Check the GitHub Actions tab for build logs and error messages
-2. Ensure your repository has proper permissions for GitHub Actions
-3. Verify that the branch name in the workflow file matches your default branch
+For detailed instructions and troubleshooting, see `netlify-deployment.md` in this repository.
 
 ## � Security Notes
 
