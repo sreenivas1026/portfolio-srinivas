@@ -22,22 +22,29 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
 
-      - name: Create required files
+      - name: Create and verify required files
         run: |
           echo "Creating deployment files"
           touch .nojekyll
-          echo "sreenivas1026.github.io" > CNAME
+          echo "srinivaskunchala.me" > CNAME
           
-      - name: Deploy directly to gh-pages
+          # List essential files to verify they exist
+          echo "Verifying essential files:"
+          ls -la index.html favicon.ico mobile-fixes.css hamburger-fix.css scroll-fix.js nav-scroll-fix.js form-handler.js
+          
+      - name: Deploy to gh-pages
         run: |
-          # Create new clean gh-pages branch
+          # Create clean gh-pages branch
           git checkout --orphan gh-pages-new
           
-          # Add all the files
-          git add -A
+          # Only keep essential files
+          find . -maxdepth 1 -not -name ".git" -not -name "index.html" -not -name "favicon.ico" -not -name "mobile-fixes.css" -not -name "hamburger-fix.css" -not -name "scroll-fix.js" -not -name "nav-scroll-fix.js" -not -name "form-handler.js" -not -name ".nojekyll" -not -name "CNAME" -not -name "404.html" -not -name "robots.txt" -not -name "sitemap.xml" -not -name "assets" -not -name "css" -not -name "js" -not -name "." -exec git rm -rf --cached {} \; || true
+          
+          # Keep directories that we need
+          git add index.html favicon.ico mobile-fixes.css hamburger-fix.css scroll-fix.js nav-scroll-fix.js form-handler.js .nojekyll CNAME 404.html robots.txt sitemap.xml assets/ css/ js/
           
           # Commit the files
-          git commit -m "Direct deployment via GitHub Actions"
+          git commit -m "Deploy essential files to GitHub Pages"
           
           # Force push to gh-pages branch
           git push -f origin gh-pages-new:gh-pages

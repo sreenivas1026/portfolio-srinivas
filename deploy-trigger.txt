@@ -1,2 +1,0 @@
-This file is used to trigger GitHub Pages deployments.
-Last deployment: July 5, 2025
