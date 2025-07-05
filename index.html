@@ -1204,8 +1204,8 @@
                                 <input type="hidden" name="_replyto" value="srinivas0k7@gmail.com">
                                 <input type="hidden" name="_subject" value="🔔 New Contact Form Submission">
                                 <input type="hidden" name="_template" value="table">
-                                <!-- No redirection, we'll handle the response with JavaScript -->
-                                <input type="hidden" name="_next" value="">
+                                <!-- Use AJAX for form submission instead of redirect -->
+                                <input type="hidden" name="_format" value="json">
                                 
                                 <!-- Name Input -->
                                 <div>
@@ -1672,5 +1672,8 @@
     
     <!-- Scroll fix for mobile -->
     <script src="scroll-fix.js"></script>
+    
+    <!-- Form submission handler -->
+    <script src="form-handler.js"></script>
 </body>
 </html>
