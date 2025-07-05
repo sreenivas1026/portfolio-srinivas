@@ -81,6 +81,7 @@
     <!-- Mobile Fixes CSS -->
     <link rel="stylesheet" href="mobile-fixes.css">
     <link rel="stylesheet" href="hamburger-fix.css">
+    <link rel="stylesheet" href="education-timeline-fix.css">
     
     <style>
         /* Custom styles */
@@ -370,7 +371,7 @@
         <nav class="container mx-auto px-3 py-2 flex justify-between items-center relative">
             <!-- Mobile menu button with animated hamburger - moved to right -->
             <div class="absolute right-3 top-2 md:hidden z-30">
-                <button class="flex items-center justify-center p-2" id="mobile-menu-button" aria-label="Toggle menu">
+                <button class="flex items-center justify-center p-2" id="mobile-menu-button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
                     <div class="hamburger-icon">
                         <span></span>
                         <span></span>
@@ -399,7 +400,7 @@
             </div>
             
             <div class="hidden md:flex items-center space-x-4">
-                <a href="https://www.linkedin.com/in/kunchala-srinivas-005045259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-gray-600 hover:text-blue-500 transition-all hover:scale-110">
+                <a href="https://www.linkedin.com/in/kunchala-srinivas-005045259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-gray-600 hover:text-blue-500 transition-all hover:scale-110" aria-label="LinkedIn Profile">
                     <i class="fab fa-linkedin text-xl"></i>
                 </a>
                 <a href="mailto:srinivas0k7@gmail.com" class="text-gray-600 hover:text-red-500 transition-all hover:scale-110">
@@ -431,7 +432,7 @@
                 </a>
                 
                 <div class="flex items-center space-x-4 mt-4 pb-2 border-t pt-3">
-                    <a href="https://www.linkedin.com/in/kunchala-srinivas-005045259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700">
+                    <a href="https://www.linkedin.com/in/kunchala-srinivas-005045259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700" aria-label="LinkedIn Profile">
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="mailto:srinivas0k7@gmail.com" class="text-gray-600 hover:text-red-500">
@@ -491,7 +492,7 @@
                     <!-- Profile photo with animated gradient border -->
                     <div class="p-2 md:p-3 bg-gradient-to-r from-blue-300 via-purple-300 to-indigo-300 animate-pulse rounded-full shadow-lg">
                         <div class="hero-image-container relative overflow-hidden border-3 md:border-4 border-white/30 shadow-2xl rounded-full w-40 h-40 sm:w-44 sm:h-44 md:w-56 md:h-56">
-                            <img src="image.png" alt="Kunchala Srinivas" class="w-full h-full object-cover">
+                            <img src="assets/img/profile-image.png" alt="Kunchala Srinivas" class="w-full h-full object-cover">
                             <!-- Glowing effect -->
                             <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10"></div>
                         </div>
@@ -515,7 +516,7 @@
                         <!-- Image container -->
                         <div class="bg-white p-3 rounded-xl shadow-2xl relative z-10">
                             <div class="about-image-container rounded-lg overflow-hidden bg-gray-800 w-52 h-52 mx-auto">
-                                <img src="image.png" alt="Srinivas" class="w-full h-full object-cover">
+                                <img src="assets/img/profile-image.png" alt="Srinivas" class="w-full h-full object-cover">
                             </div>
                             
                             <!-- Stats badges -->
@@ -1214,7 +1215,7 @@
                             
                             <div class="mt-8 flex space-x-4">
                                 <a href="https://www.linkedin.com/in/kunchala-srinivas-005045259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"
-                                   class="bg-gradient-to-r from-blue-600 to-blue-700 p-3 rounded-full text-white hover:scale-110 transition-all shadow-lg w-10 h-10 flex items-center justify-center">
+                                   class="bg-gradient-to-r from-blue-600 to-blue-700 p-3 rounded-full text-white hover:scale-110 transition-all shadow-lg w-10 h-10 flex items-center justify-center" aria-label="LinkedIn Profile">
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                                 <a href="mailto:srinivas0k7@gmail.com" target="_blank"
@@ -1702,6 +1703,9 @@
         })();
     </script>
     
+    <!-- Enhanced hamburger menu fix -->
+    <script src="hamburger-menu-fix.js"></script>
+    
     <!-- Make sure GitHub Pages recognizes this is a static site -->
     <script>
         // This helps GitHub Pages deployment
@@ -1710,7 +1714,8 @@
             
             // Verify we have all the required files loaded
             const requiredFiles = [
-                'index.html', 'scroll-fix.js', 'nav-scroll-fix.js', 'form-handler.js', 'mobile-fixes.css'
+                'index.html', 'scroll-fix.js', 'nav-scroll-fix.js', 'form-handler.js', 
+                'mobile-fixes.css', 'hamburger-menu-fix.js', 'education-timeline-fix.css'
             ];
             console.log("Static site initialized");
             

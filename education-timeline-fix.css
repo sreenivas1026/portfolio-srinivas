@@ -1,0 +1,65 @@
+/* Enhanced education timeline fixes for mobile */
+@media (max-width: 767px) {
+    /* Timeline line adjustments */
+    #education .relative .absolute.left-0, 
+    #education .relative .absolute.left-1\/2 {
+        left: 20px !important;
+        transform: translateX(0) !important;
+    }
+    
+    /* Timeline content adjustments */
+    #education .ml-10,
+    #education .ml-8,
+    #education .ml-6,
+    #education .ml-4 {
+        margin-left: 40px !important;
+        width: calc(100% - 50px) !important;
+    }
+    
+    /* Timeline dots position */
+    #education .absolute.left-0.w-6.h-6,
+    #education .absolute.left-1\/2.w-6.h-6,
+    #education .absolute.w-6.h-6 {
+        left: 20px !important;
+        transform: translateX(0) !important;
+        z-index: 5;
+    }
+    
+    /* Make timeline elements full width on mobile */
+    #education .md\:w-1\/2 {
+        width: calc(100% - 50px) !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        text-align: left !important;
+        margin-right: 0 !important;
+    }
+    
+    /* Fix specific alignment issues */
+    #education .md\:ml-0,
+    #education .md\:ml-auto,
+    #education .md\:mr-auto,
+    #education .md\:text-right,
+    #education .md\:text-left {
+        margin-left: 40px !important;
+        margin-right: 0 !important;
+        text-align: left !important;
+    }
+    
+    /* Ensure content fits within screen */
+    #education .bg-white.bg-opacity-10 {
+        width: 100% !important;
+        max-width: calc(100vw - 60px);
+    }
+    
+    /* Make sure timeline elements stack correctly */
+    #education .relative.flex.flex-col.md\:flex-row {
+        margin-bottom: 2rem !important;
+    }
+    
+    /* Ensure timeline line goes through all elements */
+    #education .absolute.left-0.md\:left-1\/2.top-0.bottom-0.w-1 {
+        left: 20px !important;
+        height: 100% !important;
+        transform: translateX(0) !important;
+    }
+}
