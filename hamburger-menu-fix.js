@@ -1,69 +1,94 @@
 // Enhanced hamburger menu functionality for mobile
 document.addEventListener('DOMContentLoaded', function() {
-    // Get elements
+    console.log('Hamburger menu script loaded');
+    
+    // Direct implementation without using existing code
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const hamburgerIcon = document.querySelector('.hamburger-icon');
     const mobileMenu = document.getElementById('mobile-menu');
     
     if (!mobileMenuButton || !hamburgerIcon || !mobileMenu) {
-        console.error('Mobile menu elements not found');
+        console.error('Mobile menu elements not found:', {
+            button: !!mobileMenuButton,
+            icon: !!hamburgerIcon,
+            menu: !!mobileMenu
+        });
         return;
     }
     
-    // Clear any existing listeners to avoid duplicates
-    const newMobileMenuButton = mobileMenuButton.cloneNode(true);
-    mobileMenuButton.parentNode.replaceChild(newMobileMenuButton, mobileMenuButton);
+    console.log('Menu elements found, initializing');
     
-    // Function to toggle menu visibility with animation
+    // Force initialization state
+    mobileMenu.classList.add('hidden');
+    hamburgerIcon.classList.remove('open');
+    let menuOpen = false;
+    
+    // Improved toggle function with direct manipulation
     function toggleMobileMenu(e) {
         if (e) {
-            e.preventDefault(); // Prevent default behavior
-            e.stopPropagation(); // Stop event from propagating
+            e.preventDefault();
+            e.stopPropagation();
         }
         
-        console.log('Toggle mobile menu clicked');
+        menuOpen = !menuOpen;
+        console.log('Menu toggled:', menuOpen ? 'open' : 'closed');
         
-        if (mobileMenu.classList.contains('hidden')) {
-            // Show menu with animation
+        if (menuOpen) {
+            // Show menu
+            mobileMenu.style.display = 'block';
             mobileMenu.classList.remove('hidden');
-            setTimeout(() => {
-                mobileMenu.classList.remove('opacity-0', 'scale-95');
-                mobileMenu.classList.add('opacity-100', 'scale-100');
-                hamburgerIcon.classList.add('open');
-            }, 10); // Small delay to ensure transition works
+            mobileMenu.classList.remove('opacity-0', 'scale-95');
+            mobileMenu.classList.add('opacity-100', 'scale-100');
+            hamburgerIcon.classList.add('open');
+            mobileMenuButton.setAttribute('aria-expanded', 'true');
         } else {
-            // Hide menu with animation
+            // Hide menu
             mobileMenu.classList.add('opacity-0', 'scale-95');
             mobileMenu.classList.remove('opacity-100', 'scale-100');
             hamburgerIcon.classList.remove('open');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
             setTimeout(() => {
                 mobileMenu.classList.add('hidden');
-            }, 300); // Match transition duration
+                mobileMenu.style.display = '';
+            }, 300);
         }
     }
     
-    // Add both click and touch events for better mobile support
-    newMobileMenuButton.addEventListener('click', toggleMobileMenu, { capture: true });
+    // Direct event binding without cloning
+    mobileMenuButton.addEventListener('click', toggleMobileMenu, { passive: false });
     
-    // Handle mobile menu item clicks
+    // Add touch events specifically for mobile
+    mobileMenuButton.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        toggleMobileMenu();
+    }, { passive: false });
+    
+    // Handle links in mobile menu
     document.querySelectorAll('#mobile-menu a').forEach(link => {
         link.addEventListener('click', function() {
-            // Close menu when a link is clicked
+            menuOpen = false;
             mobileMenu.classList.add('opacity-0', 'scale-95');
             mobileMenu.classList.remove('opacity-100', 'scale-100');
             hamburgerIcon.classList.remove('open');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
             setTimeout(() => {
                 mobileMenu.classList.add('hidden');
+                mobileMenu.style.display = '';
             }, 300);
         });
     });
     
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!mobileMenu.classList.contains('hidden') && 
-            !mobileMenu.contains(e.target) && 
-            !newMobileMenuButton.contains(e.target)) {
-            toggleMobileMenu();
+    // Show/hide menu on resize (in case screen size changes)
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 768) { // md breakpoint
+            if (menuOpen) {
+                menuOpen = false;
+                mobileMenu.classList.add('hidden');
+                hamburgerIcon.classList.remove('open');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+            }
         }
     });
+    
+    console.log('Hamburger menu initialization complete');
 });

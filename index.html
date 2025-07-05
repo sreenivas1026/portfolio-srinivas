@@ -81,6 +81,7 @@
     <!-- Mobile Fixes CSS -->
     <link rel="stylesheet" href="mobile-fixes.css">
     <link rel="stylesheet" href="hamburger-fix.css">
+    <link rel="stylesheet" href="hamburger-additional-fix.css">
     <link rel="stylesheet" href="education-timeline-fix.css">
     
     <style>
@@ -410,7 +411,7 @@
         </nav>
         
         <!-- Mobile menu (hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-b from-gray-50 to-gray-100 shadow-lg absolute left-0 right-0 top-14 w-full z-50 max-h-[80vh] transform transition-all duration-300 opacity-0 scale-95" style="overflow-y: auto; -webkit-overflow-scrolling: touch;">
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-b from-gray-50 to-gray-100 shadow-lg fixed left-0 right-0 top-14 w-full z-50 max-h-[80vh] transform transition-all duration-300 opacity-0 scale-95" style="overflow-y: auto; -webkit-overflow-scrolling: touch;">
             <div class="container mx-auto px-4 py-2">
                 <a href="#about" class="block py-3 px-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text border-b border-gray-200">
                     <i class="fas fa-user-circle mr-2"></i> About
@@ -492,7 +493,9 @@
                     <!-- Profile photo with animated gradient border -->
                     <div class="p-2 md:p-3 bg-gradient-to-r from-blue-300 via-purple-300 to-indigo-300 animate-pulse rounded-full shadow-lg">
                         <div class="hero-image-container relative overflow-hidden border-3 md:border-4 border-white/30 shadow-2xl rounded-full w-40 h-40 sm:w-44 sm:h-44 md:w-56 md:h-56">
-                            <img src="assets/img/profile-image.png" alt="Kunchala Srinivas" class="w-full h-full object-cover">
+                            <div class="w-full h-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center text-white text-4xl font-bold">
+                                SK
+                            </div>
                             <!-- Glowing effect -->
                             <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10"></div>
                         </div>
@@ -516,7 +519,9 @@
                         <!-- Image container -->
                         <div class="bg-white p-3 rounded-xl shadow-2xl relative z-10">
                             <div class="about-image-container rounded-lg overflow-hidden bg-gray-800 w-52 h-52 mx-auto">
-                                <img src="assets/img/profile-image.png" alt="Srinivas" class="w-full h-full object-cover">
+                                <div class="w-full h-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center text-white text-5xl font-bold">
+                                    SK
+                                </div>
                             </div>
                             
                             <!-- Stats badges -->
@@ -1706,6 +1711,37 @@
     <!-- Enhanced hamburger menu fix -->
     <script src="hamburger-menu-fix.js"></script>
     
+    <!-- Additional hamburger menu script -->
+    <script>
+        // Direct hamburger menu implementation as a backup
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Backup hamburger menu script running');
+            
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const hamburgerIcon = document.querySelector('.hamburger-icon');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && hamburgerIcon && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    if (mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.style.display = 'block';
+                        mobileMenu.classList.remove('hidden');
+                        hamburgerIcon.classList.add('open');
+                    } else {
+                        mobileMenu.classList.add('hidden');
+                        hamburgerIcon.classList.remove('open');
+                        setTimeout(() => {
+                            mobileMenu.style.display = '';
+                        }, 300);
+                    }
+                });
+            }
+        });
+    </script>
+
     <!-- Make sure GitHub Pages recognizes this is a static site -->
     <script>
         // This helps GitHub Pages deployment
@@ -1715,7 +1751,8 @@
             // Verify we have all the required files loaded
             const requiredFiles = [
                 'index.html', 'scroll-fix.js', 'nav-scroll-fix.js', 'form-handler.js', 
-                'mobile-fixes.css', 'hamburger-menu-fix.js', 'education-timeline-fix.css'
+                'mobile-fixes.css', 'hamburger-menu-fix.js', 'education-timeline-fix.css',
+                'hamburger-additional-fix.css'
             ];
             console.log("Static site initialized");
             
