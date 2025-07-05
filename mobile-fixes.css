@@ -1,17 +1,24 @@
 /* Education timeline fixes for mobile */
 @media (max-width: 767px) {
     /* Timeline line adjustments */
-    #education .relative .absolute.left-0 {
+    #education .relative .absolute.left-0, 
+    #education .relative .absolute.left-1\/2 {
         left: 10px !important;
+        transform: translateX(0) !important;
     }
     
     /* Timeline content adjustments */
-    #education .ml-10 {
+    #education .ml-10,
+    #education .ml-8,
+    #education .ml-6,
+    #education .ml-4 {
         margin-left: 25px !important;
     }
     
     /* Timeline dots position */
-    #education .absolute.left-0.w-6.h-6 {
+    #education .absolute.left-0.w-6.h-6,
+    #education .absolute.left-1\/2.w-6.h-6,
+    #education .absolute.w-6.h-6 {
         left: 10px !important;
         transform: translateX(0) !important;
     }
@@ -27,8 +34,11 @@
     /* Fix specific alignment issues */
     #education .md\:ml-0,
     #education .md\:ml-auto,
-    #education .md\:text-right {
+    #education .md\:mr-auto,
+    #education .md\:text-right,
+    #education .md\:text-left {
         margin-left: 25px !important;
+        margin-right: 0 !important;
         text-align: left !important;
     }
     
@@ -36,6 +46,17 @@
     #education .bg-white.bg-opacity-10 {
         width: 100% !important;
         max-width: calc(100vw - 50px);
+    }
+    
+    /* Improve spacing between timeline items */
+    #education .space-y-16 > div {
+        margin-bottom: 2rem !important;
+    }
+    
+    /* Ensure all timeline elements have same alignment */
+    #education .relative > div {
+        left: 0 !important;
+        transform: none !important;
     }
 }
 

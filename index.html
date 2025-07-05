@@ -80,6 +80,7 @@
     
     <!-- Mobile Fixes CSS -->
     <link rel="stylesheet" href="mobile-fixes.css">
+    <link rel="stylesheet" href="hamburger-fix.css">
     
     <style>
         /* Custom styles */
@@ -389,14 +390,27 @@
         <!-- Mobile menu (hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-b from-gray-50 to-gray-100 shadow-lg absolute left-0 right-0 top-14 w-full z-50 max-h-[80vh] transform transition-all duration-300 opacity-0 scale-95" style="overflow-y: auto; -webkit-overflow-scrolling: touch;">
             <div class="container mx-auto px-4 py-2">
-                <a href="#about" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">About</a>
-                <a href="#skills" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">Skills</a>
-                <a href="#experience" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">Experience</a>
-                <a href="#projects" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">Projects</a>
-                <a href="#contact" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">Contact</a>
+                <a href="#about" class="block py-3 px-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text border-b border-gray-200">
+                    <i class="fas fa-user-circle mr-2"></i> About
+                </a>
+                <a href="#skills" class="block py-3 px-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text border-b border-gray-200">
+                    <i class="fas fa-code mr-2"></i> Skills
+                </a>
+                <a href="#education" class="block py-3 px-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text border-b border-gray-200">
+                    <i class="fas fa-graduation-cap mr-2"></i> Education
+                </a>
+                <a href="#experience" class="block py-3 px-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text border-b border-gray-200">
+                    <i class="fas fa-briefcase mr-2"></i> Experience
+                </a>
+                <a href="#projects" class="block py-3 px-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text border-b border-gray-200">
+                    <i class="fas fa-project-diagram mr-2"></i> Projects
+                </a>
+                <a href="#contact" class="block py-3 px-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">
+                    <i class="fas fa-envelope mr-2"></i> Contact
+                </a>
                 
-                <div class="flex items-center space-x-4 mt-3 pb-2 border-t pt-2">
-                    <a href="https://www.linkedin.com/in/kunchala-srinivas-005045259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-gray-600 hover:text-blue-500">
+                <div class="flex items-center space-x-4 mt-4 pb-2 border-t pt-3">
+                    <a href="https://www.linkedin.com/in/kunchala-srinivas-005045259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700">
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="mailto:srinivas0k7@gmail.com" class="text-gray-600 hover:text-red-500">
@@ -1305,7 +1319,7 @@
                                     <div class="flex justify-center">
                                         <p class="text-gray-300 mb-4 font-mono flex items-center flex-wrap justify-center">$ <span class="typing-text inline-block overflow-hidden border-r-2 border-green-500 pr-1 animate-blink-caret ml-1 max-w-full break-words"></span></p>
                                     </div>
-                                    <button id="sendAnotherBtn" class="py-2 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-lg text-sm flex items-center justify-center gap-2 mx-auto transition-all duration-300 hover:scale-105">
+                                    <button id="sendAnotherBtn" class="w-full max-w-xs py-2 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-lg text-sm flex items-center justify-center gap-2 mx-auto transition-all duration-300">
                                         <i class="fas fa-redo-alt"></i> Send Another Message
                                     </button>
                                 </div>
@@ -1349,8 +1363,10 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Mobile scroll fix -->
+    <!-- Scripts for fixing mobile issues -->
     <script src="scroll-fix.js"></script>
+    <script src="nav-scroll-fix.js"></script>
+    <script src="form-handler.js"></script>
     
     <!-- Hidden form for visitor tracking -->
     <div style="display:none;">
@@ -1359,7 +1375,7 @@
             <input type="hidden" name="visit_time" id="visitTime">
             <input type="hidden" name="visitor_info" id="visitorInfo">
             <input type="hidden" name="_replyto" value="srinivas0k7@gmail.com">
-                                             <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_template" value="table">
         </form>
     </div>
 
