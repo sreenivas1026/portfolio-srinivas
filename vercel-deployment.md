@@ -23,17 +23,12 @@
 
 If you encounter deployment errors:
 
-1. **Invalid JSON in vercel.json**:
-   - Validate your JSON using a tool like [JSONLint](https://jsonlint.com/)
-   - Check for missing commas, brackets, or quote issues
-   - Simplify the configuration by removing complex directives
-   - Ensure all quotes are properly escaped
+1. **Static Site Configuration**:
+   - Ensure you've selected "Static Site" or "Other" as your framework preset
+   - Set the correct root and output directories (both should be "./")
+   - No build command is needed for this simple static site
 
-2. **Content-Security-Policy Issues**:
-   - If the CSP header causes problems, you can simplify or remove it
-   - Single quotes within JSON strings must be properly escaped
-
-3. **Common Error Codes**:
+2. **Common Error Codes**:
    - **DEPLOYMENT_NOT_FOUND (404)**: The deployment URL is incorrect or has been deleted
    - **DEPLOYMENT_BLOCKED (403)**: Deployment is blocked due to account restrictions
    - **DEPLOYMENT_NOT_READY_REDIRECTING (303)**: Deployment is still being processed

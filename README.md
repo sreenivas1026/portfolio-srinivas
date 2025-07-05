@@ -72,8 +72,6 @@ To deploy this website using Vercel:
    - Output directory: ./
 6. Click "Deploy"
 
-Note: The `vercel.json` file in the repository already contains the necessary configuration for deployment as a static site with security headers.
-
 For a custom domain:
 1. In your Vercel project settings, go to "Domains"
 2. Add your domain "srinivaskunchala.me"
@@ -82,8 +80,8 @@ For a custom domain:
 
 If you encounter any deployment issues:
 1. Check the build logs for specific error messages
-2. Ensure the `vercel.json` file is valid JSON and contains correct configuration
-3. Try simplifying the configuration if problems persist
+2. Try selecting "Static Site" from the framework presets if you're having issues
+3. Ensure you're using the correct root directory and output directory settings
 
 ## � Security Notes
 
@@ -115,19 +113,6 @@ This project is licensed under the MIT License.
 - Rate limiting is implemented to prevent abuse of the notification system
 - No user data is stored or collected beyond what's needed for the visitor notification
 - All emails are sent directly to your Gmail address (srinivas0k7@gmail.com)
-├── assets/
-│   └── img/            # Images and icons
-├── css/
-│   ├── input.css       # Tailwind input file
-│   └── style.css       # Compiled CSS
-├── js/
-│   └── main.js         # Main JavaScript file
-├── public/
-│   └── resume.pdf      # Your resume (replace with your own)
-├── index.html          # Main HTML file
-├── package.json        # Project dependencies
-├── tailwind.config.js  # Tailwind configuration
-└── vercel.json         # Vercel deployment configuration
 ```
 
 ## 🔒 Security Notes
