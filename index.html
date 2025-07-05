@@ -82,7 +82,8 @@
             overflow-x: hidden;
             width: 100%;
             height: 100%;
-            position: relative;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
         }
         
         body {
@@ -90,8 +91,11 @@
             position: relative;
             width: 100%;
             min-height: 100%;
-            touch-action: pan-y;
             background-color: #0f172a; /* Dark background to prevent white flash */
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-y: none;
+            display: flex;
+            flex-direction: column;
         }
         
         section {
@@ -152,7 +156,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 font-sans overflow-x-hidden">
+<body class="bg-gray-900 font-sans overflow-x-hidden flex flex-col min-h-screen">
     <!-- Header / Navigation -->
     <header class="bg-gradient-to-r from-gray-50 to-gray-100 backdrop-blur-sm shadow-md fixed top-0 left-0 right-0 z-50 w-full">
         <nav class="container mx-auto px-3 py-2 flex justify-between items-center">
@@ -190,7 +194,7 @@
         </nav>
         
         <!-- Mobile menu (hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-b from-gray-50 to-gray-100 shadow-lg fixed left-0 right-0 top-14 w-full z-50">
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-b from-gray-50 to-gray-100 shadow-lg fixed left-0 right-0 top-14 w-full z-50 max-h-[80vh] overflow-y-auto">
             <div class="container mx-auto px-4 py-2">
                 <a href="#about" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">About</a>
                 <a href="#skills" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">Skills</a>
@@ -199,7 +203,7 @@
                 <a href="#contact" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">Contact</a>
                 
                 <div class="flex items-center space-x-4 mt-3 pb-2 border-t pt-2">
-                    <a href="https://linkedin.com/in/kunchalasrinivas" target="_blank" class="text-gray-600 hover:text-blue-500">
+                    <a href="https://www.linkedin.com/in/srinivas-kunchala/" target="_blank" class="text-gray-600 hover:text-blue-500">
                         <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="mailto:srinivas0k7@gmail.com" class="text-gray-600 hover:text-red-500">
@@ -210,6 +214,9 @@
         </div>
     </header>
 
+    <!-- Main Content -->
+    <main class="flex-grow">
+    
     <!-- Hero Section -->
     <section class="bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-700 text-white pt-16 pb-10 md:py-20 flex items-center justify-center relative overflow-hidden mt-14">
         <!-- Animated gradient background -->
@@ -1116,9 +1123,11 @@
             </div>
         </div>
     </section>
+    
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-black text-white py-6 md:py-8 border-t border-indigo-900">
+    <footer class="bg-black text-white py-6 md:py-8 border-t border-indigo-900 mt-auto">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0 flex items-center">
