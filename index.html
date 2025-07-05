@@ -93,20 +93,20 @@
             min-height: 100%;
             background-color: #0f172a; /* Dark background to prevent white flash */
             -webkit-overflow-scrolling: touch;
-            overscroll-behavior: none;
+            overscroll-behavior-y: auto; /* Changed to allow native scrolling */
             display: flex;
             flex-direction: column;
             /* Enhanced mobile scrolling */
             scroll-behavior: smooth;
-            will-change: scroll-position;
-            touch-action: manipulation;
+            touch-action: pan-y; /* Allow vertical touch scrolling */
         }
         
         section {
             position: relative;
             width: 100%;
             overflow: visible; /* Changed from hidden to prevent scroll issues */
-            min-height: 100vh; /* Ensure sections fill viewport */
+            min-height: auto; /* Changed from 100vh for better mobile scrolling */
+            padding: 4rem 0; /* Use padding instead of min-height for section spacing */
             -webkit-overflow-scrolling: touch;
             will-change: transform;
         }
@@ -172,30 +172,25 @@
             display: none; /* Hide scrollbar for Chrome/Safari/Opera */
         }
         
-        /* iOS specific fixes */
-        .ios-device {
-            -webkit-overflow-scrolling: touch;
-            overflow-y: scroll;
-        }
-        
-        .ios-device body {
-            height: 100%;
-            position: fixed;
-            overflow-y: scroll;
-            width: 100%;
-        }
-        
-        /* On small screens, ensure content is scrollable */
+        /* Additional mobile optimizations */
         @media (max-width: 768px) {
             body, html {
-                height: auto;
-                overflow-y: auto;
-                position: static;
+                height: 100%;
+                position: relative;
+                overflow-y: auto !important;
             }
             
             section {
-                overflow: visible;
-                height: auto;
+                overflow: visible !important;
+                min-height: auto;
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+            
+            .btn {
+                /* Adjust button size for mobile */
+                padding: 0.5rem 1rem !important;
+                font-size: 0.875rem !important;
             }
         }
     </style>
@@ -232,13 +227,13 @@
             </div>
             
             <!-- Mobile menu button -->
-            <button class="md:hidden text-gray-600" id="mobile-menu-button">
+            <button class="md:hidden text-gray-600 transition-transform duration-300" id="mobile-menu-button">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </nav>
         
         <!-- Mobile menu (hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-b from-gray-50 to-gray-100 shadow-lg fixed left-0 right-0 top-14 w-full z-50 max-h-[80vh] overflow-y-auto">
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-b from-gray-50 to-gray-100 shadow-lg fixed left-0 right-0 top-14 w-full z-50 max-h-[80vh] overflow-y-auto transform transition-all duration-300 opacity-0 scale-95">
             <div class="container mx-auto px-4 py-2">
                 <a href="#about" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">About</a>
                 <a href="#skills" class="block py-2 text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-transparent hover:bg-clip-text">Skills</a>
@@ -296,7 +291,7 @@
                     </p>
                     
                     <div class="flex flex-wrap justify-start">
-                        <a href="resume.pdf" download class="btn px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white rounded-md font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center hover:scale-105 border border-blue-400/50">
+                        <a href="resume.pdf" download class="btn px-4 py-2 text-sm md:text-base md:px-5 md:py-2.5 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white rounded-md font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center hover:scale-105 border border-blue-400/50">
                             <i class="fas fa-file-download mr-2"></i> Download Resume <i class="fas fa-arrow-down ml-1 text-sm animate-bounce"></i>
                         </a>
                     </div>
@@ -306,7 +301,7 @@
                 <div class="lg:w-1/2 flex justify-end items-center mb-4 lg:mb-0 lg:pr-6">
                     <!-- Profile photo with animated gradient border -->
                     <div class="p-2 md:p-3 bg-gradient-to-r from-blue-300 via-purple-300 to-indigo-300 animate-pulse rounded-full shadow-lg">
-                        <div class="relative overflow-hidden border-3 md:border-4 border-white/30 shadow-2xl rounded-full w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72">
+                        <div class="relative overflow-hidden border-3 md:border-4 border-white/30 shadow-2xl rounded-full w-40 h-40 sm:w-44 sm:h-44 md:w-56 md:h-56">
                             <img src="image.png" alt="Kunchala Srinivas" class="w-full h-full object-cover">
                             <!-- Glowing effect -->
                             <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10"></div>
@@ -330,7 +325,7 @@
                         
                         <!-- Image container -->
                         <div class="bg-white p-3 rounded-xl shadow-2xl relative z-10">
-                            <div class="rounded-lg overflow-hidden bg-gray-800 w-64 h-64 mx-auto">
+                            <div class="rounded-lg overflow-hidden bg-gray-800 w-52 h-52 mx-auto">
                                 <img src="image.png" alt="Srinivas" class="w-full h-full object-cover">
                             </div>
                             
@@ -1214,18 +1209,42 @@
     <!-- Main JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
-            document.getElementById('mobile-menu-button').addEventListener('click', function() {
-                const mobileMenu = document.getElementById('mobile-menu');
-                mobileMenu.classList.toggle('hidden');
+            // Mobile menu toggle with animation
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                if (mobileMenu.classList.contains('hidden')) {
+                    // Show menu with animation
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.remove('opacity-0', 'scale-95');
+                    mobileMenu.classList.add('opacity-100', 'scale-100');
+                    mobileMenuButton.classList.add('rotate-90');
+                } else {
+                    // Hide menu with animation
+                    mobileMenu.classList.add('opacity-0', 'scale-95');
+                    mobileMenuButton.classList.remove('rotate-90');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
+                }
             });
             
             // Hide mobile menu when clicking on a link
             document.querySelectorAll('#mobile-menu a').forEach(link => {
                 link.addEventListener('click', function() {
-                    document.getElementById('mobile-menu').classList.add('hidden');
+                    mobileMenu.classList.add('opacity-0', 'scale-95');
+                    mobileMenuButton.classList.remove('rotate-90');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
                 });
             });
+            
+            // Enable touch scrolling on mobile
+            document.addEventListener('touchstart', function() {
+                // This empty handler enables the browser's default touch behavior
+            }, {passive: true});
             
             // Add smooth scrolling to all links - enhanced for mobile
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
