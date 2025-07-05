@@ -1,50 +1,35 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["master"]
-
-  # Allows you to run this workflow manually from the Actions tab
+    branches:
+      - master
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      
-      - name: Debug file structure
-        run: |
-          echo "Current directory content:"
-          ls -la
-          echo "Files in root directory:"
-          find . -maxdepth 1 -type f -name "*.html" | sort
-      
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          path: '.'
-      
+          node-version: 'lts/*'
+
+      - name: Install dependencies
+        run: npm ci || npm install || echo "No dependencies to install"
+
+      - name: Run deployment preparation script
+        run: |
+          chmod +x ./deploy.sh
+          ./deploy.sh
+
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: .
+          clean: true
+          token: ${{ secrets.GITHUB_TOKEN }}
