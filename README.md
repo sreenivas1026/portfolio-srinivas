@@ -53,27 +53,27 @@ To deploy this website:
 3. Make sure to replace the placeholder resume with your actual resume
 4. Set up the visitor notification system by following the instructions in `visitor-notification-setup.md`
 
-## 📤 Deployment with Netlify (Recommended)
+## 📤 Deployment with Vercel (Recommended)
 
-To deploy this website using Netlify (best for custom domains):
+To deploy this website using Vercel:
 
-1. Go to [Netlify](https://app.netlify.com/) and sign up/login (you can use your GitHub account)
-2. Click "Add new site" > "Import an existing project"
-3. Select GitHub as the source and choose your portfolio-srinivas repository
+1. Go to [Vercel](https://vercel.com/) and sign up/login (you can use your GitHub account)
+2. Click "Add New" > "Project"
+3. Select GitHub as the source and choose your portfolio repository
 4. Configure deployment settings:
-   - Branch: master
-   - Base directory: (leave empty)
-   - Build command: (leave empty)
-   - Publish directory: (leave empty)
-5. Click "Deploy site"
+   - Framework Preset: Other
+   - Root Directory: (leave empty)
+   - Build Command: (leave empty)
+   - Output Directory: (leave empty)
+5. Click "Deploy"
 
 For a custom domain:
-1. In Netlify dashboard, go to "Site settings" > "Domain management"
-2. Click "Add custom domain" and enter "srinivaskunchala.me"
-3. Follow Netlify's instructions to verify domain ownership and configure DNS
-4. Netlify will automatically handle SSL certificates
+1. In Vercel dashboard, go to your project settings > "Domains"
+2. Click "Add" and enter your domain name (e.g., "srinivaskunchala.me")
+3. Follow Vercel's instructions to verify domain ownership and configure DNS
+4. Vercel will automatically handle SSL certificates
 
-For detailed instructions and troubleshooting, see `netlify-deployment.md` in this repository.
+The simplified folder structure will ensure that your portfolio deploys correctly on Vercel without any path-related errors or 404s.
 
 ## � Security Notes
 
