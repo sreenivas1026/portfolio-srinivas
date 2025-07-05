@@ -16,20 +16,16 @@ A modern, professional tech-oriented portfolio website for Kunchala Srinivas sho
 
 ## 📋 Repository Structure
 
-This is a static portfolio website with no server-side dependencies. It's organized into the following directories:
-
-- `/` - Main portfolio website files (index.html)
-- `/assets` - Website assets (images, CSS, JS)
-- `/public` - Public downloadable files including the resume PDF
-- `/resume` - Source files for the one-page resume with PDF generation script
+This is a static portfolio website with no server-side dependencies. All files are located in the root directory for simplicity and easier deployment:
 
 ```
 /
-├── assets/
-│   └── img/           # Images and icons
-├── public/
-│   └── resume.pdf     # Your resume (replace with your actual resume)
 ├── index.html         # Main HTML file with all content, styles and scripts
+├── One_Page_Resume.html  # HTML version of your resume
+├── resume.pdf         # PDF version of your resume (downloadable)
+├── image.png          # Your profile image
+├── favicon.ico        # Website favicon
+├── placeholder.svg    # Placeholder image (if needed)
 ├── visitor-notification-setup.md # Instructions for the visitor notification system
 └── README.md          # This file
 ```
@@ -38,15 +34,15 @@ This is a static portfolio website with no server-side dependencies. It's organi
 
 1. Simply open `index.html` in your web browser to view the portfolio
 2. Edit the HTML file directly to update content
-3. Replace the placeholder resume in `public/resume.pdf` with your actual resume
+3. Replace `resume.pdf` with your updated resume when needed
 4. Follow the instructions in `visitor-notification-setup.md` to set up the visitor notification system
 
 ## 🔍 Customization
 
 1. **Content**: Edit the HTML to change any content
 2. **Styling**: Modify the styles in the `<style>` section of the HTML
-3. **Resume**: Replace the placeholder resume with your actual PDF
-4. **Photos**: Replace placeholder images in assets/img folder
+3. **Resume**: Replace the resume.pdf file with your updated version when needed
+4. **Photos**: Replace image.png and other images with your own photos
 
 ## 📤 Deployment
 
