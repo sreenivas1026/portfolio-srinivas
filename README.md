@@ -66,7 +66,7 @@ To deploy this website to GitHub Pages:
 3. Navigate to the "Pages" section
 4. Under "Source", select "main" branch
 5. Click "Save"
-6. Your site will be published at `https://sreenivas1026.github.io/portfolio/`
+6. Your site will be published at `https://sreenivas1026.github.io/portfoilo-srinivas/`
 
 For a custom domain:
 1. In repository settings > Pages, add your custom domain
