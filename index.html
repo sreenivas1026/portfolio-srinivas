@@ -28,6 +28,7 @@
     
     <!-- Custom CSS for fixes -->
     <link rel="stylesheet" href="ultra-hamburger.css">
+    <link rel="stylesheet" href="critical-overrides.css">
     <link rel="stylesheet" href="improved-education-timeline.css">
     <link rel="stylesheet" href="improved-compatibility.css">
     <link rel="stylesheet" href="improved-accessibility.css">
@@ -368,7 +369,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 font-sans flex flex-col min-h-screen" ontouchstart="" style="padding-top: 60px !important; margin-top: 0 !important;">
+<body class="bg-gray-900 font-sans flex flex-col min-h-screen" ontouchstart="" style="padding-top: 60px !important; margin-top: 0 !important;" data-has-fixed-header="true">
     <!-- Fix mobile scrolling -->
     <script>
         // Force-fix mobile scrolling issues
@@ -1417,6 +1418,7 @@
     
     <!-- Perfect Hamburger Menu Implementation -->
     <script src="ultra-hamburger.js"></script>
+    <script src="force-init.js"></script>
     
     <!-- All hamburger styling is now in ultra-hamburger.css -->
     <!-- No additional hamburger CSS files needed -->

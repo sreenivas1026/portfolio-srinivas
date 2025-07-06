@@ -78,32 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
-                // Get mobile menu elements
-                const mobileMenu = document.getElementById('mobile-menu');
-                const hamburgerIcon = document.querySelector('.hamburger-icon');
-                const mobileMenuButton = document.getElementById('mobile-menu-button');
-                
-                // Check if mobile menu is open
-                if (mobileMenu && getComputedStyle(mobileMenu).display !== 'none') {
-                    console.log('Closing mobile menu before scrolling');
-                    
-                    // Hide mobile menu with animation
-                    mobileMenu.classList.add('opacity-0', 'scale-95');
-                    mobileMenu.classList.remove('opacity-100', 'scale-100');
-                    
-                    if (hamburgerIcon) hamburgerIcon.classList.remove('open');
-                    if (mobileMenuButton) mobileMenuButton.setAttribute('aria-expanded', 'false');
-                    
-                    // After animation, hide menu completely and scroll
-                    setTimeout(() => {
-                        mobileMenu.classList.add('hidden');
-                        mobileMenu.style.display = 'none';
-                        smoothScrollTo(targetElement);
-                    }, 300);
-                } else {
-                    // Menu not open, scroll immediately
-                    smoothScrollTo(targetElement);
-                }
+                // Immediately scroll - the ultra hamburger menu will handle its own closing
+                smoothScrollTo(targetElement);
             }
         });
     });
