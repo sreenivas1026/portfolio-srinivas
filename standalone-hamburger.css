@@ -85,12 +85,27 @@ body {
     top: 24px !important;
 }
 
-/* Animation for open state */
-.hamburger-icon.open span:nth-child(1),
+/* Enhanced animation for open state */
+.hamburger-icon span {
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55), 
+                background-color 0.3s ease,
+                width 0.3s ease,
+                top 0.3s ease,
+                left 0.3s ease !important;
+}
+
+.hamburger-icon.open span:nth-child(1) {
+    top: 12px !important;
+    width: 0% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
 .hamburger-icon.open span:nth-child(4) {
     top: 12px !important;
     width: 0% !important;
     left: 50% !important;
+    transform: translateX(-50%) !important;
 }
 
 .hamburger-icon.open span:nth-child(2) {
@@ -148,15 +163,55 @@ body {
     font-size: 16px !important;
     font-weight: 500 !important;
     color: #1f2937 !important;
-    transition: all 0.2s ease !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     text-decoration: none !important;
+    position: relative !important;
+    transform: translateX(0) !important;
+    opacity: 1 !important;
 }
+
+/* Animated entrance for menu items */
+#mobile-menu.opacity-100 a {
+    animation: slideIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both !important;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-20px) !important;
+        opacity: 0 !important;
+    }
+    100% {
+        transform: translateX(0) !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Stagger animation timing for each menu item */
+#mobile-menu.opacity-100 a:nth-child(1) { animation-delay: 0.05s !important; }
+#mobile-menu.opacity-100 a:nth-child(2) { animation-delay: 0.10s !important; }
+#mobile-menu.opacity-100 a:nth-child(3) { animation-delay: 0.15s !important; }
+#mobile-menu.opacity-100 a:nth-child(4) { animation-delay: 0.20s !important; }
+#mobile-menu.opacity-100 a:nth-child(5) { animation-delay: 0.25s !important; }
+#mobile-menu.opacity-100 a:nth-child(6) { animation-delay: 0.30s !important; }
+#mobile-menu.opacity-100 a:nth-child(7) { animation-delay: 0.35s !important; }
 
 #mobile-menu a:hover,
 #mobile-menu a:active,
 #mobile-menu a:focus {
     background-color: rgba(79, 70, 229, 0.1) !important;
     color: #4f46e5 !important;
+    transform: translateX(5px) !important;
+}
+
+/* Icon animations in mobile menu */
+#mobile-menu a i {
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
+    display: inline-block !important;
+    margin-right: 10px !important;
+}
+
+#mobile-menu a:hover i {
+    transform: scale(1.2) rotate(5deg) !important;
 }
 
 /* Make sure sections have proper top margin for fixed header */
