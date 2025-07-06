@@ -41,12 +41,14 @@ window.addEventListener('load', function() {
     document.body.style.paddingTop = '60px';
     document.body.style.marginTop = '0';
     
-    // Ensure hamburger button is visible and positioned correctly
+    // Ensure hamburger button is visible and has standard size
     const menuButton = document.getElementById('mobile-menu-button');
     if (menuButton) {
         menuButton.style.zIndex = '1050';
-        menuButton.style.minHeight = '55px';
-        menuButton.style.minWidth = '55px';
+        menuButton.style.minHeight = '44px';
+        menuButton.style.minWidth = '44px';
+        menuButton.style.height = '44px';
+        menuButton.style.width = '44px';
         
         // Add direct touchstart handler for better mobile compatibility
         function emergencyToggleMenu(e) {

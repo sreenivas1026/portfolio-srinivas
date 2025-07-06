@@ -1677,12 +1677,24 @@
             mobileMenu.classList.add('hidden');
             mobileMenu.style.display = 'none';
             
-            // Make sure menu button has proper touch properties
+            // Make sure menu button has proper touch properties and standard size
             menuButton.style.touchAction = 'manipulation';
             menuButton.style.webkitTapHighlightColor = 'transparent';
             menuButton.style.cursor = 'pointer';
             menuButton.style.position = 'relative';
             menuButton.style.zIndex = '1050';
+            
+            // Set standard size
+            menuButton.style.width = '44px';
+            menuButton.style.height = '44px';
+            menuButton.style.minWidth = '44px';
+            menuButton.style.minHeight = '44px';
+            
+            // Make sure hamburger icon is standard size if it exists
+            if (hamburgerIcon) {
+                hamburgerIcon.style.width = '24px';
+                hamburgerIcon.style.height = '18px';
+            }
             
             // Enhanced toggle function with debugging
             function toggleMobileMenu(e) {

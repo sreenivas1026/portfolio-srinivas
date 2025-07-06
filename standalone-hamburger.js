@@ -43,9 +43,9 @@ function initStandaloneMenu() {
     forceHideMenu();
     
     // Add multiple event listeners for better mobile compatibility
-    // Enhanced menu toggle handler with debouncing and better touch handling
+    // Enhanced menu toggle handler with minimal debouncing for quick response
     let lastToggleTime = 0;
-    const DEBOUNCE_TIME = 300; // milliseconds
+    const DEBOUNCE_TIME = 100; // milliseconds - much shorter for quick tap response
     
     function toggleMenuHandler(e) {
         e.preventDefault();

@@ -46,7 +46,7 @@
         let touchStartY = 0;
         let isTouching = false;
         let lastToggleTime = 0;
-        const DEBOUNCE_TIME = 400; // ms
+        const DEBOUNCE_TIME = 100; // ms - reduced for immediate response
         
         // Function to toggle menu with debouncing
         function toggleMenu(e) {
@@ -110,15 +110,15 @@
             }
         }
         
-        // Touch event handlers
+        // Touch event handlers - optimized for immediate response
         function handleTouchStart(e) {
             isTouching = true;
             touchStartTime = Date.now();
             touchStartX = e.touches[0].clientX;
             touchStartY = e.touches[0].clientY;
             
-            // Visual feedback
-            hamburgerIcon.style.transform = 'scale(0.95)';
+            // Visual feedback (subtle)
+            hamburgerIcon.style.transform = 'scale(0.98)';
             
             e.preventDefault();
         }
@@ -132,8 +132,15 @@
             // Reset visual state
             hamburgerIcon.style.transform = '';
             
-            // Only trigger if it was a tap (short duration, little movement)
-            if (touchDuration < 300) {
+            // Trigger for any tap - no long duration requirement
+            // Just make sure it's not an accidental swipe (check for minimal movement)
+            const touchEndX = e.changedTouches ? e.changedTouches[0].clientX : touchStartX;
+            const touchEndY = e.changedTouches ? e.changedTouches[0].clientY : touchStartY;
+            const moveX = Math.abs(touchEndX - touchStartX);
+            const moveY = Math.abs(touchEndY - touchStartY);
+            
+            if (moveX < 10 && moveY < 10) {
+                console.log('Quick tap detected - immediately toggling menu');
                 toggleMenu(e);
             }
             
