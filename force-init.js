@@ -1,29 +1,18 @@
-// Force initialization of navigation and hamburger menu
+// Force initialization of navigation and four-dot menu
 window.addEventListener('load', function() {
     console.log('Force init script loaded');
     
-    // Try to initialize ultra hamburger menu
-    if (typeof initializeUltraHamburger === 'function') {
-        console.log('Force initializing ultra hamburger menu');
-        initializeUltraHamburger();
-    }
-    
-    // Try to initialize standalone hamburger menu
-    if (typeof initStandaloneMenu === 'function') {
-        console.log('Force initializing standalone hamburger menu');
-        initStandaloneMenu();
+    // Try to initialize four-dot menu
+    if (typeof initFourDotMenu === 'function') {
+        console.log('Force initializing four-dot menu');
+        initFourDotMenu();
     }
     
     // Wait a bit and try again
     setTimeout(function() {
-        if (typeof initializeUltraHamburger === 'function') {
-            console.log('Force initializing ultra hamburger menu (delayed)');
-            initializeUltraHamburger();
-        }
-        
-        if (typeof initStandaloneMenu === 'function') {
-            console.log('Force initializing standalone hamburger menu (delayed)');
-            initStandaloneMenu();
+        if (typeof initFourDotMenu === 'function') {
+            console.log('Force initializing four-dot menu (delayed)');
+            initFourDotMenu();
         }
     }, 1000);
     

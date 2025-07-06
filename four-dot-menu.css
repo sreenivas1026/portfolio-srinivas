@@ -1,0 +1,157 @@
+/**
+ * Four-dot hamburger menu with animation
+ */
+
+/* Container for the 4-dot menu button */
+.four-dot-menu {
+    position: fixed !important;
+    top: 10px !important;
+    right: 15px !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    padding: 8px !important;
+    z-index: 1050 !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 6px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+/* The four dots */
+.four-dot-menu .dot {
+    width: 8px !important;
+    height: 8px !important;
+    background-color: #4f46e5 !important;
+    border-radius: 50% !important;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
+    position: relative !important;
+}
+
+/* Animation for the dots when menu is open */
+.four-dot-menu.open .dot:nth-child(1) {
+    transform: translate(6px, 6px) !important;
+    width: 10px !important;
+    height: 2px !important;
+    border-radius: 1px !important;
+    background-color: #ef4444 !important;
+    transform-origin: center !important;
+    transform: translate(6px, 6px) rotate(45deg) !important;
+}
+
+.four-dot-menu.open .dot:nth-child(2) {
+    transform: translate(-6px, 6px) !important;
+    width: 10px !important;
+    height: 2px !important;
+    border-radius: 1px !important;
+    background-color: #ef4444 !important;
+    transform-origin: center !important;
+    transform: translate(-6px, 6px) rotate(-45deg) !important;
+}
+
+.four-dot-menu.open .dot:nth-child(3) {
+    transform: translate(6px, -6px) !important;
+    width: 10px !important;
+    height: 2px !important;
+    border-radius: 1px !important;
+    background-color: #ef4444 !important;
+    transform-origin: center !important;
+    transform: translate(6px, -6px) rotate(-45deg) !important;
+}
+
+.four-dot-menu.open .dot:nth-child(4) {
+    transform: translate(-6px, -6px) !important;
+    width: 10px !important;
+    height: 2px !important;
+    border-radius: 1px !important;
+    background-color: #ef4444 !important;
+    transform-origin: center !important;
+    transform: translate(-6px, -6px) rotate(45deg) !important;
+}
+
+/* Right-aligned mobile menu */
+#mobile-menu.right-aligned {
+    position: fixed !important;
+    top: 60px !important;
+    left: auto !important;
+    right: 0 !important;
+    width: 250px !important;
+    max-width: 80% !important;
+    height: calc(100vh - 60px) !important;
+    background-color: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1) !important;
+    transform-origin: top right !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    transition: transform 0.3s ease, opacity 0.3s ease !important;
+    border-left: 1px solid rgba(0, 0, 0, 0.05) !important;
+    padding: 15px 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Right-aligned menu animation classes */
+#mobile-menu.right-aligned.hidden {
+    transform: translateX(100%) !important;
+    opacity: 0 !important;
+}
+
+#mobile-menu.right-aligned.visible {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+}
+
+/* Right aligned menu items */
+#mobile-menu.right-aligned a {
+    padding: 12px 20px !important;
+    margin: 4px 15px !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    text-align: right !important;
+    transition: all 0.2s ease !important;
+    border: 1px solid transparent !important;
+}
+
+#mobile-menu.right-aligned a:hover,
+#mobile-menu.right-aligned a:active {
+    background-color: rgba(79, 70, 229, 0.05) !important;
+    border-color: rgba(79, 70, 229, 0.1) !important;
+    transform: translateX(-5px) !important;
+}
+
+#mobile-menu.right-aligned a i {
+    order: 2 !important;
+    margin-left: 10px !important;
+    margin-right: 0 !important;
+}
+
+/* Animation for menu items */
+#mobile-menu.right-aligned.visible a {
+    animation: slideInFromRight 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both !important;
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(20px) !important;
+        opacity: 0 !important;
+    }
+    100% {
+        transform: translateX(0) !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Stagger animation timing for each menu item */
+#mobile-menu.right-aligned.visible a:nth-child(1) { animation-delay: 0.05s !important; }
+#mobile-menu.right-aligned.visible a:nth-child(2) { animation-delay: 0.10s !important; }
+#mobile-menu.right-aligned.visible a:nth-child(3) { animation-delay: 0.15s !important; }
+#mobile-menu.right-aligned.visible a:nth-child(4) { animation-delay: 0.20s !important; }
+#mobile-menu.right-aligned.visible a:nth-child(5) { animation-delay: 0.25s !important; }
+#mobile-menu.right-aligned.visible a:nth-child(6) { animation-delay: 0.30s !important; }
+#mobile-menu.right-aligned.visible a:nth-child(7) { animation-delay: 0.35s !important; }

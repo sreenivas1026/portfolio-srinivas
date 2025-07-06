@@ -85,47 +85,47 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Check if mobile menu is open
                 if (mobileMenu && getComputedStyle(mobileMenu).display !== 'none') {
-                    console.log('Closing mobile menu before scrolling with enhanced animation');
+                    console.log('Closing mobile menu before scrolling');
                     
-                    // Apply fade out animation to menu items first
-                    const menuItems = mobileMenu.querySelectorAll('a');
-                    menuItems.forEach((item, index) => {
-                        item.style.transition = `all 0.2s ease ${(menuItems.length - index) * 0.03}s`;
-                        item.style.opacity = '0';
-                        item.style.transform = 'translateX(20px)';
-                    });
-                    
-                    // Short delay before starting menu animation
-                    setTimeout(() => {
-                        // Force hide the mobile menu for better reliability
-                        mobileMenu.classList.add('opacity-0', 'scale-95');
-                        mobileMenu.classList.remove('opacity-100', 'scale-100');
+                    // Check if we're using the four-dot menu
+                    const fourDotMenu = document.getElementById('four-dot-menu-button');
+                    if (fourDotMenu && typeof hideFourDotMenu === 'function') {
+                        // Use the four-dot menu hiding function
+                        hideFourDotMenu();
                         
-                        // Animate hamburger icon with smooth transition
-                        if (hamburgerIcon) {
-                            const lines = hamburgerIcon.querySelectorAll('span');
-                            lines.forEach((line, index) => {
-                                line.style.transition = `transform 0.3s ease ${index * 0.05}s, background 0.3s ease`;
-                            });
-                            hamburgerIcon.classList.remove('open');
-                        }
-                        
-                        if (mobileMenuButton) mobileMenuButton.setAttribute('aria-expanded', 'false');
-                        
-                        // After animation, hide menu completely and scroll
+                        // Scroll to target after a brief delay
                         setTimeout(() => {
-                            mobileMenu.classList.add('hidden');
-                            mobileMenu.style.display = 'none';
-                            
-                            // Reset menu items for next opening
-                            menuItems.forEach(item => {
-                                item.style.opacity = '';
-                                item.style.transform = '';
-                            });
-                            
                             smoothScrollTo(targetElement);
                         }, 300);
-                    }, 100);
+                    } else {
+                        // Apply fade out animation to menu items first
+                        const menuItems = mobileMenu.querySelectorAll('a');
+                        menuItems.forEach((item, index) => {
+                            item.style.transition = `all 0.2s ease ${(menuItems.length - index) * 0.03}s`;
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateX(20px)';
+                        });
+                        
+                        // Short delay before starting menu animation
+                        setTimeout(() => {
+                            // Force hide the mobile menu for better reliability
+                            mobileMenu.classList.remove('visible');
+                            mobileMenu.classList.add('hidden');
+                            
+                            // After animation, hide menu completely and scroll
+                            setTimeout(() => {
+                                mobileMenu.style.display = 'none';
+                                
+                                // Reset menu items for next opening
+                                menuItems.forEach(item => {
+                                    item.style.opacity = '';
+                                    item.style.transform = '';
+                                });
+                                
+                                smoothScrollTo(targetElement);
+                            }, 300);
+                        }, 100);
+                    }
                 } else {
                     // Menu not open, scroll immediately
                     smoothScrollTo(targetElement);
