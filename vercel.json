@@ -1,0 +1,23 @@
+{
+  "name": "portfolio-srinivas",
+  "version": 2,
+  "builds": [
+    {
+      "src": "deploy.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "."
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "github": {
+    "enabled": true,
+    "silent": false
+  }
+}

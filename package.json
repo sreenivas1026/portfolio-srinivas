@@ -2,10 +2,14 @@
   "name": "portfolio-srinivas",
   "version": "1.0.0",
   "description": "Kunchala Srinivas portfolio website",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
-    "start": "echo 'Static website'"
+    "start": "echo 'Static website'",
+    "build": "echo 'Building static site' && cp index.html public/index.html"
   },
   "author": "Kunchala Srinivas",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
 }
