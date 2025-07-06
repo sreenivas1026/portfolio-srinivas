@@ -1,3 +1,4 @@
-Last deployment: July 7, 2023 - 5:30 PM
-Implemented new four-dot grid menu with animated transformation and right-aligned navigation.
+Last deployment: July 6, 2025 - 2:15 PM
+Removed duplicate hamburger menu elements, ensuring only the three-dot menu remains.
+Updated naming from four-dot to three-dot menu for consistency.
 This file is used to force Vercel to rebuild the site with the latest changes.

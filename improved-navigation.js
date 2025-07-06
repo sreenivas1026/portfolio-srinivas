@@ -87,10 +87,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (mobileMenu && getComputedStyle(mobileMenu).display !== 'none') {
                     console.log('Closing mobile menu before scrolling');
                     
-                    // Check if we're using the four-dot menu
-                    const fourDotMenu = document.getElementById('four-dot-menu-button');
-                    if (fourDotMenu && typeof hideFourDotMenu === 'function') {
-                        // Use the four-dot menu hiding function
+                    // Check if we're using the three-dot menu
+                    const threeDotMenu = document.getElementById('four-dot-menu-button');
+                    if (threeDotMenu && typeof hideFourDotMenu === 'function') {
+                        // Use the three-dot menu hiding function
                         hideFourDotMenu();
                         
                         // Scroll to target after a brief delay

@@ -1,8 +1,8 @@
 /**
- * Four-dot hamburger menu with animation
+ * Three-dot hamburger menu with animation
  */
 
-/* Container for the 4-dot menu button */
+/* Container for the 3-dot menu button */
 .four-dot-menu {
     position: fixed !important;
     top: 10px !important;
@@ -10,10 +10,10 @@
     width: 44px !important;
     height: 44px !important;
     display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: space-around !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
     align-items: center !important;
-    padding: 8px !important;
+    padding: 12px 8px !important;
     z-index: 1050 !important;
     background-color: rgba(255, 255, 255, 0.95) !important;
     border-radius: 6px !important;
@@ -23,7 +23,7 @@
     -webkit-tap-highlight-color: transparent !important;
 }
 
-/* The four dots */
+/* The three dots */
 .four-dot-menu .dot {
     width: 8px !important;
     height: 8px !important;
@@ -35,43 +35,33 @@
 
 /* Animation for the dots when menu is open */
 .four-dot-menu.open .dot:nth-child(1) {
-    transform: translate(6px, 6px) !important;
-    width: 10px !important;
+    transform: translateY(8px) !important;
+    width: 25px !important;
     height: 2px !important;
     border-radius: 1px !important;
     background-color: #ef4444 !important;
     transform-origin: center !important;
-    transform: translate(6px, 6px) rotate(45deg) !important;
+    transform: translateY(8px) rotate(45deg) !important;
 }
 
 .four-dot-menu.open .dot:nth-child(2) {
-    transform: translate(-6px, 6px) !important;
-    width: 10px !important;
-    height: 2px !important;
-    border-radius: 1px !important;
-    background-color: #ef4444 !important;
-    transform-origin: center !important;
-    transform: translate(-6px, 6px) rotate(-45deg) !important;
+    opacity: 0 !important;
+    transform: scale(0) !important;
 }
 
 .four-dot-menu.open .dot:nth-child(3) {
-    transform: translate(6px, -6px) !important;
-    width: 10px !important;
+    transform: translateY(-8px) !important;
+    width: 25px !important;
     height: 2px !important;
     border-radius: 1px !important;
     background-color: #ef4444 !important;
     transform-origin: center !important;
-    transform: translate(6px, -6px) rotate(-45deg) !important;
+    transform: translateY(-8px) rotate(-45deg) !important;
 }
 
-.four-dot-menu.open .dot:nth-child(4) {
-    transform: translate(-6px, -6px) !important;
-    width: 10px !important;
-    height: 2px !important;
-    border-radius: 1px !important;
-    background-color: #ef4444 !important;
-    transform-origin: center !important;
-    transform: translate(-6px, -6px) rotate(45deg) !important;
+/* Remove the 4th dot - we're only using 3 dots now */
+.four-dot-menu .dot:nth-child(4) {
+    display: none !important;
 }
 
 /* Right-aligned mobile menu */

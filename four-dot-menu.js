@@ -1,6 +1,6 @@
 /**
- * Four-dot hamburger menu with animation
- * This script handles the four-dot hamburger menu that transforms into an X
+ * Three-dot hamburger menu with animation
+ * This script handles the three-dot menu that transforms into an X
  */
 
 // Initialize when the DOM is ready
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', initFourDotMenu);
 window.addEventListener('load', initFourDotMenu);
 
 function initFourDotMenu() {
-    console.log('Initializing four-dot menu');
+    console.log('Initializing three-dot menu');
     
     // Remove the old hamburger menu button if it exists
     const oldMenuButton = document.getElementById('mobile-menu-button');
@@ -17,7 +17,7 @@ function initFourDotMenu() {
         oldMenuButton.style.display = 'none';
     }
     
-    // Create the new four-dot menu
+    // Create the new three-dot menu
     createFourDotMenu();
     
     // Set up the mobile menu for right alignment
@@ -27,7 +27,7 @@ function initFourDotMenu() {
 function createFourDotMenu() {
     // Check if the menu already exists
     if (document.querySelector('.four-dot-menu')) {
-        console.log('Four-dot menu already exists');
+        console.log('Three-dot menu already exists');
         return;
     }
     
@@ -64,7 +64,7 @@ function createFourDotMenu() {
         toggleMobileMenu(e);
     }, { passive: false });
     
-    console.log('Four-dot menu created');
+    console.log('Three-dot menu created');
 }
 
 function setupRightAlignedMenu() {
