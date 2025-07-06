@@ -1,4 +1,4 @@
-Last deployment: July 6, 2025 - 2:15 PM
-Removed duplicate hamburger menu elements, ensuring only the three-dot menu remains.
-Updated naming from four-dot to three-dot menu for consistency.
+Last deployment: July 6, 2025 - 4:30 PM
+Made the three-dot menu transparent with white dots for better visibility.
+Enhanced social media icons in mobile menu with gradient backgrounds and improved hover effects.
 This file is used to force Vercel to rebuild the site with the latest changes.

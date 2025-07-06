@@ -15,9 +15,8 @@
     align-items: center !important;
     padding: 12px 8px !important;
     z-index: 1050 !important;
-    background-color: rgba(255, 255, 255, 0.95) !important;
+    background-color: transparent !important;
     border-radius: 6px !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
     cursor: pointer !important;
     touch-action: manipulation !important;
     -webkit-tap-highlight-color: transparent !important;
@@ -27,10 +26,11 @@
 .four-dot-menu .dot {
     width: 8px !important;
     height: 8px !important;
-    background-color: #4f46e5 !important;
+    background-color: #ffffff !important;
     border-radius: 50% !important;
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
     position: relative !important;
+    box-shadow: 0 0 5px rgba(79, 70, 229, 0.7) !important;
 }
 
 /* Animation for the dots when menu is open */
@@ -39,9 +39,10 @@
     width: 25px !important;
     height: 2px !important;
     border-radius: 1px !important;
-    background-color: #ef4444 !important;
+    background-color: #ffffff !important;
     transform-origin: center !important;
     transform: translateY(8px) rotate(45deg) !important;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.8) !important;
 }
 
 .four-dot-menu.open .dot:nth-child(2) {
@@ -54,9 +55,10 @@
     width: 25px !important;
     height: 2px !important;
     border-radius: 1px !important;
-    background-color: #ef4444 !important;
+    background-color: #ffffff !important;
     transform-origin: center !important;
     transform: translateY(-8px) rotate(-45deg) !important;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.8) !important;
 }
 
 /* Remove the 4th dot - we're only using 3 dots now */
