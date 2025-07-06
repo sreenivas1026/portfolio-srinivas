@@ -31,30 +31,49 @@
     background-color: #ffffff !important;
     border-radius: 50% !important;
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
-    position: relative !important;
+    position: absolute !important;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
-    margin: 4px 0 !important;
+}
+
+/* Position dots vertically centered */
+.four-dot-menu .dot:nth-child(1) {
+    top: 12px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+.four-dot-menu .dot:nth-child(2) {
+    bottom: 12px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
 }
 
 /* Animation for the dots when menu is open */
 .four-dot-menu.open .dot:nth-child(1) {
-    transform: translateY(4px) !important;
     width: 25px !important;
-    height: 2px !important;
+    height: 3px !important;
     border-radius: 1px !important;
     background-color: #ffffff !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    margin: -1px 0 0 -12.5px !important; /* Center precisely */
     transform-origin: center !important;
-    transform: translateY(4px) rotate(45deg) !important;
+    transform: rotate(45deg) !important;
     box-shadow: 0 0 8px rgba(239, 68, 68, 0.8) !important;
 }
 
 .four-dot-menu.open .dot:nth-child(2) {
     width: 25px !important;
-    height: 2px !important;
+    height: 3px !important;
     border-radius: 1px !important;
     background-color: #ffffff !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    margin: -1px 0 0 -12.5px !important; /* Center precisely */
     transform-origin: center !important;
-    transform: translateY(-4px) rotate(-45deg) !important;
+    transform: rotate(-45deg) !important;
     box-shadow: 0 0 8px rgba(239, 68, 68, 0.8) !important;
 }
 

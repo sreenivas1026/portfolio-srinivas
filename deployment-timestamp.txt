@@ -1,5 +1,6 @@
-Last deployment: July 6, 2025 - 8:30 PM
-Changed the menu to have only 2 dots instead of 3.
-Made the menu container transparent while giving menu items solid backgrounds.
-Removed contact number for privacy reasons.
+Last deployment: July 6, 2025 - 10:00 PM
+Removed menu title from mobile menu.
+Fixed LinkedIn icon visibility and centered all social icons.
+Improved the X (close) mark angle when menu is open.
+Enhanced two-dot menu positioning and alignment.
 This file is used to force Vercel to rebuild the site with the latest changes.
