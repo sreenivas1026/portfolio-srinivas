@@ -2,10 +2,16 @@
 window.addEventListener('load', function() {
     console.log('Force init script loaded');
     
-    // Try to initialize immediately
+    // Try to initialize ultra hamburger menu
     if (typeof initializeUltraHamburger === 'function') {
         console.log('Force initializing ultra hamburger menu');
         initializeUltraHamburger();
+    }
+    
+    // Try to initialize standalone hamburger menu
+    if (typeof initStandaloneMenu === 'function') {
+        console.log('Force initializing standalone hamburger menu');
+        initStandaloneMenu();
     }
     
     // Wait a bit and try again
@@ -13,6 +19,11 @@ window.addEventListener('load', function() {
         if (typeof initializeUltraHamburger === 'function') {
             console.log('Force initializing ultra hamburger menu (delayed)');
             initializeUltraHamburger();
+        }
+        
+        if (typeof initStandaloneMenu === 'function') {
+            console.log('Force initializing standalone hamburger menu (delayed)');
+            initStandaloneMenu();
         }
     }, 1000);
     

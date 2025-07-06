@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "echo 'Static website'",
-    "build": "echo 'Building static site' && cp index.html public/index.html"
+    "build": "echo 'Building static site' && bash deploy.sh"
   },
   "author": "Kunchala Srinivas",
   "license": "MIT",
