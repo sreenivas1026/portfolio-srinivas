@@ -78,18 +78,22 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
-                // Close mobile menu if it's open
+                // Close mobile menu if it's open - with more reliable approach
                 const mobileMenu = document.getElementById('mobile-menu');
                 const hamburgerIcon = document.querySelector('.hamburger-icon');
                 const mobileMenuButton = document.getElementById('mobile-menu-button');
                 
-                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                if (mobileMenu && getComputedStyle(mobileMenu).display !== 'none') {
+                    console.log('Closing mobile menu before scrolling');
+                    
+                    // Force display states
                     mobileMenu.classList.add('opacity-0', 'scale-95');
                     mobileMenu.classList.remove('opacity-100', 'scale-100');
                     
                     if (hamburgerIcon) hamburgerIcon.classList.remove('open');
                     if (mobileMenuButton) mobileMenuButton.setAttribute('aria-expanded', 'false');
                     
+                    // Explicitly close the menu
                     setTimeout(() => {
                         mobileMenu.classList.add('hidden');
                         mobileMenu.style.display = 'none';
