@@ -1,4 +1,5 @@
-Last deployment: July 6, 2025 - 4:30 PM
-Made the three-dot menu transparent with white dots for better visibility.
-Enhanced social media icons in mobile menu with gradient backgrounds and improved hover effects.
+Last deployment: July 6, 2025 - 6:15 PM
+Added colored background to the three-dot menu button with a gradient.
+Made the mobile menu and its options transparent with a glass-morphism effect.
+Updated menu items to have better visibility against the transparent background.
 This file is used to force Vercel to rebuild the site with the latest changes.
