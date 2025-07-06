@@ -1,0 +1,85 @@
+/* Enhanced browser compatibility fixes addressing DevTools warnings */
+
+/* Fix for scrollbar width warning */
+html {
+  scrollbar-width: thin; /* Use standard property */
+}
+
+/* Improved cross-browser scrolling */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Fix for webkit prefixed properties */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Fix for mobile scroll containers */
+.mobile-scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: -ms-autohiding-scrollbar; /* For IE/Edge */
+}
+
+/* Fix for min-height auto compatibility */
+.min-height-auto {
+  min-height: 0; /* Standard value */
+}
+
+/* Ensure proper height */
+.h-auto {
+  height: auto !important;
+}
+
+/* Fix for display:flex on certain elements */
+.flex-fix {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* Proper transform support */
+.transform {
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Box-shadow prefixes */
+.shadow {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Transition prefixes */
+.transition {
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* Form element specific fixes */
+input, select, textarea, button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+/* Fix specific warnings from DevTools */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fix for IE11 object-fit */
+.object-fit-fallback {
+  font-family: 'object-fit: cover;'; /* For object-fit polyfill */
+}
+
+/* Prevent content shift on scrollbar presence */
+html {
+  scrollbar-gutter: stable;
+}

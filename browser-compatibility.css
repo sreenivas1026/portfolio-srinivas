@@ -1,0 +1,59 @@
+/* Browser compatibility fixes */
+
+/* Fix for scrollbar width */
+html {
+  scrollbar-width: thin;
+}
+
+/* Cross-browser scrolling */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Fix for webkit prefixed properties */
+.with-prefix {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Mobile scroll container without using scrollbar-width */
+.mobile-scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Fix for min-height auto compatibility */
+.min-height-fix {
+  min-height: min-content;
+}
+
+/* Better accessibility for interactive elements */
+button:not([aria-label]):not([title]),
+a:not([aria-label]):not([title]) {
+  position: relative;
+}
+
+/* Ensure proper nesting of interactive elements */
+button button,
+a a,
+button a,
+a button {
+  position: static !important;
+}
+
+/* Fix for nested list items */
+li > ul,
+li > ol {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Ensure focus visibility for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}

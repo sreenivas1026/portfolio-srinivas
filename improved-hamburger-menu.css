@@ -1,0 +1,134 @@
+/* Improved hamburger menu CSS for better visibility and touch interaction */
+.hamburger-icon {
+    width: 30px;
+    height: 24px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    z-index: 10;
+    margin: 5px;
+}
+
+.hamburger-icon span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #3b82f6;  /* Blue color for better visibility */
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: all 0.25s ease-in-out;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.15); /* Add slight shadow for depth */
+}
+
+.hamburger-icon span:nth-child(1) {
+    top: 0px;
+}
+
+.hamburger-icon span:nth-child(2),
+.hamburger-icon span:nth-child(3) {
+    top: 10px;
+}
+
+.hamburger-icon span:nth-child(4) {
+    top: 20px;
+}
+
+.hamburger-icon.open span:nth-child(1),
+.hamburger-icon.open span:nth-child(4) {
+    top: 10px;
+    width: 0%;
+    left: 50%;
+}
+
+.hamburger-icon.open span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.hamburger-icon.open span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+/* Mobile menu button styling */
+#mobile-menu-button {
+    position: relative;
+    z-index: 50;
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+#mobile-menu-button:hover,
+#mobile-menu-button:focus {
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Mobile menu styling */
+#mobile-menu {
+    transition: all 0.3s ease;
+    max-height: 80vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    border-bottom: 3px solid #3b82f6;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    padding-bottom: 15px;
+}
+
+#mobile-menu a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    margin: 5px 10px;
+}
+
+#mobile-menu a:hover,
+#mobile-menu a:focus {
+    background-color: rgba(59, 130, 246, 0.1);
+    transform: translateX(5px);
+}
+
+/* Scale animation for menu */
+.opacity-0 {
+    opacity: 0 !important;
+}
+
+.opacity-100 {
+    opacity: 1 !important;
+}
+
+.scale-95 {
+    transform: scale(0.95) !important;
+}
+
+.scale-100 {
+    transform: scale(1) !important;
+}
+
+/* For very small devices */
+@media (max-width: 350px) {
+    .hamburger-icon {
+        width: 26px;
+        height: 20px;
+    }
+    
+    .hamburger-icon span:nth-child(2),
+    .hamburger-icon span:nth-child(3) {
+        top: 8px;
+    }
+    
+    .hamburger-icon span:nth-child(4) {
+        top: 16px;
+    }
+}

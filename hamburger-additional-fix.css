@@ -1,0 +1,127 @@
+/* Additional hamburger menu fixes - simplified and more direct */
+/* Basic hamburger icon styling */
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    position: relative;
+    z-index: 50;
+    cursor: pointer;
+    padding: 2px;
+}
+
+/* Style for the hamburger bars */
+.hamburger-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #3b82f6;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border-radius: 3px;
+    margin: 2px 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Mobile menu display control */
+#mobile-menu {
+    display: none;
+}
+
+#mobile-menu.hidden {
+    display: none !important;
+}
+
+#mobile-menu:not(.hidden) {
+    display: block !important;
+}
+
+/* Animation for the hamburger icon */
+.hamburger-icon.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: #ef4444;
+}
+
+.hamburger-icon.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-icon.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: #ef4444;
+}
+
+.hamburger-icon.open span:nth-child(4) {
+    opacity: 0;
+}
+
+/* Mobile specific styles */
+@media (max-width: 767px) {
+    /* Make hamburger button more visible */
+    #mobile-menu-button {
+        padding: 8px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Enhance the container holding the button */
+    .absolute.right-3.top-2.md\\:hidden.z-30 {
+        display: block !important;
+        position: absolute;
+        right: 15px;
+        top: 12px;
+        z-index: 50;
+    }
+    
+    /* Style the menu links for better visibility */
+    #mobile-menu a {
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding: 15px 20px;
+        display: block;
+        width: 100%;
+        color: #1f2937;
+        font-weight: 500;
+        font-size: 16px;
+    }
+    
+    #mobile-menu a:active {
+        background-color: #3b82f6;
+        color: white;
+    }
+    
+    /* Fixed menu positioning */
+    #mobile-menu {
+        position: fixed;
+        top: 56px !important;
+        max-height: calc(100vh - 56px) !important;
+        overflow-y: auto;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2) !important;
+        background-color: white !important;
+        z-index: 40;
+    }
+    
+    /* Better menu container spacing */
+    #mobile-menu .container {
+        padding: 10px 0 !important;
+    }
+    
+    /* Highlight menu items */
+    #mobile-menu a i {
+        width: 24px;
+        text-align: center;
+        margin-right: 10px;
+        color: #3b82f6;
+        font-size: 18px;
+    }
+    
+    /* Special styles for the mobile menu social links */
+    #mobile-menu .flex.items-center.space-x-4 a {
+        border: none;
+        padding: 0;
+    }
+}
