@@ -1,6 +1,6 @@
 /**
- * Three-dot hamburger menu with animation
- * This script handles the three-dot menu that transforms into an X
+ * Two-dot hamburger menu with animation
+ * This script handles the two-dot menu that transforms into an X
  */
 
 // Initialize when the DOM is ready
@@ -27,11 +27,11 @@ function initFourDotMenu() {
 function createFourDotMenu() {
     // Check if the menu already exists
     if (document.querySelector('.four-dot-menu')) {
-        console.log('Three-dot menu already exists');
+        console.log('Two-dot menu already exists');
         return;
     }
     
-    // Create the four-dot menu container
+    // Create the two-dot menu container
     const fourDotMenu = document.createElement('div');
     fourDotMenu.className = 'four-dot-menu';
     fourDotMenu.id = 'four-dot-menu-button';
@@ -39,8 +39,8 @@ function createFourDotMenu() {
     fourDotMenu.setAttribute('role', 'button');
     fourDotMenu.setAttribute('tabindex', '0');
     
-    // Create the four dots
-    for (let i = 0; i < 4; i++) {
+    // Create only 2 dots
+    for (let i = 0; i < 2; i++) {
         const dot = document.createElement('div');
         dot.className = 'dot';
         fourDotMenu.appendChild(dot);

@@ -3,36 +3,38 @@
  * Overrides the default styles with transparent glassmorphic styles
  */
 
-/* Override mobile menu item colors for better contrast */
+/* Override mobile menu item colors for solid backgrounds */
 #mobile-menu a {
-    color: white !important;
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    backdrop-filter: blur(5px) !important;
-    -webkit-backdrop-filter: blur(5px) !important;
+    color: #1f2937 !important; /* Dark text */
+    background-color: #f9fafb !important; /* Solid light background */
+    border: 1px solid #e5e7eb !important;
     margin: 6px 15px !important;
     border-radius: 10px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
 }
 
 #mobile-menu a:hover {
-    background-color: rgba(79, 70, 229, 0.3) !important;
-    border-color: rgba(79, 70, 229, 0.4) !important;
+    background-color: #eef2ff !important; /* Light indigo background */
+    border-color: #c7d2fe !important; /* Light indigo border */
 }
 
-/* Make icons in the mobile menu glow */
+/* Style icons in the mobile menu */
 #mobile-menu a i {
-    color: #6366f1 !important; /* Indigo-500 */
-    text-shadow: 0 0 5px rgba(99, 102, 241, 0.5) !important;
+    color: #4f46e5 !important; /* Indigo-600 */
+    font-size: 1rem !important;
 }
 
 /* Style the menu title */
 #mobile-menu h3 {
-    background: linear-gradient(to right, #60a5fa, #a78bfa) !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    color: transparent !important;
+    color: #1f2937 !important; /* Dark text */
     font-weight: 700 !important;
     letter-spacing: 1px !important;
+    background-color: #f9fafb !important;
+    border-radius: 10px !important;
+    padding: 10px !important;
+    margin: 0 15px 10px 15px !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
 }
 
 /* Add a stylish border to the menu */

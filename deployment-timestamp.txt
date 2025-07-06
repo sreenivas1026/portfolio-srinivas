@@ -1,5 +1,5 @@
-Last deployment: July 6, 2025 - 6:15 PM
-Added colored background to the three-dot menu button with a gradient.
-Made the mobile menu and its options transparent with a glass-morphism effect.
-Updated menu items to have better visibility against the transparent background.
+Last deployment: July 6, 2025 - 8:30 PM
+Changed the menu to have only 2 dots instead of 3.
+Made the menu container transparent while giving menu items solid backgrounds.
+Removed contact number for privacy reasons.
 This file is used to force Vercel to rebuild the site with the latest changes.
