@@ -1,94 +1,86 @@
-// Enhanced hamburger menu functionality for mobile
+// Completely rewritten hamburger menu functionality
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Hamburger menu script loaded');
     
-    // Direct implementation without using existing code
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const hamburgerIcon = document.querySelector('.hamburger-icon');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (!mobileMenuButton || !hamburgerIcon || !mobileMenu) {
-        console.error('Mobile menu elements not found:', {
+    // Create a very simple direct implementation
+    function initializeHamburgerMenu() {
+        // Get menu elements
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        // Log element availability
+        console.log('Menu elements found:', {
             button: !!mobileMenuButton,
             icon: !!hamburgerIcon,
             menu: !!mobileMenu
         });
-        return;
-    }
-    
-    console.log('Menu elements found, initializing');
-    
-    // Force initialization state
-    mobileMenu.classList.add('hidden');
-    hamburgerIcon.classList.remove('open');
-    let menuOpen = false;
-    
-    // Improved toggle function with direct manipulation
-    function toggleMobileMenu(e) {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
+        
+        // Exit if elements don't exist
+        if (!mobileMenuButton || !hamburgerIcon || !mobileMenu) {
+            console.error('Mobile menu elements not found');
+            return;
         }
         
-        menuOpen = !menuOpen;
-        console.log('Menu toggled:', menuOpen ? 'open' : 'closed');
+        // Ensure menu is hidden initially
+        mobileMenu.style.display = 'none';
+        mobileMenu.classList.add('hidden');
+        hamburgerIcon.classList.remove('open');
         
-        if (menuOpen) {
-            // Show menu
-            mobileMenu.style.display = 'block';
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.classList.remove('opacity-0', 'scale-95');
-            mobileMenu.classList.add('opacity-100', 'scale-100');
-            hamburgerIcon.classList.add('open');
-            mobileMenuButton.setAttribute('aria-expanded', 'true');
-        } else {
-            // Hide menu
-            mobileMenu.classList.add('opacity-0', 'scale-95');
-            mobileMenu.classList.remove('opacity-100', 'scale-100');
-            hamburgerIcon.classList.remove('open');
-            mobileMenuButton.setAttribute('aria-expanded', 'false');
-            setTimeout(() => {
+        // Simple toggle function
+        function toggleMenu() {
+            console.log('Toggle menu clicked');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                // Show menu
+                mobileMenu.style.display = 'block';
+                mobileMenu.classList.remove('hidden');
+                hamburgerIcon.classList.add('open');
+                mobileMenuButton.setAttribute('aria-expanded', 'true');
+            } else {
+                // Hide menu
                 mobileMenu.classList.add('hidden');
-                mobileMenu.style.display = '';
-            }, 300);
-        }
-    }
-    
-    // Direct event binding without cloning
-    mobileMenuButton.addEventListener('click', toggleMobileMenu, { passive: false });
-    
-    // Add touch events specifically for mobile
-    mobileMenuButton.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        toggleMobileMenu();
-    }, { passive: false });
-    
-    // Handle links in mobile menu
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-        link.addEventListener('click', function() {
-            menuOpen = false;
-            mobileMenu.classList.add('opacity-0', 'scale-95');
-            mobileMenu.classList.remove('opacity-100', 'scale-100');
-            hamburgerIcon.classList.remove('open');
-            mobileMenuButton.setAttribute('aria-expanded', 'false');
-            setTimeout(() => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.style.display = '';
-            }, 300);
-        });
-    });
-    
-    // Show/hide menu on resize (in case screen size changes)
-    window.addEventListener('resize', function() {
-        if (window.innerWidth >= 768) { // md breakpoint
-            if (menuOpen) {
-                menuOpen = false;
-                mobileMenu.classList.add('hidden');
+                mobileMenu.style.display = 'none';
                 hamburgerIcon.classList.remove('open');
                 mobileMenuButton.setAttribute('aria-expanded', 'false');
             }
         }
-    });
+        
+        // Attach click event
+        mobileMenuButton.onclick = toggleMenu;
+        
+        // Add a click handler to each menu item
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Execute the link's default action
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        // First hide the menu
+                        toggleMenu();
+                        
+                        // Then scroll to the target section
+                        setTimeout(() => {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }, 100);
+                    }
+                }
+            });
+        });
+        
+        // Add click handler directly to the icon as well for redundancy
+        hamburgerIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMenu();
+        });
+    }
     
-    console.log('Hamburger menu initialization complete');
+    // Call the function to initialize
+    initializeHamburgerMenu();
+    
+    // And set up a backup initialization in case the DOM changes
+    setTimeout(initializeHamburgerMenu, 1000);
 });

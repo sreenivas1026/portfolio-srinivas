@@ -372,9 +372,8 @@
         <nav class="container mx-auto px-3 py-2 flex justify-between items-center relative">
             <!-- Mobile menu button with animated hamburger - moved to right -->
             <div class="absolute right-3 top-2 md:hidden z-30">
-                <button class="flex items-center justify-center p-2" id="mobile-menu-button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+                <button class="flex items-center justify-center p-2 bg-white/80 rounded-md shadow-sm" id="mobile-menu-button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
                     <div class="hamburger-icon">
-                        <span></span>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -502,7 +501,7 @@
                     <!-- Profile photo with animated gradient border -->
                     <div class="p-2 md:p-3 bg-gradient-to-r from-blue-300 via-purple-300 to-indigo-300 animate-pulse rounded-full shadow-lg">
                         <div class="hero-image-container relative overflow-hidden border-3 md:border-4 border-white/30 shadow-2xl rounded-full w-40 h-40 sm:w-44 sm:h-44 md:w-56 md:h-56">
-                            <img src="assets/img/profile-photo.png" alt="Kunchala Srinivas" class="w-full h-full object-cover">
+                            <img src="assets/img/image.png" alt="Kunchala Srinivas" class="w-full h-full object-cover">
                             <!-- Glowing effect -->
                             <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10"></div>
                         </div>
@@ -526,7 +525,7 @@
                         <!-- Image container -->
                         <div class="bg-white p-3 rounded-xl shadow-2xl relative z-10">
                             <div class="about-image-container rounded-lg overflow-hidden bg-gray-800 w-52 h-52 mx-auto">
-                                <img src="assets/img/profile-photo.png" alt="Srinivas" class="w-full h-full object-cover">
+                                <img src="assets/img/image.png" alt="Srinivas" class="w-full h-full object-cover">
                             </div>
                             
                             <!-- Stats badges -->
@@ -1716,136 +1715,78 @@
     <!-- Enhanced hamburger menu fix -->
     <script src="hamburger-menu-fix.js"></script>
     
-    <!-- Additional hamburger menu script -->
+    <!-- Simplified direct hamburger menu script -->
     <script>
-        // Direct hamburger menu implementation with guaranteed functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Enhanced hamburger menu script running');
+        // Extremely simple hamburger menu implementation directly in the page
+        window.addEventListener('load', function() {
+            console.log('Inline hamburger menu script running');
             
-            // Force-remove any lingering styles from the mobile menu at startup
-            const resetMenu = function() {
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (mobileMenu) {
-                    mobileMenu.className = 'hidden md:hidden bg-gradient-to-b from-gray-50 to-gray-100 shadow-lg fixed left-0 right-0 top-14 w-full z-50 max-h-[80vh] transform opacity-0 scale-95';
-                    mobileMenu.style.display = 'none';
-                    mobileMenu.setAttribute('aria-hidden', 'true');
-                }
-                
-                const hamburgerIcon = document.querySelector('.hamburger-icon');
-                if (hamburgerIcon) {
-                    hamburgerIcon.classList.remove('open');
-                }
-            };
+            // Direct element references
+            const menuButton = document.getElementById('mobile-menu-button');
+            const hamburgerIcon = document.querySelector('.hamburger-icon');
+            const mobileMenu = document.getElementById('mobile-menu');
             
-            // Reset menu on page load
-            resetMenu();
+            if (!menuButton || !hamburgerIcon || !mobileMenu) {
+                console.error('Mobile menu elements missing');
+                return;
+            }
             
-            // Toggle menu function with proper animation
-            const toggleMenu = function(e) {
-                if (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-                
-                const mobileMenuButton = document.getElementById('mobile-menu-button');
-                const hamburgerIcon = document.querySelector('.hamburger-icon');
-                const mobileMenu = document.getElementById('mobile-menu');
-                
-                if (!mobileMenu || !hamburgerIcon) return;
+            // Reset initial state
+            mobileMenu.classList.add('hidden');
+            mobileMenu.style.display = 'none';
+            
+            // Basic toggle function
+            function toggleMobileMenu() {
+                console.log('Menu toggled');
                 
                 if (mobileMenu.classList.contains('hidden')) {
                     // Show menu
-                    console.log('Opening menu');
-                    mobileMenu.style.display = 'block';
                     mobileMenu.classList.remove('hidden');
-                    
-                    // Force a reflow to ensure transitions work
-                    void mobileMenu.offsetWidth;
-                    
-                    mobileMenu.classList.add('opacity-100', 'scale-100');
-                    mobileMenu.classList.remove('opacity-0', 'scale-95');
+                    mobileMenu.style.display = 'block';
                     hamburgerIcon.classList.add('open');
-                    mobileMenu.setAttribute('aria-hidden', 'false');
-                    if (mobileMenuButton) mobileMenuButton.setAttribute('aria-expanded', 'true');
                 } else {
                     // Hide menu
-                    console.log('Closing menu');
-                    mobileMenu.classList.remove('opacity-100', 'scale-100');
-                    mobileMenu.classList.add('opacity-0', 'scale-95');
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.style.display = 'none';
                     hamburgerIcon.classList.remove('open');
-                    if (mobileMenuButton) mobileMenuButton.setAttribute('aria-expanded', 'false');
-                    
-                    setTimeout(() => {
-                        mobileMenu.classList.add('hidden');
-                        mobileMenu.style.display = 'none';
-                        mobileMenu.setAttribute('aria-hidden', 'true');
-                    }, 300);
                 }
-            };
-            
-            // Set up event listeners
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            if (mobileMenuButton) {
-                // Remove any existing event listeners
-                const newButton = mobileMenuButton.cloneNode(true);
-                mobileMenuButton.parentNode.replaceChild(newButton, mobileMenuButton);
-                
-                // Add fresh event listeners
-                newButton.addEventListener('click', toggleMenu);
-                newButton.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    toggleMenu(e);
-                });
             }
             
-            // Set up link event listeners
-            document.querySelectorAll('#mobile-menu a').forEach(link => {
-                link.addEventListener('click', function() {
-                    toggleMenu();
-                });
-            });
+            // Attach the click handler
+            menuButton.onclick = toggleMobileMenu;
             
-            // Set up a force close when clicking outside the menu
-            document.addEventListener('click', function(e) {
-                const mobileMenu = document.getElementById('mobile-menu');
-                const hamburgerIcon = document.querySelector('.hamburger-icon');
-                const mobileMenuButton = document.getElementById('mobile-menu-button');
-                
-                if (!mobileMenu || !hamburgerIcon) return;
-                
-                if (!mobileMenu.classList.contains('hidden') &&
-                    !mobileMenu.contains(e.target) &&
-                    (!mobileMenuButton || !mobileMenuButton.contains(e.target))) {
-                    toggleMenu();
-                }
-            });
+            // Also attach to the icon directly
+            hamburgerIcon.onclick = function(e) {
+                e.stopPropagation();
+                toggleMobileMenu();
+            };
             
-            // Debug check - run every 2 seconds to verify hamburger functionality
-            setTimeout(function checkMenu() {
-                const mobileMenuButton = document.getElementById('mobile-menu-button');
-                const hamburgerIcon = document.querySelector('.hamburger-icon');
-                const mobileMenu = document.getElementById('mobile-menu');
-                
-                if (mobileMenuButton && hamburgerIcon && mobileMenu) {
-                    console.log('Hamburger menu elements found and working');
-                } else {
-                    console.error('Missing hamburger elements:', {
-                        button: !!mobileMenuButton,
-                        icon: !!hamburgerIcon,
-                        menu: !!mobileMenu
-                    });
-                }
-                
-                // Add direct click handler to icon for redundancy
-                if (hamburgerIcon && !hamburgerIcon._hasClickHandler) {
-                    hamburgerIcon.addEventListener('click', function(e) {
+            // Add smooth scrolling to nav links
+            document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+                link.onclick = function(e) {
+                    // Get the target section
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#')) {
                         e.preventDefault();
-                        e.stopPropagation();
-                        toggleMenu();
-                    });
-                    hamburgerIcon._hasClickHandler = true;
-                }
-            }, 2000);
+                        const targetSection = document.querySelector(href);
+                        
+                        // Close the menu
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.style.display = 'none';
+                        hamburgerIcon.classList.remove('open');
+                        
+                        // Scroll to the section
+                        if (targetSection) {
+                            setTimeout(function() {
+                                targetSection.scrollIntoView({behavior: 'smooth'});
+                            }, 100);
+                        }
+                    }
+                };
+            });
+            
+            // Log successful initialization
+            console.log('Hamburger menu initialized');
         });
     </script>
 
