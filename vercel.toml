@@ -1,0 +1,11 @@
+name = "portfolio-srinivas-vercel-deployment"
+account_id = "your-account-id"
+
+[build]
+command = "echo 'Static site deployment'"
+output_directory = "."
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
