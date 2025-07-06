@@ -27,7 +27,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Custom CSS for fixes -->
-    <link rel="stylesheet" href="improved-hamburger-menu.css">
+    <link rel="stylesheet" href="ultra-hamburger.css">
     <link rel="stylesheet" href="improved-education-timeline.css">
     <link rel="stylesheet" href="improved-compatibility.css">
     <link rel="stylesheet" href="improved-accessibility.css">
@@ -87,8 +87,6 @@
     
     <!-- Mobile Fixes CSS -->
     <link rel="stylesheet" href="mobile-fixes.css">
-    <link rel="stylesheet" href="hamburger-fix.css">
-    <link rel="stylesheet" href="hamburger-additional-fix.css">
     <link rel="stylesheet" href="education-timeline-fix.css">
     <!-- Compatibility and Accessibility -->
     <link rel="stylesheet" href="browser-compatibility.css">
@@ -114,7 +112,8 @@
             overflow-x: hidden;
             overflow-y: visible !important;
             position: static;
-            padding-top: 60px; /* Accommodate fixed header */
+            padding-top: 60px !important; /* Accommodate fixed header */
+            margin-top: 0 !important;
         }
         
         section {
@@ -193,8 +192,10 @@
 
         /* Hamburger menu mobile position fix */
         #mobile-menu-button {
-            position: relative;
-            z-index: 50;
+            position: relative !important;
+            z-index: 1050 !important;
+            min-height: 55px !important;
+            min-width: 55px !important;
         }
 
         /* Education timeline mobile fixes */
@@ -367,7 +368,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-900 font-sans flex flex-col min-h-screen" ontouchstart="">
+<body class="bg-gray-900 font-sans flex flex-col min-h-screen" ontouchstart="" style="padding-top: 60px !important; margin-top: 0 !important;">
     <!-- Fix mobile scrolling -->
     <script>
         // Force-fix mobile scrolling issues
@@ -378,12 +379,14 @@
     </script>
     
     <!-- Header / Navigation -->
-    <header class="bg-gradient-to-r from-gray-50 to-gray-100 backdrop-blur-sm shadow-md fixed top-0 z-50 w-full">
+    <header class="bg-gradient-to-r from-gray-50 to-gray-100 backdrop-blur-sm shadow-md fixed top-0 z-50 w-full" style="position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; z-index: 1000 !important;">
         <nav class="container mx-auto px-3 py-2 flex justify-between items-center relative" role="navigation" aria-label="Main navigation">
             <!-- Mobile menu button with animated hamburger - moved to right -->
-            <div class="absolute right-3 top-2 md:hidden z-30">
-                <button class="flex items-center justify-center p-2 bg-white/80 rounded-md shadow-sm min-height-44px min-width-44px" id="mobile-menu-button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <div class="absolute right-3 top-2 md:hidden z-50" style="z-index: 1050 !important; position: absolute !important; right: 12px !important; top: 10px !important;">
+                <button class="flex items-center justify-center p-2 bg-white/90 rounded-md shadow-lg" id="mobile-menu-button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu" 
+                style="min-height: 55px !important; min-width: 55px !important; box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important; display: flex !important; align-items: center !important; justify-content: center !important;">
                     <div class="hamburger-icon">
+                        <span></span>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -422,25 +425,26 @@
         </nav>
         
         <!-- Mobile menu (hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-b from-gray-50 to-gray-100 shadow-lg fixed left-0 right-0 top-14 w-full z-50 max-h-[80vh] transform transition-all duration-300 opacity-0 scale-95" style="overflow-y: auto; -webkit-overflow-scrolling: touch;" role="menu" aria-labelledby="mobile-menu-button">
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-b from-gray-50 to-gray-100 shadow-lg fixed left-0 right-0 top-14 w-full z-40 max-h-[80vh] transform transition-all duration-300 opacity-0 scale-95" style="overflow-y: auto; -webkit-overflow-scrolling: touch; position: fixed !important; top: 60px !important; width: 100% !important; z-index: 999 !important; box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;" role="menu" aria-labelledby="mobile-menu-button">
             <div class="container mx-auto px-4 py-4">
                 <!-- Navigation links with enhanced styling -->
-                <a href="#about" class="block py-3 px-4 text-gray-800 hover:bg-blue-100 rounded-md mb-1 font-medium transition-colors" role="menuitem" aria-label="About section">
+                <h3 class="text-lg font-bold text-center mb-3 text-gray-700 border-b pb-2">Menu</h3>
+                <a href="#about" class="block py-3 px-4 text-gray-800 hover:bg-blue-100 rounded-md mb-2 font-medium transition-colors border border-gray-200" role="menuitem" aria-label="About section">
                     <i class="fas fa-user-circle mr-3 text-blue-600" aria-hidden="true"></i> About
                 </a>
-                <a href="#skills" class="block py-3 px-4 text-gray-800 hover:bg-blue-100 rounded-md mb-1 font-medium transition-colors" role="menuitem" aria-label="Skills section">
+                <a href="#skills" class="block py-3 px-4 text-gray-800 hover:bg-blue-100 rounded-md mb-2 font-medium transition-colors border border-gray-200" role="menuitem" aria-label="Skills section">
                     <i class="fas fa-code mr-3 text-blue-600" aria-hidden="true"></i> Skills
                 </a>
-                <a href="#education" class="block py-3 px-4 text-gray-800 hover:bg-blue-100 rounded-md mb-1 font-medium transition-colors" role="menuitem" aria-label="Education section">
+                <a href="#education" class="block py-3 px-4 text-gray-800 hover:bg-blue-100 rounded-md mb-2 font-medium transition-colors border border-gray-200" role="menuitem" aria-label="Education section">
                     <i class="fas fa-graduation-cap mr-3 text-blue-600" aria-hidden="true"></i> Education
                 </a>
-                <a href="#experience" class="block py-3 px-4 text-gray-800 hover:bg-blue-100 rounded-md mb-1 font-medium transition-colors" role="menuitem" aria-label="Experience section">
+                <a href="#experience" class="block py-3 px-4 text-gray-800 hover:bg-blue-100 rounded-md mb-2 font-medium transition-colors border border-gray-200" role="menuitem" aria-label="Experience section">
                     <i class="fas fa-briefcase mr-3 text-blue-600" aria-hidden="true"></i> Experience
                 </a>
-                <a href="#projects" class="block py-3 px-4 text-gray-800 hover:bg-blue-100 rounded-md mb-1 font-medium transition-colors" role="menuitem" aria-label="Projects section">
+                <a href="#projects" class="block py-3 px-4 text-gray-800 hover:bg-blue-100 rounded-md mb-2 font-medium transition-colors border border-gray-200" role="menuitem" aria-label="Projects section">
                     <i class="fas fa-project-diagram mr-3 text-blue-600" aria-hidden="true"></i> Projects
                 </a>
-                <a href="#contact" class="block py-3 px-4 text-gray-800 hover:bg-blue-100 rounded-md mb-1 font-medium transition-colors" role="menuitem" aria-label="Contact section">
+                <a href="#contact" class="block py-3 px-4 text-gray-800 hover:bg-blue-100 rounded-md mb-2 font-medium transition-colors border border-gray-200" role="menuitem" aria-label="Contact section">
                     <i class="fas fa-envelope mr-3 text-blue-600" aria-hidden="true"></i> Contact
                 </a>
                 
@@ -456,7 +460,7 @@
                        class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition-colors shadow-md flex items-center justify-center w-10 h-10">
                         <i class="fas fa-envelope"></i>
                     </a>
-                    <a href="resume.pdf" download
+                    <a href="assets/downloads/resume.pdf" download
                        class="bg-green-600 text-white p-3 rounded-full hover:bg-green-700 transition-colors shadow-md flex items-center justify-center w-10 h-10">
                         <i class="fas fa-download"></i>
                     </a>
@@ -503,7 +507,7 @@
                     </p>
                     
                     <div class="flex flex-wrap justify-start">
-                        <a href="resume.pdf" download class="btn px-4 py-2 text-sm md:text-base md:px-5 md:py-2.5 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white rounded-md font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center hover:scale-105 border border-blue-400/50" aria-label="Download Resume PDF">
+                        <a href="assets/downloads/resume.pdf" download class="btn px-4 py-2 text-sm md:text-base md:px-5 md:py-2.5 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white rounded-md font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center hover:scale-105 border border-blue-400/50" aria-label="Download Resume PDF">
                             <i class="fas fa-file-download mr-2" aria-hidden="true"></i> Download Resume <i class="fas fa-arrow-down ml-1 text-sm animate-bounce" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -941,9 +945,9 @@
                                     <i class="fas fa-certificate"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-lg text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">Edunoxi WiFi Penetration Tester</h4>
+                                    <h4 class="font-semibold text-lg text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">Edunoix WiFi Penetration Tester</h4>
                                     <p class="text-blue-100 mt-2">Comprehensive certification in WiFi security assessment and penetration testing techniques.</p>
-                                    <p class="text-indigo-200 mt-1 text-sm font-medium">Certified: April 2025</p>
+                                    <p class="text-indigo-200 mt-1 text-sm font-medium">Certified: December 1, 2022</p>
                                 </div>
                             </li>
                             <li class="flex items-start p-4 bg-gradient-to-r from-purple-900/80 to-indigo-900/80 rounded-lg border border-indigo-400/30 shadow-lg">
@@ -953,7 +957,7 @@
                                 <div>
                                     <h4 class="font-semibold text-lg text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300">Cybersecurity Internship – Wipro DICE ID</h4>
                                     <p class="text-blue-100 mt-2">Completed comprehensive internship focusing on penetration testing, vulnerability scanning, and reconnaissance techniques.</p>
-                                    <p class="text-indigo-200 mt-1 text-sm font-medium">Completed: March 2025</p>
+                                    <p class="text-indigo-200 mt-1 text-sm font-medium">Completed: March 2023</p>
                                 </div>
                             </li>
                         </ul>
@@ -1244,7 +1248,7 @@
                                    class="bg-gradient-to-r from-red-600 to-red-700 p-3 rounded-full text-white hover:scale-110 transition-all shadow-lg w-10 h-10 flex items-center justify-center">
                                     <i class="fas fa-envelope"></i>
                                 </a>
-                                <a href="resume.pdf" download
+                                <a href="assets/downloads/resume.pdf" download
                                    class="bg-gradient-to-r from-green-600 to-green-700 p-3 rounded-full text-white hover:scale-110 transition-all shadow-lg w-10 h-10 flex items-center justify-center" title="Download Resume">
                                     <i class="fas fa-file-download"></i>
                                 </a>
@@ -1398,7 +1402,7 @@
             </div>
             
             <div class="mt-4 md:mt-6 text-center text-gray-500 text-xs font-mono">
-                <p>&copy; 2025 Srinivas • Cybersecurity Specialist</p>
+                <p>&copy; 2023 Srinivas • Cybersecurity Specialist</p>
             </div>
         </div>
     </footer>
@@ -1409,8 +1413,14 @@
     <!-- Improved Scripts for fixing mobile issues -->
     <script src="scroll-fix.js"></script>
     <script src="improved-navigation.js"></script>
-    <script src="improved-hamburger-menu.js"></script>
     <script src="form-handler.js"></script>
+    
+    <!-- Perfect Hamburger Menu Implementation -->
+    <script src="ultra-hamburger.js"></script>
+    
+    <!-- Special CSS fixes for mobile -->
+    <link rel="stylesheet" href="perfect-hamburger.css">
+    <link rel="stylesheet" href="hamburger-mobile-fix.css">
     
     <!-- Hidden form for visitor tracking -->
     <div style="display:none;">
