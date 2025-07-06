@@ -1,0 +1,83 @@
+/* Accessibility improvements */
+
+/* Better focus indication for interactive elements */
+:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Skip unnecessary animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Ensure text is readable */
+body {
+  line-height: 1.5;
+  color-adjust: exact;
+}
+
+/* Improve button and link accessibility */
+button,
+[role="button"],
+a.btn,
+.btn {
+  cursor: pointer;
+  position: relative;
+}
+
+/* Ensure interactive elements have proper size for touch */
+@media (max-width: 767px) {
+  button,
+  [role="button"],
+  a.btn,
+  .btn,
+  input,
+  select,
+  .hamburger-icon,
+  #mobile-menu-button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  a {
+    padding: 0.25rem;
+  }
+  
+  #mobile-menu a {
+    min-height: 44px;
+    display: flex !important;
+    align-items: center;
+  }
+}
+
+/* Proper heading hierarchy */
+h1 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+/* Proper list styling */
+ul, ol {
+  padding-left: 2rem;
+}
+
+/* Ensure proper color contrast */
+.text-gray-300,
+.text-gray-400,
+.text-gray-500 {
+  color: #9ca3af !important; /* Ensure better contrast */
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pages Working - Redirecting...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #4f8df9;
+        }
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #4f8df9;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GitHub Pages Is Working!</h1>
+        <p>This confirms that GitHub Pages deployment is successful.</p>
+        <p>The main site content should be loading shortly...</p>
+        <div class="loader"></div>
+        <p id="countdown">Redirecting in 5 seconds...</p>
+    </div>
+
+    <script>
+        // Check if we're on GitHub Pages
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('GitHub Pages deployment confirmed working');
+            
+            // Countdown to redirect
+            let seconds = 5;
+            const countdownEl = document.getElementById('countdown');
+            
+            const interval = setInterval(function() {
+                seconds--;
+                countdownEl.textContent = `Redirecting in ${seconds} seconds...`;
+                
+                if (seconds <= 0) {
+                    clearInterval(interval);
+                    // Redirect to index.html (main site)
+                    window.location.href = 'index.html';
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
