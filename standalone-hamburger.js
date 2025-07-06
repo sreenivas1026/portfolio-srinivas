@@ -42,16 +42,19 @@ function initStandaloneMenu() {
     // Ensure the menu is initially hidden
     forceHideMenu();
     
-    // Add click event to toggle the menu
-    menuButton.addEventListener('click', function(e) {
+    // Add multiple event listeners for better mobile compatibility
+    function toggleMenuHandler(e) {
         e.preventDefault();
         e.stopPropagation();
+        
+        // Log touch/click details for debugging
+        console.log('Menu interaction detected:', e.type, 'on element:', e.target.tagName || 'unknown');
         
         // Check if menu is currently visible
         const isVisible = mobileMenu.style.display === 'block' || 
                          getComputedStyle(mobileMenu).display !== 'none';
                          
-        console.log('Menu button clicked, menu is', isVisible ? 'visible' : 'hidden');
+        console.log('Menu button activated, menu is', isVisible ? 'visible' : 'hidden');
         
         // Toggle menu visibility
         if (isVisible) {
@@ -61,7 +64,17 @@ function initStandaloneMenu() {
         }
         
         return false;
-    });
+    }
+    
+    // Add multiple event types for better mobile compatibility
+    menuButton.addEventListener('click', toggleMenuHandler);
+    menuButton.addEventListener('touchstart', toggleMenuHandler);
+    
+    // Also add events directly to the hamburger icon for redundancy
+    if (hamburgerIcon) {
+        hamburgerIcon.addEventListener('click', toggleMenuHandler);
+        hamburgerIcon.addEventListener('touchstart', toggleMenuHandler);
+    }
     
     // Function to force show the menu
     function forceShowMenu() {

@@ -87,10 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (mobileMenu && getComputedStyle(mobileMenu).display !== 'none') {
                     console.log('Closing mobile menu before scrolling');
                     
-                    // Hide mobile menu with animation
+                    // Force hide the mobile menu for better reliability
                     mobileMenu.classList.add('opacity-0', 'scale-95');
                     mobileMenu.classList.remove('opacity-100', 'scale-100');
                     
+                    // Make sure icon state is correct
                     if (hamburgerIcon) hamburgerIcon.classList.remove('open');
                     if (mobileMenuButton) mobileMenuButton.setAttribute('aria-expanded', 'false');
                     

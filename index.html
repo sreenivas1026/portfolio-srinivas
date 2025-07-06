@@ -1426,6 +1426,7 @@
     <script src="ultra-hamburger.js"></script>
     <script src="standalone-hamburger.js"></script>
     <script src="force-init.js"></script>
+    <script src="mobile-debug.js"></script>
     
     <!-- All hamburger styling is now in ultra-hamburger.css -->
     <!-- No additional hamburger CSS files needed -->
@@ -1655,11 +1656,11 @@
     <!-- Enhanced hamburger menu fix -->
     <!-- Using improved-hamburger-menu.js instead -->
     
-    <!-- Simplified direct hamburger menu script -->
+    <!-- Simplified direct hamburger menu script with guaranteed mobile compatibility -->
     <script>
-        // Extremely simple hamburger menu implementation directly in the page
+        // High-priority hamburger menu implementation directly in the page
         window.addEventListener('load', function() {
-            console.log('Inline hamburger menu script running');
+            console.log('Inline hamburger menu script running with mobile fixes');
             
             // Direct element references
             const menuButton = document.getElementById('mobile-menu-button');
@@ -1675,31 +1676,72 @@
             mobileMenu.classList.add('hidden');
             mobileMenu.style.display = 'none';
             
-            // Basic toggle function
-            function toggleMobileMenu() {
-                console.log('Menu toggled');
-                
-                if (mobileMenu.classList.contains('hidden')) {
-                    // Show menu
-                    mobileMenu.classList.remove('hidden');
-                    mobileMenu.style.display = 'block';
-                    hamburgerIcon.classList.add('open');
+            // Make sure menu button has proper touch properties
+            menuButton.style.touchAction = 'manipulation';
+            menuButton.style.webkitTapHighlightColor = 'transparent';
+            menuButton.style.cursor = 'pointer';
+            menuButton.style.position = 'relative';
+            menuButton.style.zIndex = '1050';
+            
+            // Enhanced toggle function with debugging
+            function toggleMobileMenu(e) {
+                // If event exists, prevent default and stop propagation
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Menu toggled via', e.type, 'on element:', e.target.tagName);
                 } else {
-                    // Hide menu
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.style.display = 'none';
-                    hamburgerIcon.classList.remove('open');
+                    console.log('Menu toggled via direct call');
                 }
+                
+                // Force menu to match the expected state
+                const isHidden = mobileMenu.classList.contains('hidden') || 
+                                getComputedStyle(mobileMenu).display === 'none';
+                
+                if (isHidden) {
+                    // Show menu with animation
+                    console.log('Showing mobile menu');
+                    mobileMenu.style.display = 'block';
+                    
+                    // Force reflow
+                    void mobileMenu.offsetWidth;
+                    
+                    mobileMenu.classList.remove('hidden', 'opacity-0', 'scale-95');
+                    mobileMenu.classList.add('opacity-100', 'scale-100');
+                    hamburgerIcon.classList.add('open');
+                    menuButton.setAttribute('aria-expanded', 'true');
+                } else {
+                    // Hide menu with animation
+                    console.log('Hiding mobile menu');
+                    mobileMenu.classList.add('opacity-0', 'scale-95');
+                    mobileMenu.classList.remove('opacity-100', 'scale-100');
+                    hamburgerIcon.classList.remove('open');
+                    menuButton.setAttribute('aria-expanded', 'false');
+                    
+                    // After animation completes, fully hide
+                    setTimeout(function() {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.style.display = 'none';
+                    }, 300);
+                }
+                
+                return false;
             }
             
-            // Attach the click handler
-            menuButton.onclick = toggleMobileMenu;
+            // Add multiple event listeners for better mobile compatibility
+            menuButton.addEventListener('click', toggleMobileMenu);
+            menuButton.addEventListener('touchstart', toggleMobileMenu);
             
-            // Also attach to the icon directly
-            hamburgerIcon.onclick = function(e) {
-                e.stopPropagation();
-                toggleMobileMenu();
-            };
+            // Also attach events directly to the hamburger icon
+            hamburgerIcon.addEventListener('click', toggleMobileMenu);
+            hamburgerIcon.addEventListener('touchstart', toggleMobileMenu);
+            
+            // Add an extra failsafe handler with a slight delay
+            setTimeout(function() {
+                console.log('Adding failsafe hamburger menu handlers');
+                menuButton.addEventListener('touchend', toggleMobileMenu);
+                hamburgerIcon.addEventListener('touchend', toggleMobileMenu);
+            }, 1000);
             
             // Add smooth scrolling to nav links
             document.querySelectorAll('#mobile-menu a').forEach(function(link) {

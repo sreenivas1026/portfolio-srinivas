@@ -47,6 +47,50 @@ window.addEventListener('load', function() {
         menuButton.style.zIndex = '1050';
         menuButton.style.minHeight = '55px';
         menuButton.style.minWidth = '55px';
+        
+        // Add direct touchstart handler for better mobile compatibility
+        function emergencyToggleMenu(e) {
+            console.log('Emergency hamburger toggle activated via', e.type);
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.querySelector('.hamburger-icon');
+            
+            if (mobileMenu) {
+                const isHidden = mobileMenu.classList.contains('hidden') || 
+                                getComputedStyle(mobileMenu).display === 'none';
+                
+                if (isHidden) {
+                    // Show menu
+                    mobileMenu.style.display = 'block';
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.remove('opacity-0', 'scale-95');
+                    mobileMenu.classList.add('opacity-100', 'scale-100');
+                    
+                    if (hamburgerIcon) hamburgerIcon.classList.add('open');
+                    menuButton.setAttribute('aria-expanded', 'true');
+                } else {
+                    // Hide menu
+                    mobileMenu.classList.add('opacity-0', 'scale-95');
+                    mobileMenu.classList.remove('opacity-100', 'scale-100');
+                    
+                    if (hamburgerIcon) hamburgerIcon.classList.remove('open');
+                    menuButton.setAttribute('aria-expanded', 'false');
+                    
+                    setTimeout(function() {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.style.display = 'none';
+                    }, 300);
+                }
+            }
+            
+            return false;
+        }
+        
+        // Add emergency handlers that will work regardless of other scripts
+        menuButton.addEventListener('touchstart', emergencyToggleMenu);
+        menuButton.addEventListener('click', emergencyToggleMenu);
     }
     
     // Fix all nav links to properly close menu

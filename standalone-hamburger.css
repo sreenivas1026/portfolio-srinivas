@@ -39,6 +39,9 @@ body {
     border-radius: 10px !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
     cursor: pointer !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
 }
 
 /* Hamburger icon styling */
@@ -48,7 +51,10 @@ body {
     position: relative !important;
     cursor: pointer !important;
     display: inline-block !important;
-    z-index: 50 !important;
+    z-index: 1051 !important; /* Higher than parent for better touch targeting */
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+    pointer-events: auto !important; /* Ensure touch events are captured */
 }
 
 /* Hamburger icon lines */
